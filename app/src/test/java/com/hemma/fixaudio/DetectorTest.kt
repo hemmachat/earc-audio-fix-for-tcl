@@ -52,6 +52,25 @@ class DetectorTest {
     }
 
     @Test
+    fun realDtsLogFixesOnce() {
+        val lines = javaClass.getResource("/dts-silent.log")!!.readText().lines()
+        val fixes = Detector().replay(lines)
+        // DTS detected 21:09:08.502 with output stuck at 2ch 48kHz PCM
+        assertEquals(1, fixes.size)
+        val dts = Detector.timeOf("10-16 21:09:08.502")!!
+        assertTrue(fixes[0] in dts + 2500..dts + 3500)
+    }
+
+    @Test
+    fun laterLineDoesNotHideAnOverdueFormat() {
+        val d = Detector()
+        d.feed(tx("21:10:00.000", 2, 48, "PCM"))
+        d.onLine(input("21:10:26.376", "audio/vnd.dts", 192000, 2))
+        // no ticks ran; the next line arrives 6 s later
+        assertTrue(d.onLine(input("21:10:32.555", "audio/raw", 48000, 2)))
+    }
+
+    @Test
     fun noAudioWhileLoadingIsLeftAlone() {
         val d = Detector()
         d.feed(tx("21:02:38.272", 2, 48, "PCM"))

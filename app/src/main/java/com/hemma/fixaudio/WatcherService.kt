@@ -13,6 +13,7 @@ import java.io.File
 import java.time.LocalTime
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
+import kotlin.concurrent.thread
 
 /**
  * Automatic mode: watches the TV's log through its own adb port (Network debugging must stay on)
@@ -20,8 +21,7 @@ import java.util.concurrent.TimeUnit
  */
 class WatcherService : Service() {
     private val detector = Detector()
-    private val worker = Executors.newScheduledThreadPool(2)
-    @Volatile private var adb: Dadb? = null
+    private val ticker = Executors.newSingleThreadScheduledExecutor()
     @Volatile private var running = false
 
     override fun onBind(intent: Intent?) = null
@@ -35,10 +35,15 @@ class WatcherService : Service() {
             .build())
         if (!running) {
             running = true
-            worker.execute(::watchLoop)
-            worker.scheduleAtFixedRate({
-                val now = LocalTime.now().toNanoOfDay() / 1_000_000
-                if (synchronized(detector) { detector.tick(now) }) fix()
+            thread(name = "watch") { watchLoop() }
+            ticker.scheduleAtFixedRate({
+                // an uncaught exception would silently cancel all future ticks
+                try {
+                    val now = LocalTime.now().toNanoOfDay() / 1_000_000
+                    if (synchronized(detector) { detector.tick(now) }) fix()
+                } catch (e: Throwable) {
+                    Log.e(TAG, "tick failed", e)
+                }
             }, 1, 1, TimeUnit.SECONDS)
         }
         return START_STICKY
@@ -54,7 +59,6 @@ class WatcherService : Service() {
                 waitingForAllow = false
                 File(filesDir, ALLOWED_FILE).createNewFile()
                 Dadb.create("127.0.0.1", 5555, key).use { dadb ->
-                    adb = dadb
                     Log.i(TAG, "connected to TV adb")
                     // -T 1: only new lines, so old log entries never trigger a fix
                     dadb.open("shell:logcat -b all -v time -T 1 -e '${Detector.LOG_FILTER}'").use { stream ->
@@ -71,18 +75,21 @@ class WatcherService : Service() {
                 Log.w(TAG, "adb connection lost: $e")
             }
             waitingForAllow = false
-            adb = null
             Thread.sleep(5000)
         }
     }
 
     private fun fix() {
-        val dadb = adb ?: return
-        val input = MainActivity.savedInput(this) ?: return
+        val input = MainActivity.savedInput(this)
         Log.i(TAG, "eARC output not set up for new audio format: reselecting $input")
-        worker.execute {
+        if (input == null) return
+        // own connection with a 15 s timeout: a reply that never comes can't block later fixes
+        thread(name = "fix") {
             try {
-                dadb.shell("input keyevent KEYCODE_HOME; sleep 3; am start -a android.intent.action.VIEW -d '${TvContract.buildChannelUriForPassthroughInput(input)}'")
+                Dadb.create("127.0.0.1", 5555, keyPair(), 2000, 15_000).use {
+                    it.shell("input keyevent KEYCODE_HOME; sleep 3; am start -a android.intent.action.VIEW -d '${TvContract.buildChannelUriForPassthroughInput(input)}'")
+                }
+                Log.i(TAG, "fix done")
             } catch (e: Exception) {
                 Log.w(TAG, "fix failed: $e")
             }
@@ -98,8 +105,7 @@ class WatcherService : Service() {
 
     override fun onDestroy() {
         running = false
-        worker.shutdownNow()
-        adb?.close()
+        ticker.shutdownNow()
     }
 
     companion object {

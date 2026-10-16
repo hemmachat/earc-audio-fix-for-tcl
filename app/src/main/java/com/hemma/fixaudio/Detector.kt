@@ -25,6 +25,8 @@ class Detector(
     /** Returns true when the audio needs fixing now. */
     fun onLine(line: String): Boolean {
         val now = timeOf(line) ?: return false
+        // judge an overdue format before this line can replace it
+        val due = tick(now)
         TX_FORMAT.find(line)?.let { txChannels = it.groupValues[1].toInt(); txRateKHz = it.groupValues[2].toInt() }
         TX_MODE.find(line)?.let { txBitstream = it.groupValues[1] == "NONPCM" }
         INPUT_FORMAT.find(line)?.let {
@@ -34,7 +36,7 @@ class Detector(
             else Input(now, type != "audio/raw", it.groupValues[2].toInt(), it.groupValues[3].toInt())
         }
         SESSION.find(line)?.let { lastInput = it.groupValues[1] }
-        return tick(now)
+        return due
     }
 
     /** Call regularly (about once a second) so a missing eARC setup is noticed even if the log goes quiet. */
