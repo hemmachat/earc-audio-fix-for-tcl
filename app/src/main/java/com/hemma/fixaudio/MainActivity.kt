@@ -20,7 +20,7 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         startForegroundService(Intent(this, WatcherService::class.java))
-        val input = savedInput(this)
+        val input = savedInput(this) ?: onlyCecPort(this)?.let { saveInput(this, it); savedInput(this) }
         if (input == null) showInputPicker() else fixAudio(input)
     }
 
@@ -71,6 +71,11 @@ class MainActivity : Activity() {
 
         fun hdmiInputs(c: Context): List<TvInputInfo> = c.getSystemService(TvInputManager::class.java).tvInputList
             .filter { it.type == TvInputInfo.TYPE_HDMI && it.isPassthroughInput && it.parentId == null }
+
+        /** The HDMI port of the only HDMI-CEC device (the player); null if there are none or several. The TV makes no CEC input for an eARC soundbar. */
+        private fun onlyCecPort(c: Context): String? = c.getSystemService(TvInputManager::class.java).tvInputList
+            .filter { it.type == TvInputInfo.TYPE_HDMI && it.parentId != null }
+            .mapNotNull { it.parentId }.distinct().singleOrNull()
 
         /** Only safe-looking ids the TV lists as HDMI (a port, or a CEC device on a port); they end up in a shell command. */
         private fun isValidInput(c: Context, id: String) = INPUT_ID.matches(id) &&

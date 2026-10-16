@@ -40,7 +40,7 @@ Reselecting the input makes the TV set up the output again, this time for the fo
 
 ## What Fix Audio does
 
-- **One click:** open **Fix Audio** and the sound comes back. The app leaves the HDMI input and returns to it 3 seconds later. It asks once which input your player is on.
+- **One click:** open **Fix Audio** and the sound comes back. The app leaves the HDMI input and returns to it 3 seconds later. It finds your player's input by itself, or asks once if it can't tell.
 - **Automatic (optional):** the app watches for this exact fault and fixes it by itself. When the film starts and the TV doesn't set up its eARC output within 2.5 seconds, the app switches to Home and back. You see a short flicker, then the sound returns. It does this at most twice in 5 minutes.
 - **No PCM workaround needed:** keep the player on **Bitstream**, so the soundbar gets the real TrueHD / Atmos / DTS soundtrack.
 
@@ -84,7 +84,7 @@ The last two exist because TCL TVs block apps from starting themselves after a r
 3. Install the APK from [Releases](../../releases), either way:
    - From a computer: `adb connect <tv-ip>` and then `adb install fix-audio.apk`
    - On the TV: with the *Downloader* app, using the APK link
-4. Open **Fix Audio** from the TV's apps, pick your player's HDMI input, and when the **"Allow USB debugging?"** prompt appears, tick **Always allow** and press **Allow**. Then press Back.
+4. Open **Fix Audio** from the TV's apps. If only one device on your HDMI inputs uses HDMI-CEC (T-Link), the app picks its input itself; otherwise pick your player's HDMI input. When the **"Allow USB debugging?"** prompt appears, tick **Always allow** and press **Allow**. Then press Back.
 
 **After installing or updating, open Fix Audio once.** Android doesn't let a newly installed app start itself until it has been opened. After that, with automatic mode set up, the app starts again by itself after an update or a reboot. If TCL's background-app blocker stops it after standby, opening Fix Audio once starts it again.
 
@@ -125,6 +125,8 @@ What the app does to stay safe:
 - Any app can write to the Android log, so Fix Audio only trusts log lines written by system processes (`logcat -v uid`). Lines written by other apps are ignored.
 - Before an HDMI input id is used in a command, the app checks that it looks like an HDMI input id and that it's on the TV's own list of inputs.
 - Automatic fixes are limited to 2 every 5 minutes.
+
+The app had a security review before release. Six weaknesses were found and fixed, and none was directly exploitable. See [docs/security-review.md](docs/security-review.md) for each finding, its fix and how it was checked.
 
 ## Check your download
 
