@@ -46,7 +46,7 @@ Automatic mode needs to read system logs and press Home. A normal app can't do t
    - On the TV: with the *Downloader* app, using the APK link
 4. Open **Fix Audio** from the TV's apps, pick your player's HDMI input, and when the **"Allow USB debugging?"** prompt appears, tick **Always allow** and press **Allow**. Then press Back.
 
-The app starts again after a reboot. If TCL's background-app blocker stops it after standby, opening Fix Audio once starts it again.
+**After installing or updating, open Fix Audio once.** Android doesn't let a newly installed app start itself until it has been opened. After that, the app starts again after a reboot or an update. If TCL's background-app blocker stops it after standby, opening Fix Audio once starts it again.
 
 ## Security
 
