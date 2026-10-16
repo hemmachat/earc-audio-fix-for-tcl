@@ -41,7 +41,7 @@ Reselecting the input makes the TV set up the output again, this time for the fo
 ## What Fix Audio does
 
 - **One click:** open **Fix Audio** and the sound comes back. The app leaves the HDMI input and returns to it 3 seconds later. It finds your player's input by itself, or asks once if it can't tell.
-- **Automatic (optional):** the app watches for this exact fault and fixes it by itself. When the film starts and the TV doesn't set up its eARC output within 2.5 seconds, the app switches to Home and back. You see a short flicker, then the sound returns. It does this at most twice in 5 minutes.
+- **Automatic (optional):** the app watches for this exact fault and fixes it by itself. When the film starts or you change the audio language, and the TV doesn't set up its eARC output within 2.5 seconds, the app switches to Home and back. You see a short flicker, then the sound returns. If 2 fixes in a row don't bring the sound back, it stops trying for 5 minutes.
 - **No PCM workaround needed:** keep the player on **Bitstream**, so the soundbar gets the real TrueHD / Atmos / DTS soundtrack.
 
 ## Will it work on my TV?
@@ -124,7 +124,7 @@ What the app does to stay safe:
 - It creates its own adb key on your TV. The key never leaves the app's private storage, and the app is excluded from backups.
 - Any app can write to the Android log, so Fix Audio only trusts log lines written by system processes (`logcat -v uid`). Lines written by other apps are ignored.
 - Before an HDMI input id is used in a command, the app checks that it looks like an HDMI input id and that it's on the TV's own list of inputs.
-- Automatic fixes are limited to 2 every 5 minutes.
+- If 2 automatic fixes in a row don't help, the app stops for 5 minutes, so it can't get stuck switching inputs.
 
 The app had a security review before release. Six weaknesses were found and fixed, and none was directly exploitable. See [docs/security-review.md](docs/security-review.md) for each finding, its fix and how it was checked.
 

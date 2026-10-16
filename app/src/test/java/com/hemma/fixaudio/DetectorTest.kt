@@ -72,6 +72,24 @@ class DetectorTest {
     }
 
     @Test
+    fun realLanguageSwitchesAreFixedEvenAfterEarlierFixesThatWorked() {
+        val d = Detector()
+        // an earlier silence at 07:50, fixed, and the output then matched (as on the TV that morning)
+        d.feed(tx("07:50:40.000", 2, 48, "PCM"))
+        d.onLine(input("07:50:41.000", "audio/vnd.dolby.mlp", 192000, 2))
+        assertTrue(d.tick(Detector.timeOf("10-16 07:50:44.000")!!))
+        d.feed(tx("07:50:50.502", 8, 192, "NONPCM"))
+        d.onLine(input("07:50:51.000", "audio/vnd.dolby.mlp", 192000, 2))
+        // recorded live (logcat -v time,uid): DTS 48k on a PCM output at 07:52:38, TrueHD on a PCM output at 07:53:07
+        val lines = javaClass.getResource("/language-switch.log")!!.readText().lines()
+        val fixes = d.replay(lines)
+        assertEquals(2, fixes.size)
+        assertTrue(fixes[0] in Detector.timeOf("10-16 07:52:38.771")!! + 2500..Detector.timeOf("10-16 07:52:38.771")!! + 3500)
+        val trueHd = Detector.timeOf("10-16 07:53:07.399")!!
+        assertTrue("third fix in 5 minutes must not be blocked", fixes[1] in trueHd + 2500..trueHd + 3500)
+    }
+
+    @Test
     fun laterLineDoesNotHideAnOverdueFormat() {
         val d = Detector()
         d.feed(tx("21:10:00.000", 2, 48, "PCM"))

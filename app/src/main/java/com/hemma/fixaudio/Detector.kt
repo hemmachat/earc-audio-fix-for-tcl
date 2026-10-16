@@ -49,7 +49,8 @@ class Detector(
         val p = pending ?: return false
         if (nowMs - p.atMs < graceMs) return false
         pending = null
-        if (outputMatches(p)) return false
+        // output is right again, so earlier fixes worked: only fixes that don't help count towards the limit
+        if (outputMatches(p)) { fixTimes.clear(); return false }
         while (fixTimes.isNotEmpty() && nowMs - fixTimes.first() > 5 * 60_000) fixTimes.removeFirst()
         if (fixTimes.isNotEmpty() && nowMs - fixTimes.last() < cooldownMs) return false
         if (fixTimes.size >= maxFixesPer5Min) return false // fixing isn't helping; stop flipping inputs
