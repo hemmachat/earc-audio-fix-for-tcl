@@ -60,6 +60,9 @@ class WatcherService : Service() {
                     // TCL blocks apps from starting on boot/update unless they have its AUTO_START app op;
                     // grant it to ourselves only (fails harmlessly on TVs without this op)
                     it.shell("appops set $packageName AUTO_START allow")
+                    // after boot Android only lets battery-optimisation-exempt apps start a foreground service
+                    // from the background (no battery on a TV, so this costs nothing)
+                    it.shell("cmd deviceidle whitelist +$packageName")
                 }
                 waitingForAllow = false
                 File(filesDir, ALLOWED_FILE).createNewFile()
