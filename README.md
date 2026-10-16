@@ -35,7 +35,7 @@ Other TCL Google TVs with the same MediaTek chip and software may have the same 
 - **One click:** opening **Fix Audio** leaves the HDMI input and goes back to it 3 seconds later. The first time, it asks which input your player is on.
 - **Automatic (optional):** a background service reads the TV's log, as described above. If the input changes to a new audio format and the TV doesn't set up its eARC output for it within 2.5 seconds, the service presses Home and reselects the input. It does this at most 2 times in 5 minutes.
 
-Automatic mode needs to read system logs and press Home. A normal app can't do that on Android 13+, so the app connects to the **TV's own adb (debugging) port** on `127.0.0.1:5555`. The TV asks you to approve this once. The only commands the app runs over that connection are `logcat` (filtered to the 3 log lines above), `input keyevent KEYCODE_HOME` and `am start` for the HDMI input. See [WatcherService.kt](app/src/main/java/com/hemma/fixaudio/WatcherService.kt).
+Automatic mode needs to read system logs and press Home. A normal app can't do that on Android 13+, so the app connects to the **TV's own adb (debugging) port** on `127.0.0.1:5555`. The TV asks you to approve this once. The only commands the app runs over that connection are `logcat` (filtered to the 3 log lines above), `input keyevent KEYCODE_HOME`, `am start` for the HDMI input, and `appops set com.hemma.fixaudio AUTO_START allow`. TCL TVs block apps from starting themselves after a reboot or an update unless they have TCL's `AUTO_START` permission, so the app grants it to itself only. On other TVs that command fails harmlessly. See [WatcherService.kt](app/src/main/java/com/hemma/fixaudio/WatcherService.kt).
 
 ## Install
 
@@ -46,7 +46,7 @@ Automatic mode needs to read system logs and press Home. A normal app can't do t
    - On the TV: with the *Downloader* app, using the APK link
 4. Open **Fix Audio** from the TV's apps, pick your player's HDMI input, and when the **"Allow USB debugging?"** prompt appears, tick **Always allow** and press **Allow**. Then press Back.
 
-**After installing or updating, open Fix Audio once.** Android doesn't let a newly installed app start itself until it has been opened. After that, the app starts again after a reboot or an update. If TCL's background-app blocker stops it after standby, opening Fix Audio once starts it again.
+**After installing or updating, open Fix Audio once.** Android doesn't let a newly installed app start itself until it has been opened. After that, with automatic mode set up, the app starts again after an update. It should also start again after a reboot, but that hasn't been tested yet. If TCL's background-app blocker stops it after standby, opening Fix Audio once starts it again.
 
 ## Security
 

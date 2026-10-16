@@ -55,7 +55,12 @@ class WatcherService : Service() {
                 val key = keyPair()
                 // first run shows the TV's "Allow USB debugging?" prompt; give up after 60 s so a missed prompt is asked again
                 waitingForAllow = true
-                Dadb.create("127.0.0.1", 5555, key, 2000, 60_000).use { it.shell("echo ok") }
+                Dadb.create("127.0.0.1", 5555, key, 2000, 60_000).use {
+                    it.shell("echo ok")
+                    // TCL blocks apps from starting on boot/update unless they have its AUTO_START app op;
+                    // grant it to ourselves only (fails harmlessly on TVs without this op)
+                    it.shell("appops set $packageName AUTO_START allow")
+                }
                 waitingForAllow = false
                 File(filesDir, ALLOWED_FILE).createNewFile()
                 Dadb.create("127.0.0.1", 5555, key).use { dadb ->
