@@ -1,0 +1,344 @@
+10-17 07:52:37.141 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 100, Player = 600  => format.c_str() = audio/raw!!!
+10-17 07:52:37.175 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  PCM
+10-17 07:52:37.175 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:52:37.175 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:52:37.179 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/raw, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:52:37.179 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/raw, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:52:37.192 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:52:37.192 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/raw playing but detect clock change from 192000 to 88200. retry to check
+10-17 07:52:37.323 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/raw playing but detect clock change after retry, from 192000 to 48000. 
+10-17 07:52:37.324 I/C2MtkHdmiCap( 1046:  474): preCheck: Clock change, report audio/raw format change. 48000 -> 48000
+10-17 07:52:37.324 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  PCM
+10-17 07:52:37.324 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:52:37.324 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:52:37.325 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/raw, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:52:37.326 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/raw, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:52:37.337 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:52:37.434 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:52:37.446 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:52:37.446 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:52:37.634 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:52:37.634 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:52:38.130 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 500, Player = 100  => format.c_str() = audio/vnd.dts!!!
+10-17 07:52:38.165 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:52:38.165 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:52:38.165 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:52:38.170 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:52:38.170 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:52:38.181 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:52:38.277 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:52:38.392 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 200, Player = 500  => format.c_str() = audio/ac3!!!
+10-17 07:52:38.423 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:52:38.423 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:52:38.423 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:52:38.425 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/ac3, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:52:38.425 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/ac3, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:52:38.436 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:52:38.533 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:52:38.734 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 500, Player = 200  => format.c_str() = audio/vnd.dts!!!
+10-17 07:52:38.758 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:52:38.758 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:52:38.768 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:52:38.768 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:52:38.768 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:52:38.771 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:52:38.771 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:52:38.785 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:52:38.879 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:52:38.974 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:52:38.974 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:52:42.182 I/FixAudio(10020: 5946): eARC output not set up for new audio format: reselecting com.tcl.tvinput/.TvPassThroughService/HDMI200004
+10-17 07:52:45.427 I/FixAudio(10020: 5946): fix done
+10-17 07:52:45.499 D/TvInputManagerService( 1000:  553): createSessionInternalLocked(inputId=com.tcl.tvinput/.TvPassThroughService/HDMI200004, sessionId=1b74eecc-83a4-44e2-99f2-e8f8d2840439)
+10-17 07:52:46.015 I/C2MtkHdmiCap( 1046:  474): preCheck: HDMI_RX_STATUS changed(0 -> 1)
+10-17 07:52:46.016 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:52:46.016 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:52:46.016 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:52:46.017 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/none, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:52:46.017 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/none, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:52:46.135 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 500, Player = 1000  => format.c_str() = audio/vnd.dts!!!
+10-17 07:52:46.168 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:52:46.168 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:52:46.168 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:52:46.179 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:52:46.179 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:52:46.190 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:52:46.290 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:52:46.646 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:52:46.647 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:52:46.802 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:52:46.802 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:53:06.894 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/vnd.dts playing but detect clock change from 48000 to 88200. retry to check
+10-17 07:53:06.993 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/vnd.dts playing but detect clock change after retry, from 48000 to 192000. 
+10-17 07:53:06.994 I/C2MtkHdmiCap( 1046:  474): preCheck: Clock change, report audio/vnd.dts format change. 192000 -> 192000
+10-17 07:53:06.997 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:53:06.997 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:53:06.997 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:53:07.000 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:53:07.001 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:53:07.107 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 100, Player = 500  => format.c_str() = audio/raw!!!
+10-17 07:53:07.208 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  PCM
+10-17 07:53:07.208 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:53:07.208 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:53:07.211 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/raw, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:53:07.211 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/raw, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:53:07.222 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:53:07.359 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 600, Player = 100  => format.c_str() = audio/vnd.dolby.mlp!!!
+10-17 07:53:07.383 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:53:07.383 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:53:07.391 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:53:07.393 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:53:07.393 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:53:07.399 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dolby.mlp, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:53:07.399 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dolby.mlp, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:53:07.410 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:53:07.506 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:54:15.201 D/TvInputManagerService( 1000:  553): createSessionInternalLocked(inputId=com.tcl.tvinput/.TvPassThroughService/HDMI200004, sessionId=b3a71de5-ef54-4158-9997-c9b63c4ce914)
+10-17 07:54:15.586 I/C2MtkHdmiCap( 1046:  474): preCheck: HDMI_RX_STATUS changed(0 -> 1)
+10-17 07:54:15.587 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/none playing but detect clock change from 48000 to 192000. retry to check
+10-17 07:54:15.652 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/none playing but detect clock change after retry, from 48000 to 192000. 
+10-17 07:54:15.653 I/C2MtkHdmiCap( 1046:  474): preCheck: Clock change, report audio/none format change. 192000 -> 192000
+10-17 07:54:15.663 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:54:15.663 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:54:15.663 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:54:15.665 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/none, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:54:15.665 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/none, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:54:15.777 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 600, Player = 1000  => format.c_str() = audio/vnd.dolby.mlp!!!
+10-17 07:54:15.809 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:54:15.809 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:54:15.809 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:54:15.810 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dolby.mlp, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:54:15.810 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dolby.mlp, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:54:15.826 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:54:15.924 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:54:16.367 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 8, Freq = 192
+10-17 07:54:16.367 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:56:18.670 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 100, Player = 600  => format.c_str() = audio/raw!!!
+10-17 07:56:18.809 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  PCM
+10-17 07:56:18.809 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:56:18.809 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:56:18.813 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/raw, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:56:18.813 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/raw, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:56:18.826 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:18.922 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:19.063 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:56:19.063 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:56:19.182 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:56:19.182 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:56:19.562 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 500, Player = 100  => format.c_str() = audio/vnd.dts!!!
+10-17 07:56:19.597 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:56:19.597 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:56:19.597 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:56:19.601 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:56:19.601 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:56:19.612 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:19.707 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:19.822 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 200, Player = 500  => format.c_str() = audio/ac3!!!
+10-17 07:56:19.854 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:56:19.854 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:56:19.854 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:56:19.856 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/ac3, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:56:19.856 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/ac3, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:56:19.867 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:19.964 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:20.175 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 500, Player = 200  => format.c_str() = audio/vnd.dts!!!
+10-17 07:56:20.186 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:56:20.186 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:56:20.210 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:56:20.210 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:56:20.210 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:56:20.215 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:56:20.216 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:56:20.226 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:20.321 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:20.410 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:56:20.411 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:56:23.001 I/FixAudio(10020: 8866): eARC output not set up for new audio format: reselecting com.tcl.tvinput/.TvPassThroughService/HDMI200004
+10-17 07:56:26.240 I/FixAudio(10020: 8866): fix done
+10-17 07:56:26.306 D/TvInputManagerService( 1000:  553): createSessionInternalLocked(inputId=com.tcl.tvinput/.TvPassThroughService/HDMI200004, sessionId=471f2770-03c8-4f6e-a15f-885291f0afd7)
+10-17 07:56:26.693 I/C2MtkHdmiCap( 1046:  474): preCheck: HDMI_RX_STATUS changed(0 -> 1)
+10-17 07:56:26.696 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:56:26.696 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:56:26.696 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:56:26.721 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/none, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:56:26.721 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/none, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:56:26.828 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 500, Player = 1000  => format.c_str() = audio/vnd.dts!!!
+10-17 07:56:26.873 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:56:26.873 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:56:26.873 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:56:26.881 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:56:26.881 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:56:26.892 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:26.988 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:27.487 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:56:27.487 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:56:27.647 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:56:27.647 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:56:52.722 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/vnd.dts playing but detect clock change from 48000 to 88200. retry to check
+10-17 07:56:52.820 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/vnd.dts playing but detect clock change after retry, from 48000 to 192000. 
+10-17 07:56:52.822 I/C2MtkHdmiCap( 1046:  474): preCheck: Clock change, report audio/vnd.dts format change. 192000 -> 192000
+10-17 07:56:52.825 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:56:52.825 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:56:52.825 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:56:52.830 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:56:52.830 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:56:52.939 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 100, Player = 500  => format.c_str() = audio/raw!!!
+10-17 07:56:52.971 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  PCM
+10-17 07:56:52.971 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:56:52.971 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:56:52.973 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/raw, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:56:52.973 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/raw, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:56:52.984 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:53.081 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:53.102 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:56:53.102 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:56:53.218 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 600, Player = 100  => format.c_str() = audio/vnd.dolby.mlp!!!
+10-17 07:56:53.252 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:56:53.252 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:56:53.252 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:56:53.255 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dolby.mlp, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:56:53.255 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dolby.mlp, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:56:53.267 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:53.365 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:56:55.987 I/FixAudio(10020: 8866): eARC output not set up for new audio format: reselecting com.tcl.tvinput/.TvPassThroughService/HDMI200004
+10-17 07:56:59.217 I/FixAudio(10020: 8866): fix done
+10-17 07:56:59.276 D/TvInputManagerService( 1000:  553): createSessionInternalLocked(inputId=com.tcl.tvinput/.TvPassThroughService/HDMI200004, sessionId=77938d13-e90d-44cd-bc8d-4af9a5b09f75)
+10-17 07:56:59.748 I/C2MtkHdmiCap( 1046:  474): preCheck: HDMI_RX_STATUS changed(0 -> 1)
+10-17 07:56:59.749 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/none playing but detect clock change from 48000 to 192000. retry to check
+10-17 07:56:59.835 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/none playing but detect clock change after retry, from 48000 to 192000. 
+10-17 07:56:59.836 I/C2MtkHdmiCap( 1046:  474): preCheck: Clock change, report audio/none format change. 192000 -> 192000
+10-17 07:56:59.836 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:56:59.836 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:56:59.837 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:56:59.852 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/none, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:56:59.852 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/none, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:56:59.871 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 600, Player = 1000  => format.c_str() = audio/vnd.dolby.mlp!!!
+10-17 07:56:59.904 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:56:59.904 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:56:59.904 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:56:59.911 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dolby.mlp, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:56:59.911 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dolby.mlp, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:56:59.925 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:00.014 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:00.478 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:57:00.479 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:57:00.631 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 8, Freq = 192
+10-17 07:57:00.631 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:57:44.668 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/vnd.dolby.mlp playing but detect clock change from 192000 to 176400. retry to check
+10-17 07:57:44.809 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/vnd.dolby.mlp playing but detect clock change after retry, from 192000 to 48000. 
+10-17 07:57:44.810 I/C2MtkHdmiCap( 1046:  474): preCheck: Clock change, report audio/vnd.dolby.mlp format change. 48000 -> 48000
+10-17 07:57:44.813 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:57:44.813 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:57:44.813 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:57:44.816 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dolby.mlp, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:57:44.816 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dolby.mlp, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:57:44.829 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 100, Player = 600  => format.c_str() = audio/raw!!!
+10-17 07:57:44.861 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  PCM
+10-17 07:57:44.861 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:57:44.861 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:57:44.864 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/raw, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:57:44.864 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/raw, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:57:44.875 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:44.971 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:45.083 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:57:45.083 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:57:45.199 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:57:45.199 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:57:45.616 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 500, Player = 100  => format.c_str() = audio/vnd.dts!!!
+10-17 07:57:45.650 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:57:45.650 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:57:45.650 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:57:45.653 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:57:45.653 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:57:45.665 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:45.761 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:45.876 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 200, Player = 500  => format.c_str() = audio/ac3!!!
+10-17 07:57:45.907 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:57:45.908 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:57:45.908 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:57:45.909 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/ac3, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:57:45.909 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/ac3, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:57:45.920 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:46.018 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:46.219 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 500, Player = 200  => format.c_str() = audio/vnd.dts!!!
+10-17 07:57:46.214 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:57:46.214 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:57:46.253 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:57:46.253 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:57:46.253 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:57:46.257 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:57:46.257 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:57:46.269 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:46.364 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:46.458 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:57:46.458 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:57:48.987 I/FixAudio(10020: 8866): eARC output not set up for new audio format: reselecting com.tcl.tvinput/.TvPassThroughService/HDMI200004
+10-17 07:57:52.230 I/FixAudio(10020: 8866): fix done
+10-17 07:57:52.290 D/TvInputManagerService( 1000:  553): createSessionInternalLocked(inputId=com.tcl.tvinput/.TvPassThroughService/HDMI200004, sessionId=7f041199-ca55-4b71-9bbb-c5dfb007a36e)
+10-17 07:57:52.752 I/C2MtkHdmiCap( 1046:  474): preCheck: HDMI_RX_STATUS changed(0 -> 1)
+10-17 07:57:52.753 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:57:52.753 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:57:52.753 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:57:52.754 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/none, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:57:52.754 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/none, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:57:52.864 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 500, Player = 1000  => format.c_str() = audio/vnd.dts!!!
+10-17 07:57:52.896 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:57:52.896 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:57:52.896 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 48000
+10-17 07:57:52.903 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 48000, channel = 2, pcmBitWidth = 0
+10-17 07:57:52.903 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 48000, channelCountInfo = 2
+10-17 07:57:52.914 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:53.410 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:57:53.410 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:57:53.020 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:57:53.571 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:57:53.571 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:58:10.439 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/vnd.dts playing but detect clock change from 48000 to 88200. retry to check
+10-17 07:58:10.554 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/vnd.dts playing but detect clock change after retry, from 48000 to 192000. 
+10-17 07:58:10.555 I/C2MtkHdmiCap( 1046:  474): preCheck: Clock change, report audio/vnd.dts format change. 192000 -> 192000
+10-17 07:58:10.558 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:58:10.558 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:58:10.558 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:58:10.561 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:58:10.561 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:58:10.669 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 100, Player = 500  => format.c_str() = audio/raw!!!
+10-17 07:58:10.729 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  PCM
+10-17 07:58:10.729 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:58:10.729 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:58:10.732 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/raw, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:58:10.733 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/raw, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:58:10.744 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:58:10.919 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:58:10.919 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-17 07:58:10.955 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 600, Player = 100  => format.c_str() = audio/vnd.dolby.mlp!!!
+10-17 07:58:10.996 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:58:10.996 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:58:10.996 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:58:10.999 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dolby.mlp, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:58:10.999 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dolby.mlp, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:58:11.011 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:58:11.107 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:58:13.988 I/FixAudio(10020: 8866): eARC output not set up for new audio format: reselecting com.tcl.tvinput/.TvPassThroughService/HDMI200004
+10-17 07:58:17.218 I/FixAudio(10020: 8866): fix done
+10-17 07:58:17.307 D/TvInputManagerService( 1000:  553): createSessionInternalLocked(inputId=com.tcl.tvinput/.TvPassThroughService/HDMI200004, sessionId=90a53910-9985-405b-8aa4-7f502dcb0539)
+10-17 07:58:17.675 I/C2MtkHdmiCap( 1046:  474): preCheck: HDMI_RX_STATUS changed(0 -> 1)
+10-17 07:58:17.676 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/none playing but detect clock change from 48000 to 192000. retry to check
+10-17 07:58:17.769 I/C2MtkHdmiCap( 1046:  474): preCheck: audio/none playing but detect clock change after retry, from 48000 to 192000. 
+10-17 07:58:17.786 I/C2MtkHdmiCap( 1046:  474): preCheck: Clock change, report audio/none format change. 192000 -> 192000
+10-17 07:58:17.798 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:58:17.798 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:58:17.798 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:58:17.807 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/none, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:58:17.808 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/none, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:58:17.821 I/C2MtkHdmiCap( 1046:  474): preCheck HDMI DD = 600, Player = 1000  => format.c_str() = audio/vnd.dolby.mlp!!!
+10-17 07:58:17.855 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : data type =  RAW
+10-17 07:58:17.855 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : path 2
+10-17 07:58:17.855 I/C2MtkHdmiCap( 1046:  474): preCheck: Set HDMI config : clock 192000
+10-17 07:58:17.876 I/C2MtkHdmiCap( 1046:  474): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dolby.mlp, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-17 07:58:17.877 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dolby.mlp, sampleRateInfo = 192000, channelCountInfo = 2
+10-17 07:58:17.888 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:58:17.986 I/C2MtkHdmiCap( 1046:  474): preCheck reset mFormatFromDD
+10-17 07:58:18.394 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-17 07:58:18.395 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-17 07:58:18.551 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 8, Freq = 192
+10-17 07:58:18.551 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM

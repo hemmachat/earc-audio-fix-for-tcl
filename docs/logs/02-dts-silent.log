@@ -1,0 +1,662 @@
+10-16 21:09:07.480 I/C2MtkHdmiCap(  469): _parsingAudioInfoFrame (0x1 -> 0x0)Packet byte checksum = 0, byte 1 = 0,  byte 2 = 0, byte 3 = 0, byte 4 = 0
+10-16 21:09:07.480 I/C2MtkHdmiCap(  469): _parsingAudioInfoFrame AudioInfoFrame: CodingType = 0, ChannelCount = 0, SamplingFrequency = 0, SampleSize = 0,
+10-16 21:09:07.480 I/C2MtkHdmiCap(  469): _parseCodingType TYPE_REFER_TO_STREAM_HEADER, CT=0
+10-16 21:09:07.480 I/C2MtkHdmiCap(  469): _parsingAudioInfoFrame: format = audio/raw -> audio/none, sampleRate = 48000 -> 4294967295, channel = 2 -> 2, pcmBitWidth = 4 -> 0
+10-16 21:09:07.480 I/C2MtkHdmiCap(  469): preCheck: audio/none playing but detect clock change from 48000 to 88200. retry to check
+10-16 21:09:07.480 I/C2MtkHdmiCap(  469): _getHdmiStableClock: check clock stable 0 to 88200. cnt = 1
+10-16 21:09:07.492 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, seq-number=68215454083, mime=audio/wav
+10-16 21:09:07.492 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, algorithm-delay=0 us
+10-16 21:09:07.492 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469 channel-mask=0x0000000c, seq-number=68215454083 sample-rate=88200, has-atmos = 0, mtk.is-dualmono=0, presentation-language=, presentation-id=-1, mtk.dialogue-enhancement-max-gain=0, decoder-status = 0
+10-16 21:09:07.492 I/audio_hw_primary(  499): utils_audio_metadata_callBack: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=on  
+10-16 21:09:07.492 I/audio_hw_primary(  499): AudioHALEventCallbackFunc: hPipelineHandle=0x1f00000a, event=DecChannelMode, decChannelMode = 3
+10-16 21:09:07.492 I/audio_hw_primary(  499): AudioHALEventCallbackFunc: hPipelineHandle=0x1f00000a, event=DecEsChannelMapping, decChannelMapping = 0x00000006, NativeMask = 0x00000003 (Java mask = 0x0000000c)
+10-16 21:09:07.492 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, seq-number=68215454698, mime=audio/wav
+10-16 21:09:07.492 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, algorithm-delay=0 us
+10-16 21:09:07.492 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469 channel-mask=0x0000000c, seq-number=68215454698 sample-rate=88200, has-atmos = 0, mtk.is-dualmono=0, presentation-language=, presentation-id=-1, mtk.dialogue-enhancement-max-gain=0, decoder-status = 0
+10-16 21:09:07.492 I/audio_hw_primary(  499): utils_audio_metadata_callBack: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=on  
+10-16 21:09:07.496 I/C2MtkHdmiCap(  469): _getHdmiClock: Weird clock = 235807, as Invalid clock
+10-16 21:09:07.501 I/C2MtkHdmiCap(  469): _getHdmiStableClock: check clock stable 0 to 176400. cnt = 5
+10-16 21:09:07.503 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, seq-number=68215465378, mime=audio/wav
+10-16 21:09:07.503 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, algorithm-delay=0 us
+10-16 21:09:07.503 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469 channel-mask=0x0000000c, seq-number=68215465378 sample-rate=176400, has-atmos = 0, mtk.is-dualmono=0, presentation-language=, presentation-id=-1, mtk.dialogue-enhancement-max-gain=0, decoder-status = 0
+10-16 21:09:07.503 I/audio_hw_primary(  499): utils_audio_metadata_callBack: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=on  
+10-16 21:09:07.503 I/audio_hw_primary(  499): AudioHALEventCallbackFunc: hPipelineHandle=0x1f00000a, event=DecChannelMode, decChannelMode = 3
+10-16 21:09:07.503 I/audio_hw_primary(  499): AudioHALEventCallbackFunc: hPipelineHandle=0x1f00000a, event=DecEsChannelMapping, decChannelMapping = 0x00000006, NativeMask = 0x00000003 (Java mask = 0x0000000c)
+10-16 21:09:07.503 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, seq-number=68215465976, mime=audio/wav
+10-16 21:09:07.503 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, algorithm-delay=0 us
+10-16 21:09:07.503 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469 channel-mask=0x0000000c, seq-number=68215465976 sample-rate=176400, has-atmos = 0, mtk.is-dualmono=0, presentation-language=, presentation-id=-1, mtk.dialogue-enhancement-max-gain=0, decoder-status = 0
+10-16 21:09:07.504 I/audio_hw_primary(  499): utils_audio_metadata_callBack: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=on  
+10-16 21:09:07.506 I/C2MtkHdmiCap(  469): _getHdmiStableClock: check clock stable 176400 to 192000. cnt = 6
+10-16 21:09:07.512 I/C2MtkHdmiCap(  469): _getHdmiClock: Weird clock = 198895, as Invalid clock
+10-16 21:09:07.514 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, seq-number=68215476795, mime=audio/wav
+10-16 21:09:07.514 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, algorithm-delay=0 us
+10-16 21:09:07.514 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469 channel-mask=0x0000000c, seq-number=68215476795 sample-rate=192000, has-atmos = 0, mtk.is-dualmono=0, presentation-language=, presentation-id=-1, mtk.dialogue-enhancement-max-gain=0, decoder-status = 0
+10-16 21:09:07.514 I/audio_hw_primary(  499): utils_audio_metadata_callBack: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=on  
+10-16 21:09:07.515 I/audio_hw_primary(  499): AudioHALEventCallbackFunc: hPipelineHandle=0x1f00000a, event=DecChannelMode, decChannelMode = 3
+10-16 21:09:07.515 I/audio_hw_primary(  499): AudioHALEventCallbackFunc: hPipelineHandle=0x1f00000a, event=DecEsChannelMapping, decChannelMapping = 0x00000006, NativeMask = 0x00000003 (Java mask = 0x0000000c)
+10-16 21:09:07.515 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, seq-number=68215477445, mime=audio/wav
+10-16 21:09:07.515 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, algorithm-delay=0 us
+10-16 21:09:07.515 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469 channel-mask=0x0000000c, seq-number=68215477445 sample-rate=192000, has-atmos = 0, mtk.is-dualmono=0, presentation-language=, presentation-id=-1, mtk.dialogue-enhancement-max-gain=0, decoder-status = 0
+10-16 21:09:07.515 I/audio_hw_primary(  499): utils_audio_metadata_callBack: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=on  
+10-16 21:09:07.517 I/C2MtkHdmiCap(  469): _getHdmiStableClock: check clock stable 0 to 192000. cnt = 8
+10-16 21:09:07.532 I/        (  369): [HAL_AUDIO_eARC_Apply_ChannelStatus_Mute][9115]eARC channel status mute(1), user eARCCSMute(0)
+10-16 21:09:07.568 I/        (  369): [HAL_AUDIO_eARC_Apply_ChannelStatus_Mute][9115]eARC channel status mute(1), user eARCCSMute(0)
+10-16 21:09:07.574 I/C2MtkHdmiCap(  469): preCheck: audio/none playing but detect clock change after retry, from 48000 to 192000. 
+10-16 21:09:07.574 I/C2MtkHdmiCap(  469): preCheck: Clock change, report audio/none format change. 192000 -> 192000
+10-16 21:09:07.575 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3469
+10-16 21:09:07.575 I/audio_hw_primary(  499): setMute: muted by type: 0
+10-16 21:09:07.576 I/audio_hw_primary(  499): setMute: SrcDecoder_3469 set volume mute type 0. final muted:1
+10-16 21:09:07.576 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3469
+10-16 21:09:07.576 I/audio_hw_primary(  499): setMute: muted by type: 0
+10-16 21:09:07.577 I/audio_hw_primary(  499): setMute: SrcDecoder_3469 set volume mute type 0. final muted:1
+10-16 21:09:07.577 I/C2MtkHdmiCap(  469): preCheck: Set HDMI config : data type =  RAW
+10-16 21:09:07.577 I/C2MtkHdmiCap(  469): preCheck: Set HDMI config : path 2
+10-16 21:09:07.577 I/C2MtkHdmiCap(  469): preCheck: Set HDMI config : clock 192000
+10-16 21:09:07.579 I/audio_hw_primary(  499): updateFirstDecodedTimestamp: out_handle=3469, hPipelineHandle=0x1f00000a, sync id:65614 use id:0 first timestamp:68215541117
+10-16 21:09:07.579 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, seq-number=68215541320, mime=audio/wav
+10-16 21:09:07.579 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469, algorithm-delay=0 us
+10-16 21:09:07.579 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3469 channel-mask=0x0000000c, seq-number=68215541320 sample-rate=192000, has-atmos = 0, mtk.is-dualmono=0, presentation-language=, presentation-id=-1, mtk.dialogue-enhancement-max-gain=0, decoder-status = 0
+10-16 21:09:07.579 I/audio_hw_primary(  499): utils_audio_metadata_callBack: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=on  
+10-16 21:09:07.579 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3469
+10-16 21:09:07.580 I/audio_hw_primary(  499): setMute: SrcDecoder_3469 set volume unmute type 0. final muted:0
+10-16 21:09:07.581 I/C2MtkHdmiCap(  469): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/none, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-16 21:09:07.581 I/C2MtkHdmiCap(  469): _MediaType2AudioFormat Media Type = audio/none. HDMI Audio Format = 0x1000
+10-16 21:09:07.581 I/C2MtkHdmiCap(  469): preCheck: Config update !!! outMediaType = audio/none, sampleRateInfo = 192000, channelCountInfo = 2
+10-16 21:09:07.587 D/audio_hw_primary(  499): out_pause: stream=0xee100c10, handle=3469
+10-16 21:09:07.587 D/audio_hw_primary(  499): out_pause: stream=0xee100c10, handle=3469 skip cause by AStream Tunnel Mode
+10-16 21:09:07.591 D/audio_hw_primary(  499): out_flush: stream=0xee100c10, handle=3469
+10-16 21:09:07.591 I/audio_hw_primary(  499): utils_TpcNotifyFlush: hw_sync_id 65614 user_id 0 DONE
+10-16 21:09:07.591 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F000009, Hdmi2], pipeline[0x1F00000A, Decoder_3469] Done !!
+10-16 21:09:07.591 I/audio_hw_primary(  499): utils_out_stream_disconnect_source: disconnect pipeline[0x1F000009, Hdmi2], pipeline[0x1F00000A, Decoder_3469] Done !!
+10-16 21:09:07.591 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=3469, state=0, playback_status=1
+10-16 21:09:07.591 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3469
+10-16 21:09:07.591 I/audio_hw_primary(  499): setMute: muted by type: 0
+10-16 21:09:07.592 I/audio_hw_primary(  499): setMute: SrcDecoder_3469 set volume mute type 0. final muted:1
+10-16 21:09:07.594 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3469
+10-16 21:09:07.594 I/audio_hw_primary(  499): setMute: muted by type: 0
+10-16 21:09:07.595 I/audio_hw_primary(  499): setMute: SrcDecoder_3469 set volume mute type 0. final muted:1
+10-16 21:09:07.596 D/audio_hw_primary(  499): out_standby: stream=0xee100c10, handle=3469
+10-16 21:09:07.596 I/audio_hw_primary(  499): out_standby: totalPresentationPosition:0 current_position:0
+10-16 21:09:07.597 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=3469, state=0, playback_status=0
+10-16 21:09:07.611 I/audio_hw_primary(  499): adev_release_audio_patch: release audio_patch 0xf0164340, handle 2.
+10-16 21:09:07.611 D/audio_hw_primary(  499): utils_ApplyOutputPath: action 2, bDisconnectOutput 1, bConnectOutput 0, bUpdateOutput 0, out devices(AUDIO_DEVICE_OUT_HDMI_EARC), connectDevices(), disconnectDevices(AUDIO_DEVICE_OUT_HDMI_EARC), out handle 3469
+10-16 21:09:07.611 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_3469, Device=EarcOutput, Action=disconnect, PathType=HwAvSync, PostMode=Dap.
+10-16 21:09:07.611 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F00000A, Decoder_3469], pipeline[0x1F000007, SEBypassOutput] Done !!
+10-16 21:09:07.612 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F000007, SEBypassOutput], pipeline[0x1F000008, EarcOutput] Done !!
+10-16 21:09:07.612 I/audio_hw_primary(  499): release: pipeline [SEBypassOutput] handle [0x1f000007] Done !!
+10-16 21:09:07.612 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F00000B, SrcDecoder_3469], pipeline[0x1F000005, Loopback] Done !!
+10-16 21:09:07.612 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:07.612 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_3469, Device=SpdifOutput, Action=disconnect, PathType=HwAvSync, PostMode=Dap.
+10-16 21:09:07.612 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F00000B, SrcDecoder_3469], pipeline[0x1F000004, SESpdifOutput] Done !!
+10-16 21:09:07.612 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:07.612 D/audio_hw_primary(  499): utils_ApplyOutputPath(1911): out devices(), routing status(0x00040000) 
+10-16 21:09:07.612 I/audio_hw_primary(  499): setParameter: enabled devices (16)
+10-16 21:09:07.612 I/audio_hw_primary(  499): setParameter: loopback source (1)
+10-16 21:09:07.612 I/audio_hw_primary(  499): setLoopbackBuffer: SetParameters(1).
+10-16 21:09:07.612 I/audio_hw_primary(  499): setLoopbackBuffer: Loopback set loopback buffer (1).
+10-16 21:09:07.613 I/audio_hw_primary(  499): adev_release_audio_patch: NO DTS playback
+10-16 21:09:07.613 D/audio_hw_primary(  499): _utils_get_input_source_type Input Source:Mm
+10-16 21:09:07.613 I/audio_hw_primary(  499): setInputSource: SetParameters(Mm).
+10-16 21:09:07.614 I/audio_hw_primary(  499): setInputSource: MseMvs set input source (Mm).
+10-16 21:09:07.614 I/audio_hw_primary(  499): utils_eArcMchPcm_output_ctrl: Ninja(0), EarcExist(1), FastMmapExist(0), InputMchPcmExist(0), UI(Bypass)
+10-16 21:09:07.616 D/audio_hw_primary(  499): out_common_set_parameters: handle=3469, kvpairs closing=true !!
+10-16 21:09:07.619 D/audio_hw_primary(  499): out_common_set_parameters: handle=3469, kvpairs exiting=1 !!
+10-16 21:09:07.620 I/audio_hw_primary(  499): out_set_event_callback: handle = 3469
+10-16 21:09:07.620 I/audio_hw_primary(  499): adev_close_output_stream: out->handle(3469)
+10-16 21:09:07.621 I/audio_hw_primary(  499): utils_close_tpcaudio_pipeline: release TPC AUDIO LINK stuff
+10-16 21:09:07.621 I/audio_hw_primary(  499): utils_out_stream_close_pipeline: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=off  
+10-16 21:09:07.621 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F00000A, Decoder_3469], pipeline[0x1F00000B, SrcDecoder_3469] Done !!
+10-16 21:09:07.621 I/audio_hw_primary(  499): release: pipeline [SrcDecoder_3469] handle [0x1f00000b] Done !!
+10-16 21:09:07.621 D/audio_hw_primary(  499): updateDigitalFormat: hPipelineHandle(0x1f000006), event(SpdifOutput_Event_OutputFormat), digital_format(1).
+10-16 21:09:07.622 D/audio_hw_primary(  499): updateDigitalFormat: hPipelineHandle(0x1f000008), event(EarcOutput_Event_OutputFormat), digital_format(5).
+10-16 21:09:07.622 I/audio_hw_primary(  499): updateDigitalFormatDone: hPipelineHandle(0x1f000008), event(EarcOutput_Event_UpdateFormatDone), digitalformatdone(1)
+10-16 21:09:07.622 I/audio_hw_primary(  499): utils_out_stream_close_pipeline: Set Paramter[Param_DecodeFormat] decoder_format = 0x0. Ok.
+10-16 21:09:07.627 I/audio_hw_primary(  499): release: pipeline [Decoder_3469] handle [0x1f00000a] Done !!
+10-16 21:09:07.627 I/audio_hw_primary(  499): utils_force_recover_digital_output_format_for_bypass L8147: EarcOutput Force recover topology for bypass case.
+10-16 21:09:07.627 I/audio_hw_primary(  499): utils_out_stream_close_pipeline unmute device EarcOutput
+10-16 21:09:07.630 I/audio_hw_primary(  499): setMute: EarcOutput set volume unmute type 8. final muted:0
+10-16 21:09:07.630 I/thal_audio(  499): INFO [onNotifyAudioSettingInfo:4272]: kvpairs = (TRACK_AUDIO_FORMAT_CHANGED=YES;value=0;)
+10-16 21:09:07.630 I/thal_audio(  499): INFO [thal_audio_event_callback:4364]: enter
+10-16 21:09:07.630 I/thal_audio(  499): INFO [thal_audio_event_callback:4375]: get parameter CALLBACK_EVENT_TRACK_AUDIO_FORMAT_CHANGED
+10-16 21:09:07.630 I/thal_audio(  499): INFO [thal_audio_format_callback:4436]: enter
+10-16 21:09:07.630 I/thal_audio(  499): INFO [thal_audio_format_callback:4442]: kvpairs = (TRACK_AUDIO_FORMAT_CHANGED=YES;value=0;)
+10-16 21:09:07.630 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:601]: enter
+10-16 21:09:07.630 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:720]: convert codec(0x00000000) to format(1)
+10-16 21:09:07.630 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:722]: leave
+10-16 21:09:07.630 I/thal_audio(  499): INFO [thal_audio_format_callback:4458]: audio_format(0x00000000), format = 1
+10-16 21:09:07.630 I/thal_audio(  499): INFO [thal_audio_format_callback:4462]: call _pfAudioCallback
+10-16 21:09:07.630 E/audio_hw_tcl(  499): taudio notiy sound mode changed
+10-16 21:09:07.630 D/audio_hw_tcl(  499): _fpi_audio_common_thread_function is resume.
+10-16 21:09:07.630 E/audio_hw_tcl(  499): [fpi_audio_callback,5684]"fpi_audio_callback: 5684, EN_THAL_AUDIO_EVENT_AUDIO_FORMAT_CHANGED happend"
+10-16 21:09:07.630 D/audio_hw_tcl(  499): _fpi_audio_common_thread_function running bNeedUpdateDigitalAudioOutput processing.
+10-16 21:09:07.630 D/audio_hw_tcl(  499): _fpi_audio_common_thread_function is pause.
+10-16 21:09:07.631 I/thal_audio(  499): INFO [thal_audio_format_callback:4470]: leave
+10-16 21:09:07.631 I/thal_audio(  499): INFO [thal_audio_event_callback:4385]: leave
+10-16 21:09:07.631 D/TclAudioServiceEx(  542): onCommonEventChanged type:1, value:0, str:
+10-16 21:09:07.631 D/audio_hw_primary(  499): adev_get_parameters: tcl_audio_dobly_atmos_value;tcl_audio_dobly_audio_format;tcl_audio_dts_logo_type;tcl_audio_stream_id;tcl_audio_stream_info;tcl_audio_type
+10-16 21:09:07.633 I/thal_audio(  499): INFO [thal_audio_get_format_type:1900]: enter
+10-16 21:09:07.633 I/thal_audio(  499): INFO [_thal_audio_get_codec_type:1208]: enter
+10-16 21:09:07.633 D/audio_hw_primary(  499): adev_get_parameters: STREAM_INFO
+10-16 21:09:07.633 D/audio_hw_primary(  499): adev_get_parameters: Get Customer key : STREAM_INFO. => reply = STREAM_CODEC=0;STREAM_SR=0;STREAM_DTS=0;STREAM_ATOMS=0;STREAM_CH=0;STREAM_DUALMONO=-1
+10-16 21:09:07.633 D/audio_hw_primary(  499): adev_get_parameters: STREAM_CODEC=0;STREAM_SR=0;STREAM_DTS=0;STREAM_ATOMS=0;STREAM_CH=0;STREAM_DUALMONO=-1
+10-16 21:09:07.633 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:601]: enter
+10-16 21:09:07.633 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:720]: convert codec(0x00000000) to format(1)
+10-16 21:09:07.633 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:722]: leave
+10-16 21:09:07.633 I/thal_audio(  499): INFO [_thal_audio_get_codec_type:1236]: leave
+10-16 21:09:07.633 I/thal_audio(  499): INFO [_thal_audio_get_format_type_by_codec:941]: enter
+10-16 21:09:07.633 I/thal_audio(  499): INFO [_thal_audio_get_format_type_by_codec:957]: convert format(1) to (0)
+10-16 21:09:07.633 I/thal_audio(  499): INFO [_thal_audio_get_format_type_by_codec:958]: leave
+10-16 21:09:07.633 I/thal_audio(  499): INFO [thal_audio_get_format_type:1911]: p_sound_type:0
+10-16 21:09:07.633 I/thal_audio(  499): INFO [thal_audio_get_format_type:1913]: leave
+10-16 21:09:07.633 D/audio_hw_tcl(  499): fpi_audio_get_digital_sound_info:thal_audio_get_format_type get audio stream sound mode is EN_FPP_AUDIO_NORMAL
+10-16 21:09:07.633 I/audio_hw_tcl(  499): [fpi_audio_update_attribute,5785]"fpi_audio_update_attribute,type=2,status=2"
+10-16 21:09:07.633 I/audio_hw_tcl(  499): [_fpi_audio_update_sound_effect_setting,5729]"_fpi_audio_update_sound_effect_setting g_start_sound_effect_auto_select=0 g_pre_audio_format_mode=2 audio_format_mode=2 audio_technology_type=16"
+10-16 21:09:07.633 I/audio_hw_tcl(  499): [_fpi_audio_update_sound_effect_setting,5776]"_fpi_audio_update_sound_effect_setting Sound effect auto setting success. Current audio_technology_type:0x10"
+10-16 21:09:07.633 D/audio_hw_tcl(  499): adev_get_parameters: result_str:tcl_audio_stream_id=815;tcl_audio_type=2;tcl_audio_dobly_audio_format=0
+10-16 21:09:07.635 D/TclAudioServiceEx(  542): notify audio format changed tcl.media.IOnAudioFormatChangedListener$Stub$Proxy@e05a2b0
+10-16 21:09:07.635 D/TclAudioServiceEx(  542): notify audio format changed tcl.media.IOnAudioFormatChangedListener$Stub$Proxy@64fb1aa
+10-16 21:09:07.664 I/        (  369): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-16 21:09:07.664 I/        (  369): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-16 21:09:07.686 I/C2MtkHdmiCap(  469): paramMonitorThread: update notifyEvent = 3 value = 0
+10-16 21:09:07.686 I/C2MtkHdmiCap(  469): _PcDataType2AudioFormat PC Data Type = 0. HDMI Audio Format = 0x100
+10-16 21:09:07.686 I/C2MtkHdmiCap(  469): paramMonitorThread: Receive notify from HDMI filter, PC = 0, HDMI Format = 0x100, Track Format = 0x1000
+10-16 21:09:07.687 I/C2MtkHdmiCap(  469): _AudioFormat2MediaType: audioFormat = 0x100 => mediaType = audio/raw
+10-16 21:09:07.687 I/C2MtkHdmiCap(  469): preCheck HDMI DD = 100, Player = 1000  => format.c_str() = audio/raw!!!
+10-16 21:09:07.687 I/C2MtkHdmiCap(  469): _MediaType2AudioFormat Media Type = audio/raw. HDMI Audio Format = 0x100
+10-16 21:09:07.687 I/C2MtkHdmiCap(  469): _getHdmiStableClock: check clock stable 0 to 192000. cnt = 1
+10-16 21:09:07.717 I/audio_hw_primary(  499): utils_digital_output_process: SpdifOutput, Output format Keep (1), SampleRateChanged:0
+10-16 21:09:07.718 I/C2MtkHdmiCap(  469): preCheck: Set HDMI config : data type =  PCM
+10-16 21:09:07.718 I/C2MtkHdmiCap(  469): preCheck: Set HDMI config : path 2
+10-16 21:09:07.718 I/C2MtkHdmiCap(  469): preCheck: Set HDMI config : clock 192000
+10-16 21:09:07.718 I/audio_hw_primary(  499): utils_set_digital_output_tb11: don't do loudness matching in lapaf mode
+10-16 21:09:07.718 I/audio_hw_primary(  499): utils_digital_output_process: ArcOutput, Output format  no need to be updated this time. cur = (1), SampleRateChanged:0
+10-16 21:09:07.718 I/audio_hw_primary(  499): utils_digital_output_process: EarcOutput, Output format update from (5) to (1), SampleRateChanged :0
+10-16 21:09:07.719 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_13, Device=EarcOutput, Action=disconnect, PathType=Primary, PostMode=Dap.
+10-16 21:09:07.719 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] handle [0x1f000008] Done !!
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 0 to false
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 1 to false
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 8 to false
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 9 to false
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 10 to false
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 11 to false
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 12 to false
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 13 to false
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 14 to false
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 15 to false
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 16 to false
+10-16 21:09:07.719 I/audio_hw_primary(  499): release: pipeline [EarcOutput] handle [0x0] cur digital format as E_MI_APAF_DIGITAL_OUTPUT_BYPASS. keep bypass after release
+10-16 21:09:07.719 I/audio_hw_primary(  499): release device pipeline: EarcOutput
+10-16 21:09:07.720 I/C2MtkHdmiCap(  469): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/raw, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-16 21:09:07.720 I/C2MtkHdmiCap(  469): _MediaType2AudioFormat Media Type = audio/raw. HDMI Audio Format = 0x100
+10-16 21:09:07.720 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_13, Device=EarcOutput, Action=connect, PathType=Primary, PostMode=Dap.
+10-16 21:09:07.720 I/C2MtkHdmiCap(  469): preCheck: Config update !!! outMediaType = audio/raw, sampleRateInfo = 192000, channelCountInfo = 2
+10-16 21:09:07.721 E/audio_hw_primary(  499): create: pipeline[0x1f000007], event[DapDialogueEnhancementGain] rigister callback, ret 5!!
+10-16 21:09:07.721 I/audio_hw_primary(  499): create: effect pipeline SEEarcOutput[SETarget=EarcOutput] handle [0x1f000007] Done !!
+10-16 21:09:07.721 I/audio_hw_primary(  499): connect: connect pipeline[0x1F000000, Decoder_13], pipeline[0x1F000007, SEEarcOutput] Done !!
+10-16 21:09:07.717 I/        (  909): [MDrv_AUDIO_HDMI_ARC_SetMute][1717]User ARC/eARC mute status: 0 -> 1
+10-16 21:09:07.728 D/audio_hw_primary(  499): Register Event EarcOutput, EarcOutput_Event_OutputFormat 
+10-16 21:09:07.728 D/audio_hw_primary(  499): Register Event EarcOutput, EarcOutput_Event_UpdateFormatDone 
+10-16 21:09:07.728 I/audio_hw_primary(  499): create - 7353: device pipeline EarcOutput to restore volume gain:0.
+10-16 21:09:07.729 I/audio_hw_primary(  499): setVolumeDb: EarcOutput set volume gain 0.
+10-16 21:09:07.731 I/C2MtkHdmiCap(  469): preCheck reset mFormatFromDD
+10-16 21:09:07.731 I/audio_hw_primary(  499): setDelay: set EarcOutput delay 0 ms [total delay:0][delay:0/adjust:0/extra:0]
+10-16 21:09:07.733 I/audio_hw_primary(  499): setMute: EarcOutput set volume unmute type 0. final muted:0
+10-16 21:09:07.733 I/audio_hw_primary(  499): create: device pipeline EarcOutput[OutputDevice=EarcOutput, DigitalAudioFormat=PCM] handle [0x1f000008] Done !!
+10-16 21:09:07.733 I/audio_hw_primary(  499): connect: connect pipeline[0x1F000007, SEEarcOutput], pipeline[0x1F000008, EarcOutput] Done !!
+10-16 21:09:07.733 E/audio_hw_primary(  499): connect: connect pipeline[0x1F000008, EarcOutput, Volume], pipeline[0x1F000005, Loopback, Loopback] fail(3) !!
+10-16 21:09:07.733 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:07.733 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=13, state=0, playback_status=0
+10-16 21:09:07.733 I/audio_hw_primary(  499): utils_lapaf_update_latency: EarcOutput path latency=32 ms
+10-16 21:09:07.734 I/audio_hw_primary(  499): _utils_lapaf_set_speaker_delay: handle=13, audio_low_latency:0 set extra delay 0 ms to pipeline SpeakerOutput, ret=0 delay
+10-16 21:09:07.734 I/audio_hw_primary(  499): __utils_lapaf_check_tempo_latency tempoLatency = 0
+10-16 21:09:07.735 I/audio_hw_primary(  499): utils_lapaf_update_latency: handle=13 hw_sync_id 3840 use_id 0 report latency(us) done, decoder:0, render:32000, total render=32000, external=20000, isPVR: 0
+10-16 21:09:07.736 I/audio_hw_primary(  499): utils_set_digital_output_tb11: don't do loudness matching in lapaf mode
+10-16 21:09:07.736 E/audio_hw_primary(  499): utils_set_dts_parameter_by_output_device: adev->main_output_stream should not be NULL !
+10-16 21:09:07.736 I/audio_hw_primary(  499): setParameter: enabled devices (16)
+10-16 21:09:07.736 I/audio_hw_primary(  499): setParameter: loopback source (2)
+10-16 21:09:07.736 I/audio_hw_primary(  499): setLoopbackBuffer: SetParameters(2).
+10-16 21:09:07.736 I/audio_hw_primary(  499): setLoopbackBuffer: Loopback set loopback buffer (2).
+10-16 21:09:07.736 I/audio_hw_primary(  499): adev_open_output_stream: handle:3477 dev:AUDIO_DEVICE_OUT_HDMI_EARC fmt/chn/sr 0x00000003/2/192000, flag 0x00000041, encsl_m/cnt_id/sync_id 1/16/2147483647
+10-16 21:09:07.737 I/audio_hw_primary(  499): utils_out_stream_init_tpc_audio: assign TpcAudioLink to OutputStream struct
+10-16 21:09:07.737 I/audio_hw_primary(  499): utils_out_stream_init_tpc_audio: TV input in passthrough mode
+10-16 21:09:07.740 I/audio_hw_primary(  499): utils_isSyncFreeRun: free_run=0
+10-16 21:09:07.741 I/audio_hw_primary(  499): applySyncFilterConfig: Decoder_3477 run with foreground app: com.tcl.tv
+10-16 21:09:07.743 I/audio_hw_primary(  499): create: decoder pipeline Decoder_3477[InputSource=HDMI, DecoderFormat=PcmFix, PathType=HwAvSync] handle [0x1f00000a] Done !!
+10-16 21:09:07.743 I/audio_hw_primary(  499): utils_out_stream_open_pipeline: out[3477], pipeline[0x1f00000a][InputSource=HDMI, DecoderFormat=PcmFix, PathType=HwAvSync] Done !!
+10-16 21:09:07.746 D/audio_hw_primary(  499): utils_apply_audio_description_ui_setting: out->handle = 3477, AudioDescription = 0, UiAdEnable = 0, UiSpsEnable = 0, PanFadeEnable = 1, AdVolumeDb = -8.500000, AdMixedInSpkDisable = 1, AdMixedInHpDisable = 1
+10-16 21:09:07.747 I/audio_hw_primary(  499): utils_out_stream_apply_config: pipeline=Decoder_3477, filter=Lpcm, param=DeGain, de_gain=0, ret=4
+10-16 21:09:07.747 I/audio_hw_primary(  499): utils_out_stream_apply_config: Device id = 16, Astream Pipe = 520093705
+10-16 21:09:07.747 I/audio_hw_primary(  499): utils_out_stream_apply_config: AStream External Input Passthrough Mode !!!
+10-16 21:09:07.747 I/audio_hw_primary(  499): _utils_out_stream_parse_hdmi_packet_content: HDMI device id = 16, HDMI Port = 2
+10-16 21:09:07.747 E/audio_hw_primary(  499): _utils_out_stream_parse_hdmi_packet_content: HDMI ExternIn no packet. Use default setting
+10-16 21:09:07.748 D/audio_hw_primary(  499): setBitWidth: EarcOutput set BitWidth:24. (changed: 0)
+10-16 21:09:07.749 D/audio_hw_primary(  499): out_common_get_buffer_size: stream=0xee100c10, handle=3477, format=0x3, BufferSize=1536
+10-16 21:09:07.750 I/audio_hw_primary(  499): out_set_event_callback: handle = 3477
+10-16 21:09:07.753 D/audio_hw_primary(  499): out_standby: stream=0xee100c10, handle=3477
+10-16 21:09:07.753 I/audio_hw_primary(  499): out_standby: totalPresentationPosition:0 current_position:0
+10-16 21:09:07.753 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=3477, state=0, playback_status=0
+10-16 21:09:07.783 D/audio_hw_primary(  499): out_common_set_parameters: handle=3477, kvpairs hw_av_sync=65614 !!
+10-16 21:09:07.784 D/audio_hw_primary(  499): out_common_set_parameters: connect pipeline here, hw_sync_id=65614
+10-16 21:09:07.784 D/audio_hw_primary(  499): utils_open_tpcaudio_pipeline: open TPC audio pipeline audio_tpc_setting(0), mForegroundApp com.tcl.tv, tpc_audio_stuff->device_id(2), precise_seek_enable(0)
+10-16 21:09:07.795 D/audio_hw_primary(  499): utils_lapaf_open_tpcaudio_pipeline: connect TPC pipeline here, handle=3477, hw_sync_id=65614, audio_tpc_setting=0
+10-16 21:09:07.795 D/audio_hw_primary(  499): utils_lapaf_open_tpcaudio_pipeline: [LAPAF] input_src[3]
+10-16 21:09:07.795 W/audio_hw_primary(  499): utils_lapaf_update_latency: device pipeline  handle is NULL!!
+10-16 21:09:07.799 I/audio_hw_primary(  499): utils_TpcClockReady: out_handle=3477(0xee100c10), audio clock ready
+10-16 21:09:07.804 I/audio_hw_primary(  499): utils_TpcSetPause: out_handle=3477(0xee100c10)
+10-16 21:09:07.804 D/audio_hw_primary(  499): adev_set_parameters: clienttid=11483
+10-16 21:09:07.804 I/audio_hw_primary(  499): utils_isSyncFreeRun: free_run=0
+10-16 21:09:07.806 D/audio_hw_tcl(  499): adev_set_parameters: clienttid=11483
+10-16 21:09:07.807 I/audio_hw_primary(  499): utils_TpcSetFreeRunThreshold: out_handle=3477(0xee100c10), free_run_threshold=3000000
+10-16 21:09:07.810 E/audio_hw_primary(  499): utils_lapaf_setDelayTime: pipeline_device.handle should not be NULL !
+10-16 21:09:07.826 I/C2MtkHdmiCap(  469): paramMonitorThread: update notifyEvent = 3 value = 0
+10-16 21:09:07.826 I/C2MtkHdmiCap(  469): _PcDataType2AudioFormat PC Data Type = 0. HDMI Audio Format = 0x100
+10-16 21:09:07.826 I/C2MtkHdmiCap(  469): paramMonitorThread: Receive notify from HDMI filter, PC = 0, HDMI Format = 0x100, Track Format = 0x100
+10-16 21:09:07.826 I/C2MtkHdmiCap(  469): preCheck reset mFormatFromDD
+10-16 21:09:07.836 I/audio_hw_primary(  499): adev_create_audio_patch: create audio_patch 0xf0162d50, handle 2
+10-16 21:09:07.836 I/audio_hw_primary(  499): adev_create_audio_patch: mix(source 1)->device:AUDIO_DEVICE_OUT_HDMI_EARC(sink 1), patch handle(2), num sources/sinks 1/1
+10-16 21:09:07.836 D/audio_hw_primary(  499): utils_ApplyOutputPath: action 0, bDisconnectOutput 0, bConnectOutput 1, bUpdateOutput 0, out devices(), connectDevices(AUDIO_DEVICE_OUT_HDMI_EARC), disconnectDevices(), out handle 3477
+10-16 21:09:07.837 D/audio_hw_primary(  499): updateDigitalFormat: hPipelineHandle(0x1f000006), event(SpdifOutput_Event_OutputFormat), digital_format(1).
+10-16 21:09:07.837 D/audio_hw_primary(  499): updateDigitalFormat: hPipelineHandle(0x1f000008), event(EarcOutput_Event_OutputFormat), digital_format(1).
+10-16 21:09:07.837 I/audio_hw_primary(  499): updateDigitalFormatDone: hPipelineHandle(0x1f000008), event(EarcOutput_Event_UpdateFormatDone), digitalformatdone(1)
+10-16 21:09:07.838 I/audio_hw_primary(  499): _utils_out_stream_parse_hdmi_packet_content: HDMI device id = 16, HDMI Port = 2
+10-16 21:09:07.838 E/audio_hw_primary(  499): _utils_out_stream_parse_hdmi_packet_content: HDMI ExternIn no packet. Use default setting
+10-16 21:09:07.838 D/audio_hw_primary(  499): setBitWidth: EarcOutput set BitWidth:24. (changed: 0)
+10-16 21:09:07.838 D/audio_hw_primary(  499): __release_hdmi_out_device_by_patch: output to EARC, release ARC
+10-16 21:09:07.838 E/audio_hw_primary(  499): release: Fail to get pipeline by name ArcOutput !! pipeline_handle = 0x0, mi_ret = 3
+10-16 21:09:07.838 I/audio_hw_primary(  499): release: pipeline [ArcOutput] reset mute type 0 to false
+10-16 21:09:07.838 I/audio_hw_primary(  499): release: pipeline [ArcOutput] reset mute type 1 to false
+10-16 21:09:07.838 I/audio_hw_primary(  499): release: pipeline [ArcOutput] reset mute type 8 to false
+10-16 21:09:07.838 I/audio_hw_primary(  499): release: pipeline [ArcOutput] reset mute type 9 to false
+10-16 21:09:07.838 I/audio_hw_primary(  499): release: pipeline [ArcOutput] reset mute type 10 to false
+10-16 21:09:07.838 I/audio_hw_primary(  499): release: pipeline [ArcOutput] reset mute type 11 to false
+10-16 21:09:07.838 I/audio_hw_primary(  499): release: pipeline [ArcOutput] reset mute type 12 to false
+10-16 21:09:07.838 I/audio_hw_primary(  499): release: pipeline [ArcOutput] reset mute type 13 to false
+10-16 21:09:07.838 I/audio_hw_primary(  499): release: pipeline [ArcOutput] reset mute type 14 to false
+10-16 21:09:07.838 I/audio_hw_primary(  499): release: pipeline [ArcOutput] reset mute type 15 to false
+10-16 21:09:07.838 I/audio_hw_primary(  499): release: pipeline [ArcOutput] reset mute type 16 to false
+10-16 21:09:07.838 I/audio_hw_primary(  499): release device pipeline: ArcOutput
+10-16 21:09:07.841 I/audio_hw_primary(  499): create: src pipeline SrcDecoder_3477[PathType=Src] handle [0x1f00000b] Done !!
+10-16 21:09:07.841 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3477
+10-16 21:09:07.842 I/audio_hw_primary(  499): setMute: SrcDecoder_3477 set volume unmute type 15. final muted:0
+10-16 21:09:07.842 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_3477, Device=, Action=connect, PathType=HwAvSync, PostMode=Dap.
+10-16 21:09:07.842 I/audio_hw_primary(  499): connect: connect pipeline[0x1F00000A, Decoder_3477], pipeline[0x1F00000B, SrcDecoder_3477] Done !!
+10-16 21:09:07.842 E/audio_hw_primary(  499): setParameter: param condition cannot find pipeline SE.
+10-16 21:09:07.842 E/audio_hw_primary(  499): __create_src_by_patch: return fail(-22) at (1718)!!
+10-16 21:09:07.842 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_3477, Device=EarcOutput, Action=connect, PathType=HwAvSync, PostMode=Dap.
+10-16 21:09:07.842 I/audio_hw_primary(  499): connect: connect pipeline[0x1F00000B, SrcDecoder_3477, ], pipeline[0x1F000007, SEEarcOutput, ] Done !!
+10-16 21:09:07.842 E/audio_hw_primary(  499): connect: connect pipeline[0x1F000008, EarcOutput, Volume], pipeline[0x1F000005, Loopback, Loopback] fail(3) !!
+10-16 21:09:07.842 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:07.842 D/audio_hw_primary(  499): __utils_connect_device: tcse_tutti_choral_mode(0) to update output path
+10-16 21:09:07.842 I/audio_hw_primary(  499): utils_lapaf_update_latency: handle=3477, hdmiInDec is not ready
+10-16 21:09:07.842 D/audio_hw_primary(  499): setEncoderChmodLock: encoder channel lock [0]
+10-16 21:09:07.844 D/audio_hw_primary(  499): updateDigitalFormat: hPipelineHandle(0x1f000006), event(SpdifOutput_Event_OutputFormat), digital_format(1).
+10-16 21:09:07.844 D/audio_hw_primary(  499): updateDigitalFormat: hPipelineHandle(0x1f000008), event(EarcOutput_Event_OutputFormat), digital_format(1).
+10-16 21:09:07.844 I/audio_hw_primary(  499): updateDigitalFormatDone: hPipelineHandle(0x1f000008), event(EarcOutput_Event_UpdateFormatDone), digitalformatdone(1)
+10-16 21:09:07.844 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_3477, Device=SpdifOutput, Action=connect, PathType=HwAvSync, PostMode=Dap.
+10-16 21:09:07.844 I/audio_hw_primary(  499): connect: connect pipeline[0x1F00000B, SrcDecoder_3477, ], pipeline[0x1F000004, SESpdifOutput, ] Done !!
+10-16 21:09:07.844 E/audio_hw_primary(  499): connect: connect pipeline[0x1F000006, SpdifOutput, Volume], pipeline[0x1F000005, Loopback, Loopback] fail(3) !!
+10-16 21:09:07.844 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:07.844 D/audio_hw_primary(  499): utils_ApplyOutputPath(1911): out devices(AUDIO_DEVICE_OUT_HDMI_EARC), routing status(0x00040000) 
+10-16 21:09:07.844 D/audio_hw_primary(  499): __utils_check_contain_device:L(1296), routing is 0x40000, device set is HDMI ARC/eArc
+10-16 21:09:07.847 I/audio_hw_primary(  499): setMute: EarcOutput set volume unmute type 0. final muted:0
+10-16 21:09:07.847 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=3477, state=0, playback_status=0
+10-16 21:09:07.847 I/audio_hw_primary(  499): setParameter: enabled devices (16)
+10-16 21:09:07.847 I/audio_hw_primary(  499): setParameter: loopback source (2)
+10-16 21:09:07.847 I/audio_hw_primary(  499): setLoopbackBuffer: SetParameters(2).
+10-16 21:09:07.847 I/audio_hw_primary(  499): setLoopbackBuffer: Loopback set loopback buffer (2).
+10-16 21:09:07.847 D/audio_hw_primary(  499): _utils_get_input_source_type Input Source:Hdmi
+10-16 21:09:07.847 I/audio_hw_primary(  499): setInputSource: SetParameters(Hdmi).
+10-16 21:09:07.852 I/audio_hw_primary(  499): setInputSource: MseMvs set input source (Hdmi).
+10-16 21:09:07.852 I/audio_hw_primary(  499): utils_eArcMchPcm_output_ctrl: Ninja(0), EarcExist(1), FastMmapExist(0), InputMchPcmExist(0), UI(Bypass)
+10-16 21:09:07.868 I/audio_hw_primary(  499): out_set_volume: handle=3477, left 1.000000, right 1.000000
+10-16 21:09:07.868 I/audio_hw_primary(  499): cus_out_set_volume: 2191 Enter.
+10-16 21:09:07.868 I/audio_hw_primary(  499): cus_out_set_volume: 2203 Leave.Return value: 0x0
+10-16 21:09:07.868 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3477
+10-16 21:09:07.869 I/audio_hw_primary(  499): setVolumeGain: SrcDecoder_3477 set volume gain 0x7fffff.
+10-16 21:09:07.870 D/audio_hw_primary(  499): out_flush: stream=0xee100c10, handle=3477
+10-16 21:09:07.870 I/audio_hw_primary(  499): utils_TpcNotifyFlush: hw_sync_id 65614 user_id 0 DONE
+10-16 21:09:07.870 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=3477, state=0, playback_status=0
+10-16 21:09:07.873 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=3477, state=1, playback_status=0
+10-16 21:09:07.873 I/audio_hw_primary(  499): _utils_lapaf_set_OpenDecoderDevice: filter: Lpcm, format: 0
+10-16 21:09:07.874 E/audio_hw_primary(  499): _utils_lapaf_set_OpenDecoderDevice: set DecoderFormat fail
+10-16 21:09:07.874 I/        (  369): [HAL_AUDIO_eARC_Apply_ChannelStatus_Mute][9115]eARC channel status mute(0), user eARCCSMute(0)
+10-16 21:09:07.876 I/audio_hw_primary(  499): utils_apaf_bus_event_push: apaf_msg: hPipelineHandle=0x1f00000a, event=OffloadInputChannel
+10-16 21:09:07.876 D/audio_hw_primary(  499): updateDigitalFormat: hPipelineHandle(0x1f000006), event(SpdifOutput_Event_OutputFormat), digital_format(1).
+10-16 21:09:07.876 D/audio_hw_primary(  499): updateDigitalFormat: hPipelineHandle(0x1f000008), event(EarcOutput_Event_OutputFormat), digital_format(5).
+10-16 21:09:07.876 I/audio_hw_primary(  499): updateDigitalFormatDone: hPipelineHandle(0x1f000008), event(EarcOutput_Event_UpdateFormatDone), digitalformatdone(1)
+10-16 21:09:07.878 E/audio_hw_primary(  499): utils_lapaf_set_stream_inputchannel: SrcDecoder_3477
+10-16 21:09:07.904 I/audio_hw_primary(  499): _utils_lapaf_set_OpenDecoderDevice dec_id = -1
+10-16 21:09:07.904 I/audio_hw_primary(  499): _utils_lapaf_set_DecoderDevice_DataLevelInit set Lpcm es limitation = 49152, pcm lv = 150
+10-16 21:09:07.904 I/audio_hw_primary(  499): _utils_lapaf_set_DecoderDevice_DataLevelInit set Lpcm 49152
+10-16 21:09:07.904 I/audio_hw_primary(  499): _utils_lapaf_set_DecoderDevice_DataLevelInit set Lpcm 150
+10-16 21:09:07.904 I/audio_hw_primary(  499): _utils_lapaf_set_StartDecoderDevice Lpcm
+10-16 21:09:07.904 I/audio_hw_primary(  499): _utils_lapaf_set_DecoderDevice: handle=3477, utils_lapaf_update_latency here
+10-16 21:09:07.904 I/audio_hw_primary(  499): utils_lapaf_update_latency: EarcOutput path latency=52 ms
+10-16 21:09:07.905 I/audio_hw_primary(  499): _utils_lapaf_set_speaker_delay: handle=3477, audio_low_latency:0 set extra delay 0 ms to pipeline SpeakerOutput, ret=0 delay
+10-16 21:09:07.905 I/audio_hw_primary(  499): __utils_lapaf_check_tempo_latency tempoLatency = 0
+10-16 21:09:07.905 I/audio_hw_primary(  499): utils_lapaf_update_latency: handle=3477 hw_sync_id 65614 use_id 0 report latency(us) done, decoder:0, render:52000, total render=52000, external=20000, isPVR: 0
+10-16 21:09:07.905 I/audio_hw_primary(  499): utils_lapaf_set_SyncEnable Sync param: 1
+10-16 21:09:07.907 I/audio_hw_primary(  499): AudioHALEventCallbackFunc: hPipelineHandle=0x1f00000a, event=DecChannelMode, decChannelMode = 3
+10-16 21:09:07.907 I/audio_hw_primary(  499): AudioHALEventCallbackFunc: hPipelineHandle=0x1f00000a, event=DecEsChannelMapping, decChannelMapping = 0x00000006, NativeMask = 0x00000003 (Java mask = 0x0000000c)
+10-16 21:09:07.907 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3477, algorithm-delay=0 us
+10-16 21:09:07.907 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3477 channel-mask=0x0000000c, seq-number=68215869843 sample-rate=192000, has-atmos = 0, mtk.is-dualmono=0, presentation-language=, presentation-id=-1, mtk.dialogue-enhancement-max-gain=0, decoder-status = 0
+10-16 21:09:07.908 I/thal_audio(  499): INFO [onNotifyAudioSettingInfo:4272]: kvpairs = (TRACK_AUDIO_FORMAT_CHANGED=YES;value=0;)
+10-16 21:09:07.908 I/thal_audio(  499): INFO [thal_audio_event_callback:4364]: enter
+10-16 21:09:07.908 I/thal_audio(  499): INFO [thal_audio_event_callback:4375]: get parameter CALLBACK_EVENT_TRACK_AUDIO_FORMAT_CHANGED
+10-16 21:09:07.908 I/thal_audio(  499): INFO [thal_audio_format_callback:4436]: enter
+10-16 21:09:07.908 I/thal_audio(  499): INFO [thal_audio_format_callback:4442]: kvpairs = (TRACK_AUDIO_FORMAT_CHANGED=YES;value=0;)
+10-16 21:09:07.908 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:601]: enter
+10-16 21:09:07.908 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:720]: convert codec(0x00000000) to format(1)
+10-16 21:09:07.908 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:722]: leave
+10-16 21:09:07.908 I/thal_audio(  499): INFO [thal_audio_format_callback:4458]: audio_format(0x00000000), format = 1
+10-16 21:09:07.908 I/thal_audio(  499): INFO [thal_audio_format_callback:4462]: call _pfAudioCallback
+10-16 21:09:07.908 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3477
+10-16 21:09:07.909 I/audio_hw_primary(  499): setMute: SrcDecoder_3477 set volume unmute type 0. final muted:0
+10-16 21:09:07.909 E/audio_hw_tcl(  499): taudio notiy sound mode changed
+10-16 21:09:07.909 D/audio_hw_tcl(  499): _fpi_audio_common_thread_function is resume.
+10-16 21:09:07.909 D/audio_hw_tcl(  499): _fpi_audio_common_thread_function running bNeedUpdateDigitalAudioOutput processing.
+10-16 21:09:07.909 D/audio_hw_tcl(  499): _fpi_audio_common_thread_function is pause.
+10-16 21:09:07.909 E/audio_hw_tcl(  499): [fpi_audio_callback,5684]"fpi_audio_callback: 5684, EN_THAL_AUDIO_EVENT_AUDIO_FORMAT_CHANGED happend"
+10-16 21:09:07.910 I/thal_audio(  499): INFO [thal_audio_format_callback:4470]: leave
+10-16 21:09:07.910 I/thal_audio(  499): INFO [thal_audio_event_callback:4385]: leave
+10-16 21:09:07.910 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3477, seq-number=68215872140, mime=audio/wav
+10-16 21:09:07.910 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3477, algorithm-delay=0 us
+10-16 21:09:07.910 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3477 channel-mask=0x0000000c, seq-number=68215872140 sample-rate=192000, has-atmos = 0, mtk.is-dualmono=0, presentation-language=, presentation-id=-1, mtk.dialogue-enhancement-max-gain=0, decoder-status = 0
+10-16 21:09:07.910 D/TclAudioServiceEx(  542): onCommonEventChanged type:1, value:0, str:
+10-16 21:09:07.910 I/audio_hw_primary(  499): utils_audio_metadata_callBack: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=on  
+10-16 21:09:07.910 I/audio_hw_primary(  499): updateFirstDecodedTimestamp: out_handle=3477, update base_timestamp=68215872561
+10-16 21:09:07.910 I/audio_hw_primary(  499): updateFirstDecodedTimestamp: out_handle=3477, hPipelineHandle=0x1f00000a, sync id:65614 use id:0 first timestamp:68215872561
+10-16 21:09:07.910 I/audio_hw_primary(  499): utils_TpcPreWrite: setAudioClockState hw_sync_id 65614 user_id 0 state 1 type 0, audio_time(0), sys_time(0)
+10-16 21:09:07.910 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3477, seq-number=68215872734, mime=audio/wav
+10-16 21:09:07.910 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3477, algorithm-delay=0 us
+10-16 21:09:07.910 I/audio_hw_primary(  499): utils_lapaf_update_latency: EarcOutput path latency=52 ms
+10-16 21:09:07.910 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3477 channel-mask=0x0000000c, seq-number=68215872734 sample-rate=192000, has-atmos = 0, mtk.is-dualmono=0, presentation-language=, presentation-id=-1, mtk.dialogue-enhancement-max-gain=0, decoder-status = 0
+10-16 21:09:07.910 I/audio_hw_primary(  499): utils_audio_metadata_callBack: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=on  
+10-16 21:09:07.911 D/audio_hw_primary(  499): adev_get_parameters: tcl_audio_dobly_atmos_value;tcl_audio_dobly_audio_format;tcl_audio_dts_logo_type;tcl_audio_stream_id;tcl_audio_stream_info;tcl_audio_type
+10-16 21:09:07.911 I/audio_hw_primary(  499): _utils_lapaf_set_speaker_delay: handle=3477, audio_low_latency:0 set extra delay 0 ms to pipeline SpeakerOutput, ret=0 delay
+10-16 21:09:07.911 I/audio_hw_primary(  499): __utils_lapaf_check_tempo_latency tempoLatency = 0
+10-16 21:09:07.911 I/audio_hw_primary(  499): utils_lapaf_update_latency: handle=3477 hw_sync_id 65614 use_id 0 report latency(us) done, decoder:0, render:52000, total render=52000, external=20000, isPVR: 0
+10-16 21:09:07.912 I/audio_hw_primary(  499): utils_hdmi_in_reset_dd: Reset DD (connect=1)
+10-16 21:09:07.912 I/audio_hw_primary(  499): utils_hdmi_in_reset_dd: Play hdmi pipeline
+10-16 21:09:07.912 I/audio_hw_primary(  499): connect: [0x1F000009, Hdmi2], [0x1F00000A, Decoder_3477] Done 
+10-16 21:09:07.912 I/audio_hw_primary(  499): connect: [0x1F000009, Hdmi2] Path = 0, Clock = 0, [0x1F00000B, SrcDecoder_3477] Format = Lpcm, Selector = 1
+10-16 21:09:07.912 I/audio_hw_primary(  499): utils_out_stream_connect_source: connect pipeline[0x1F000009, Hdmi2], pipeline[0x1F00000A, Decoder_3477] Done !!
+10-16 21:09:07.912 I/audio_hw_primary(  499): utils_TpcPostWrite: handle=3477, current state(0) enter PLAY state
+10-16 21:09:07.913 D/audio_hw_primary(  499): getPcmrAtmosLock: pcmr atmos lock [0]
+10-16 21:09:07.913 D/audio_hw_primary(  499): __utils_judge_Metadata_source: isChmodLockUser=0, isAtmosLock=0
+10-16 21:09:07.913 D/audio_hw_primary(  499): __utils_judge_Metadata_source: primary_media_active=0, isKeep=1, mForegroundApp:com.tcl.tv
+10-16 21:09:07.913 I/audio_hw_primary(  499): __utils_judge_Metadata_source: Set Paramter[PcmrKeepLastMD][1]  Ok.
+10-16 21:09:07.913 I/audio_hw_primary(  499): utils_lapaf_setDelayTime: handle: 3477 device pipeline: EarcOutput, filter: EarcOutput, decoder/render/external latency[0, 52000, 20000](us), TPC delay: 218999(us), actual delay: 218(ms)
+10-16 21:09:07.914 I/thal_audio(  499): INFO [thal_audio_get_format_type:1900]: enter
+10-16 21:09:07.914 I/thal_audio(  499): INFO [_thal_audio_get_codec_type:1208]: enter
+10-16 21:09:07.914 D/audio_hw_primary(  499): adev_get_parameters: STREAM_INFO
+10-16 21:09:07.914 I/audio_hw_primary(  499): cus_get_parameter: index:1, handle: 3477, Ch:12, hasAtmos:0, codec:3, is_dual_mono:0, playback:1
+10-16 21:09:07.914 D/audio_hw_primary(  499): adev_get_parameters: Get Customer key : STREAM_INFO. => reply = STREAM_CODEC=3;STREAM_SR=192000;STREAM_DTS=0;STREAM_ATOMS=0;STREAM_CH=12;STREAM_DUALMONO=0
+10-16 21:09:07.914 D/audio_hw_primary(  499): adev_get_parameters: STREAM_CODEC=3;STREAM_SR=192000;STREAM_DTS=0;STREAM_ATOMS=0;STREAM_CH=12;STREAM_DUALMONO=0
+10-16 21:09:07.914 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:601]: enter
+10-16 21:09:07.914 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:720]: convert codec(0x00000003) to format(1)
+10-16 21:09:07.914 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:722]: leave
+10-16 21:09:07.914 I/thal_audio(  499): INFO [_thal_audio_get_codec_type:1236]: leave
+10-16 21:09:07.914 I/thal_audio(  499): INFO [_thal_audio_get_format_type_by_codec:941]: enter
+10-16 21:09:07.914 I/thal_audio(  499): INFO [_thal_audio_get_format_type_by_codec:957]: convert format(1) to (0)
+10-16 21:09:07.914 I/thal_audio(  499): INFO [_thal_audio_get_format_type_by_codec:958]: leave
+10-16 21:09:07.914 I/thal_audio(  499): INFO [thal_audio_get_format_type:1911]: p_sound_type:0
+10-16 21:09:07.914 I/thal_audio(  499): INFO [thal_audio_get_format_type:1913]: leave
+10-16 21:09:07.914 D/audio_hw_tcl(  499): fpi_audio_get_digital_sound_info:thal_audio_get_format_type get audio stream sound mode is EN_FPP_AUDIO_NORMAL
+10-16 21:09:07.914 I/audio_hw_tcl(  499): [fpi_audio_update_attribute,5785]"fpi_audio_update_attribute,type=2,status=2"
+10-16 21:09:07.914 I/audio_hw_tcl(  499): [_fpi_audio_update_sound_effect_setting,5729]"_fpi_audio_update_sound_effect_setting g_start_sound_effect_auto_select=0 g_pre_audio_format_mode=2 audio_format_mode=2 audio_technology_type=16"
+10-16 21:09:07.914 I/audio_hw_tcl(  499): [_fpi_audio_update_sound_effect_setting,5776]"_fpi_audio_update_sound_effect_setting Sound effect auto setting success. Current audio_technology_type:0x10"
+10-16 21:09:07.914 D/audio_hw_tcl(  499): adev_get_parameters: result_str:tcl_audio_stream_id=816;tcl_audio_type=2;tcl_audio_dobly_audio_format=0
+10-16 21:09:07.915 D/TclAudioServiceEx(  542): notify audio format changed tcl.media.IOnAudioFormatChangedListener$Stub$Proxy@e05a2b0
+10-16 21:09:07.915 D/TclAudioServiceEx(  542): notify audio format changed tcl.media.IOnAudioFormatChangedListener$Stub$Proxy@64fb1aa
+10-16 21:09:07.915 I/audio_hw_primary(  499): utils_isSyncFreeRun: free_run=0
+10-16 21:09:07.915 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3477
+10-16 21:09:07.916 I/audio_hw_primary(  499): setMute: SrcDecoder_3477 set volume unmute type 9. final muted:0
+10-16 21:09:07.916 I/audio_hw_primary(  499): utils_TpcSetPlay: out_handle=3477(0xee100c10) success(0) to set TPC mute 0
+10-16 21:09:07.916 I/audio_hw_primary(  499): utils_TpcSetPlay: out_handle=3477, enable_sync=0, play=1, low_latency=0, stc=0, sys=0
+10-16 21:09:07.937 I/audio_hw_primary(  499): utils_digital_output_process: SpdifOutput, Output format Keep (1), SampleRateChanged:0
+10-16 21:09:07.938 I/audio_hw_primary(  499): utils_set_digital_output_tb11: don't do loudness matching in lapaf mode
+10-16 21:09:07.938 I/audio_hw_primary(  499): utils_digital_output_process: ArcOutput, Output format  no need to be updated this time. cur = (1), SampleRateChanged:0
+10-16 21:09:07.938 I/audio_hw_primary(  499): utils_digital_output_process: EarcOutput, Output format update from (1) to (5), SampleRateChanged :0
+10-16 21:09:07.938 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_13, Device=EarcOutput, Action=disconnect, PathType=Primary, PostMode=Dap.
+10-16 21:09:07.938 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F000000, Decoder_13], pipeline[0x1F000007, SEEarcOutput] Done !!
+10-16 21:09:07.938 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:07.938 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_3477, Device=EarcOutput, Action=disconnect, PathType=HwAvSync, PostMode=Dap.
+10-16 21:09:07.938 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F00000B, SrcDecoder_3477], pipeline[0x1F000007, SEEarcOutput] Done !!
+10-16 21:09:07.938 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F000007, SEEarcOutput], pipeline[0x1F000008, EarcOutput] Done !!
+10-16 21:09:07.939 I/audio_hw_primary(  499): release: pipeline [SEEarcOutput] handle [0x1f000007] Done !!
+10-16 21:09:07.939 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] handle [0x1f000008] Done !!
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 0 to false
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 1 to false
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 8 to false
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 9 to false
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 10 to false
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 11 to false
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 12 to false
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 13 to false
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 14 to false
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 15 to false
+10-16 21:09:07.940 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 16 to false
+10-16 21:09:07.940 I/audio_hw_primary(  499): release device pipeline: EarcOutput
+10-16 21:09:07.940 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_13, Device=EarcOutput, Action=connect, PathType=Primary, PostMode=Dap.
+10-16 21:09:07.940 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:07.940 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=13, state=0, playback_status=0
+10-16 21:09:07.941 E/audio_hw_primary(  499): utils_lapaf_update_latency: pipeline_device.handle should not be NULL !
+10-16 21:09:07.941 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_3477, Device=EarcOutput, Action=connect, PathType=HwAvSync, PostMode=Dap.
+10-16 21:09:07.941 E/audio_hw_primary(  499): create: pipeline[0x1f000007], event[DapDialogueEnhancementGain] rigister callback, ret 5!!
+10-16 21:09:07.941 I/audio_hw_primary(  499): create: effect pipeline SEBypassOutput[SETarget=BypassOutput] handle [0x1f000007] Done !!
+10-16 21:09:07.941 I/audio_hw_primary(  499): connect: connect pipeline[0x1F00000A, Decoder_3477], pipeline[0x1F000007, SEBypassOutput] Done !!
+10-16 21:09:07.945 D/audio_hw_primary(  499): Register Event EarcOutput, EarcOutput_Event_OutputFormat 
+10-16 21:09:07.945 D/audio_hw_primary(  499): Register Event EarcOutput, EarcOutput_Event_UpdateFormatDone 
+10-16 21:09:07.945 I/audio_hw_primary(  499): create - 7353: device pipeline EarcOutput to restore volume gain:0.
+10-16 21:09:07.946 I/audio_hw_primary(  499): setVolumeDb: EarcOutput set volume gain 0.
+10-16 21:09:07.947 I/audio_hw_primary(  499): setDelay: set EarcOutput delay 0 ms [total delay:0][delay:0/adjust:0/extra:0]
+10-16 21:09:07.948 I/audio_hw_primary(  499): setMute: EarcOutput set volume unmute type 0. final muted:0
+10-16 21:09:07.948 I/audio_hw_primary(  499): create: device pipeline EarcOutput[OutputDevice=EarcOutput, DigitalAudioFormat=NPCM] handle [0x1f000008] Done !!
+10-16 21:09:07.948 I/audio_hw_primary(  499): connect: connect pipeline[0x1F000007, SEBypassOutput], pipeline[0x1F000008, EarcOutput] Done !!
+10-16 21:09:07.948 I/audio_hw_primary(  499): connect: connect pipeline[0x1F00000B, SrcDecoder_3477, Src], pipeline[0x1F000005, Loopback, Loopback] Done !!
+10-16 21:09:07.948 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:07.948 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3477
+10-16 21:09:07.949 I/audio_hw_primary(  499): setVolumeGain: SrcDecoder_3477 set volume gain 0x7fffff.
+10-16 21:09:07.949 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=3477, state=1, playback_status=1
+10-16 21:09:07.949 I/audio_hw_primary(  499): utils_lapaf_update_latency: EarcOutput path latency=52 ms
+10-16 21:09:07.950 I/audio_hw_primary(  499): _utils_lapaf_set_speaker_delay: handle=3477, audio_low_latency:0 set extra delay 0 ms to pipeline SpeakerOutput, ret=0 delay
+10-16 21:09:07.950 I/audio_hw_primary(  499): __utils_lapaf_check_tempo_latency tempoLatency = 0
+10-16 21:09:07.950 I/audio_hw_primary(  499): utils_lapaf_update_latency: handle=3477 hw_sync_id 65614 use_id 0 report latency(us) done, decoder:0, render:52000, total render=52000, external=20000, isPVR: 0
+10-16 21:09:07.950 I/audio_hw_primary(  499): Bypass apply -1 RawFrameRate for EarcOutput with handle:3477
+10-16 21:09:07.952 I/audio_hw_primary(  499): utils_set_digital_output_tb11: don't do loudness matching in lapaf mode
+10-16 21:09:07.952 I/audio_hw_primary(  499): setParameter: enabled devices (16)
+10-16 21:09:07.952 I/audio_hw_primary(  499): setParameter: loopback source (1)
+10-16 21:09:07.952 I/audio_hw_primary(  499): setLoopbackBuffer: SetParameters(1).
+10-16 21:09:07.952 I/audio_hw_primary(  499): setLoopbackBuffer: Loopback set loopback buffer (1).
+10-16 21:09:08.465 I/C2MtkHdmiCap(  469): paramMonitorThread: update notifyEvent = 3 value = 17
+10-16 21:09:08.466 I/C2MtkHdmiCap(  469): _PcDataType2AudioFormat PC Data Type = 17. HDMI Audio Format = 0x500
+10-16 21:09:08.466 I/C2MtkHdmiCap(  469): paramMonitorThread: Receive notify from HDMI filter, PC = 17, HDMI Format = 0x500, Track Format = 0x100
+10-16 21:09:08.466 I/C2MtkHdmiCap(  469): _AudioFormat2MediaType: audioFormat = 0x500 => mediaType = audio/vnd.dts
+10-16 21:09:08.466 I/C2MtkHdmiCap(  469): preCheck HDMI DD = 500, Player = 100  => format.c_str() = audio/vnd.dts!!!
+10-16 21:09:08.466 I/C2MtkHdmiCap(  469): _MediaType2AudioFormat Media Type = audio/vnd.dts. HDMI Audio Format = 0x500
+10-16 21:09:08.466 I/C2MtkHdmiCap(  469): _getHdmiStableClock: check clock stable 0 to 192000. cnt = 1
+10-16 21:09:08.497 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3477
+10-16 21:09:08.497 I/audio_hw_primary(  499): setMute: muted by type: 0
+10-16 21:09:08.498 I/audio_hw_primary(  499): setMute: SrcDecoder_3477 set volume mute type 0. final muted:1
+10-16 21:09:08.498 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3477
+10-16 21:09:08.498 I/audio_hw_primary(  499): setMute: muted by type: 0
+10-16 21:09:08.499 I/audio_hw_primary(  499): setMute: SrcDecoder_3477 set volume mute type 0. final muted:1
+10-16 21:09:08.499 I/C2MtkHdmiCap(  469): preCheck: Set HDMI config : data type =  RAW
+10-16 21:09:08.499 I/C2MtkHdmiCap(  469): preCheck: Set HDMI config : path 2
+10-16 21:09:08.499 I/C2MtkHdmiCap(  469): preCheck: Set HDMI config : clock 192000
+10-16 21:09:08.500 I/audio_hw_primary(  499): updateFirstDecodedTimestamp: out_handle=3477, hPipelineHandle=0x1f00000a, sync id:65614 use id:0 first timestamp:68216462842
+10-16 21:09:08.500 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3477, seq-number=68216463033, mime=audio/wav
+10-16 21:09:08.501 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3477, algorithm-delay=0 us
+10-16 21:09:08.501 I/audio_hw_primary(  499): utils_audio_metadata_callBack: handle=3477 channel-mask=0x0000000c, seq-number=68216463033 sample-rate=192000, has-atmos = 0, mtk.is-dualmono=0, presentation-language=, presentation-id=-1, mtk.dialogue-enhancement-max-gain=0, decoder-status = 0
+10-16 21:09:08.501 I/audio_hw_primary(  499): utils_audio_metadata_callBack: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=on  
+10-16 21:09:08.501 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3477
+10-16 21:09:08.502 I/audio_hw_primary(  499): setMute: SrcDecoder_3477 set volume unmute type 0. final muted:0
+10-16 21:09:08.502 I/C2MtkHdmiCap(  469): preCheck: After parsingAudioInfoFrame, vaildAudioInfoFrame = 1, format = audio/vnd.dts, sampleRate = 192000, channel = 2, pcmBitWidth = 0
+10-16 21:09:08.502 I/C2MtkHdmiCap(  469): _MediaType2AudioFormat Media Type = audio/vnd.dts. HDMI Audio Format = 0x500
+10-16 21:09:08.502 I/C2MtkHdmiCap(  469): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 192000, channelCountInfo = 2
+10-16 21:09:08.510 D/audio_hw_primary(  499): out_pause: stream=0xee100c10, handle=3477
+10-16 21:09:08.510 D/audio_hw_primary(  499): out_pause: stream=0xee100c10, handle=3477 skip cause by AStream Tunnel Mode
+10-16 21:09:08.513 I/C2MtkHdmiCap(  469): preCheck reset mFormatFromDD
+10-16 21:09:08.514 D/audio_hw_primary(  499): out_flush: stream=0xee100c10, handle=3477
+10-16 21:09:08.515 I/audio_hw_primary(  499): utils_TpcNotifyFlush: hw_sync_id 65614 user_id 0 DONE
+10-16 21:09:08.515 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F000009, Hdmi2], pipeline[0x1F00000A, Decoder_3477] Done !!
+10-16 21:09:08.516 I/audio_hw_primary(  499): utils_out_stream_disconnect_source: disconnect pipeline[0x1F000009, Hdmi2], pipeline[0x1F00000A, Decoder_3477] Done !!
+10-16 21:09:08.516 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=3477, state=0, playback_status=1
+10-16 21:09:08.516 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3477
+10-16 21:09:08.516 I/audio_hw_primary(  499): setMute: muted by type: 0
+10-16 21:09:08.519 I/audio_hw_primary(  499): setMute: SrcDecoder_3477 set volume mute type 0. final muted:1
+10-16 21:09:08.520 I/audio_hw_primary(  499): getVolNickName Not outputdevice pipelinename: SrcDecoder_3477
+10-16 21:09:08.520 I/audio_hw_primary(  499): setMute: muted by type: 0
+10-16 21:09:08.521 I/audio_hw_primary(  499): setMute: SrcDecoder_3477 set volume mute type 0. final muted:1
+10-16 21:09:08.522 D/audio_hw_primary(  499): out_standby: stream=0xee100c10, handle=3477
+10-16 21:09:08.522 I/audio_hw_primary(  499): out_standby: totalPresentationPosition:0 current_position:0
+10-16 21:09:08.522 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=3477, state=0, playback_status=0
+10-16 21:09:08.536 I/audio_hw_primary(  499): adev_open_output_stream: handle:3485 dev:AUDIO_DEVICE_OUT_HDMI_EARC fmt/chn/sr 0x0b000000/2/192000, flag 0x00000041, encsl_m/cnt_id/sync_id 1/16/2147483647
+10-16 21:09:08.536 I/audio_hw_primary(  499): utils_out_stream_init_tpc_audio: assign TpcAudioLink to OutputStream struct
+10-16 21:09:08.536 I/audio_hw_primary(  499): utils_out_stream_init_tpc_audio: TV input in passthrough mode
+10-16 21:09:08.536 E/audio_hw_primary(  499): adev_open_output_stream: return fail(-22) at (4322)!!
+10-16 21:09:08.536 I/audio_hw_primary(  499): utils_close_tpcaudio_pipeline: release TPC AUDIO LINK stuff
+10-16 21:09:08.537 I/audio_hw_primary(  499): utils_out_stream_close_pipeline unmute device EarcOutput
+10-16 21:09:08.538 I/audio_hw_primary(  499): setMute: EarcOutput set volume unmute type 8. final muted:0
+10-16 21:09:08.539 I/audio_hw_primary(  499): adev_open_output_stream: handle:3485 dev:AUDIO_DEVICE_OUT_HDMI_EARC fmt/chn/sr 0x00000001/2/192000, flag 0x00000441, encsl_m/cnt_id/sync_id 1/16/2147483647
+10-16 21:09:08.539 E/audio_hw_primary(  499): adev_open_output_stream: unsupport flags 0x441
+10-16 21:09:08.542 I/audio_hw_primary(  499): adev_release_audio_patch: release audio_patch 0xf0162d50, handle 2.
+10-16 21:09:08.542 D/audio_hw_primary(  499): utils_ApplyOutputPath: action 2, bDisconnectOutput 1, bConnectOutput 0, bUpdateOutput 0, out devices(AUDIO_DEVICE_OUT_HDMI_EARC), connectDevices(), disconnectDevices(AUDIO_DEVICE_OUT_HDMI_EARC), out handle 3477
+10-16 21:09:08.542 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_3477, Device=EarcOutput, Action=disconnect, PathType=HwAvSync, PostMode=Dap.
+10-16 21:09:08.542 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F00000A, Decoder_3477], pipeline[0x1F000007, SEBypassOutput] Done !!
+10-16 21:09:08.542 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F000007, SEBypassOutput], pipeline[0x1F000008, EarcOutput] Done !!
+10-16 21:09:08.542 I/audio_hw_primary(  499): release: pipeline [SEBypassOutput] handle [0x1f000007] Done !!
+10-16 21:09:08.542 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F00000B, SrcDecoder_3477], pipeline[0x1F000005, Loopback] Done !!
+10-16 21:09:08.542 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:08.542 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_3477, Device=SpdifOutput, Action=disconnect, PathType=HwAvSync, PostMode=Dap.
+10-16 21:09:08.543 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F00000B, SrcDecoder_3477], pipeline[0x1F000004, SESpdifOutput] Done !!
+10-16 21:09:08.543 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:08.543 D/audio_hw_primary(  499): utils_ApplyOutputPath(1911): out devices(), routing status(0x00040000) 
+10-16 21:09:08.543 I/audio_hw_primary(  499): setParameter: enabled devices (16)
+10-16 21:09:08.543 I/audio_hw_primary(  499): setParameter: loopback source (1)
+10-16 21:09:08.543 I/audio_hw_primary(  499): setLoopbackBuffer: SetParameters(1).
+10-16 21:09:08.543 I/audio_hw_primary(  499): setLoopbackBuffer: Loopback set loopback buffer (1).
+10-16 21:09:08.543 I/audio_hw_primary(  499): adev_release_audio_patch: NO DTS playback
+10-16 21:09:08.543 D/audio_hw_primary(  499): _utils_get_input_source_type Input Source:Mm
+10-16 21:09:08.543 I/audio_hw_primary(  499): setInputSource: SetParameters(Mm).
+10-16 21:09:08.545 I/audio_hw_primary(  499): setInputSource: MseMvs set input source (Mm).
+10-16 21:09:08.545 I/audio_hw_primary(  499): utils_eArcMchPcm_output_ctrl: Ninja(0), EarcExist(1), FastMmapExist(0), InputMchPcmExist(0), UI(Bypass)
+10-16 21:09:08.547 D/audio_hw_primary(  499): out_common_set_parameters: handle=3477, kvpairs closing=true !!
+10-16 21:09:08.549 D/audio_hw_primary(  499): out_common_set_parameters: handle=3477, kvpairs exiting=1 !!
+10-16 21:09:08.551 I/audio_hw_primary(  499): out_set_event_callback: handle = 3477
+10-16 21:09:08.551 I/audio_hw_primary(  499): adev_close_output_stream: out->handle(3477)
+10-16 21:09:08.551 I/audio_hw_primary(  499): utils_close_tpcaudio_pipeline: release TPC AUDIO LINK stuff
+10-16 21:09:08.551 I/audio_hw_primary(  499): utils_out_stream_close_pipeline: notify_string TRACK_AUDIO_CODEC_FORMAT=source=HDMI;mime=audio/wav;status=off  
+10-16 21:09:08.551 I/audio_hw_primary(  499): disconnect: disconnect pipeline[0x1F00000A, Decoder_3477], pipeline[0x1F00000B, SrcDecoder_3477] Done !!
+10-16 21:09:08.552 I/audio_hw_primary(  499): release: pipeline [SrcDecoder_3477] handle [0x1f00000b] Done !!
+10-16 21:09:08.552 D/audio_hw_primary(  499): updateDigitalFormat: hPipelineHandle(0x1f000006), event(SpdifOutput_Event_OutputFormat), digital_format(1).
+10-16 21:09:08.552 D/audio_hw_primary(  499): updateDigitalFormat: hPipelineHandle(0x1f000008), event(EarcOutput_Event_OutputFormat), digital_format(5).
+10-16 21:09:08.552 I/audio_hw_primary(  499): updateDigitalFormatDone: hPipelineHandle(0x1f000008), event(EarcOutput_Event_UpdateFormatDone), digitalformatdone(1)
+10-16 21:09:08.552 I/audio_hw_primary(  499): utils_out_stream_close_pipeline: Set Paramter[Param_DecodeFormat] decoder_format = 0x0. Ok.
+10-16 21:09:08.559 I/audio_hw_primary(  499): release: pipeline [Decoder_3477] handle [0x1f00000a] Done !!
+10-16 21:09:08.559 I/audio_hw_primary(  499): utils_force_recover_digital_output_format_for_bypass L8147: EarcOutput Force recover topology for bypass case.
+10-16 21:09:08.560 I/audio_hw_primary(  499): utils_out_stream_close_pipeline unmute device EarcOutput
+10-16 21:09:08.562 I/audio_hw_primary(  499): setMute: EarcOutput set volume unmute type 8. final muted:0
+10-16 21:09:08.562 I/audio_hw_primary(  499): utils_digital_output_process: SpdifOutput, Output format Keep (1), SampleRateChanged:0
+10-16 21:09:08.562 I/thal_audio(  499): INFO [onNotifyAudioSettingInfo:4272]: kvpairs = (TRACK_AUDIO_FORMAT_CHANGED=YES;value=0;)
+10-16 21:09:08.562 I/thal_audio(  499): INFO [thal_audio_event_callback:4364]: enter
+10-16 21:09:08.562 I/thal_audio(  499): INFO [thal_audio_event_callback:4375]: get parameter CALLBACK_EVENT_TRACK_AUDIO_FORMAT_CHANGED
+10-16 21:09:08.562 I/thal_audio(  499): INFO [thal_audio_format_callback:4436]: enter
+10-16 21:09:08.562 I/thal_audio(  499): INFO [thal_audio_format_callback:4442]: kvpairs = (TRACK_AUDIO_FORMAT_CHANGED=YES;value=0;)
+10-16 21:09:08.562 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:601]: enter
+10-16 21:09:08.562 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:720]: convert codec(0x00000000) to format(1)
+10-16 21:09:08.562 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:722]: leave
+10-16 21:09:08.562 I/thal_audio(  499): INFO [thal_audio_format_callback:4458]: audio_format(0x00000000), format = 1
+10-16 21:09:08.562 I/thal_audio(  499): INFO [thal_audio_format_callback:4462]: call _pfAudioCallback
+10-16 21:09:08.563 E/audio_hw_tcl(  499): taudio notiy sound mode changed
+10-16 21:09:08.563 I/audio_hw_primary(  499): utils_set_digital_output_tb11: don't do loudness matching in lapaf mode
+10-16 21:09:08.563 I/audio_hw_primary(  499): utils_digital_output_process: ArcOutput, Output format  no need to be updated this time. cur = (1), SampleRateChanged:0
+10-16 21:09:08.563 D/TclAudioServiceEx(  542): onCommonEventChanged type:1, value:0, str:
+10-16 21:09:08.563 I/audio_hw_primary(  499): utils_digital_output_process: EarcOutput, Output format Keep (5), SampleRateChanged:0
+10-16 21:09:08.563 I/audio_hw_primary(  499): Bypass apply -1 RawFrameRate for EarcOutput with handle:13
+10-16 21:09:08.563 D/audio_hw_tcl(  499): _fpi_audio_common_thread_function is resume.
+10-16 21:09:08.563 E/audio_hw_tcl(  499): [fpi_audio_callback,5684]"fpi_audio_callback: 5684, EN_THAL_AUDIO_EVENT_AUDIO_FORMAT_CHANGED happend"
+10-16 21:09:08.563 I/thal_audio(  499): INFO [thal_audio_format_callback:4470]: leave
+10-16 21:09:08.563 I/thal_audio(  499): INFO [thal_audio_event_callback:4385]: leave
+10-16 21:09:08.563 D/audio_hw_tcl(  499): _fpi_audio_common_thread_function running bNeedUpdateDigitalAudioOutput processing.
+10-16 21:09:08.563 D/audio_hw_tcl(  499): _fpi_audio_common_thread_function is pause.
+10-16 21:09:08.564 D/audio_hw_primary(  499): adev_get_parameters: tcl_audio_dobly_atmos_value;tcl_audio_dobly_audio_format;tcl_audio_dts_logo_type;tcl_audio_stream_id;tcl_audio_stream_info;tcl_audio_type
+10-16 21:09:08.564 I/audio_hw_primary(  499): utils_set_digital_output_tb11: don't do loudness matching in lapaf mode
+10-16 21:09:08.564 E/audio_hw_primary(  499): utils_set_dts_parameter_by_output_device: adev->main_output_stream should not be NULL !
+10-16 21:09:08.565 I/audio_hw_primary(  499): setParameter: enabled devices (16)
+10-16 21:09:08.565 I/audio_hw_primary(  499): setParameter: loopback source (1)
+10-16 21:09:08.565 I/audio_hw_primary(  499): setLoopbackBuffer: SetParameters(1).
+10-16 21:09:08.565 I/thal_audio(  499): INFO [thal_audio_get_format_type:1900]: enter
+10-16 21:09:08.565 I/thal_audio(  499): INFO [_thal_audio_get_codec_type:1208]: enter
+10-16 21:09:08.565 D/audio_hw_primary(  499): adev_get_parameters: STREAM_INFO
+10-16 21:09:08.565 I/audio_hw_primary(  499): setLoopbackBuffer: Loopback set loopback buffer (1).
+10-16 21:09:08.566 D/audio_hw_primary(  499): adev_get_parameters: Get Customer key : STREAM_INFO. => reply = STREAM_CODEC=0;STREAM_SR=0;STREAM_DTS=0;STREAM_ATOMS=0;STREAM_CH=0;STREAM_DUALMONO=-1
+10-16 21:09:08.566 D/audio_hw_primary(  499): adev_get_parameters: STREAM_CODEC=0;STREAM_SR=0;STREAM_DTS=0;STREAM_ATOMS=0;STREAM_CH=0;STREAM_DUALMONO=-1
+10-16 21:09:08.566 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:601]: enter
+10-16 21:09:08.566 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:720]: convert codec(0x00000000) to format(1)
+10-16 21:09:08.566 I/thal_audio(  499): INFO [_thal_audio_codec_to_thal_mapping:722]: leave
+10-16 21:09:08.566 I/thal_audio(  499): INFO [_thal_audio_get_codec_type:1236]: leave
+10-16 21:09:08.566 I/thal_audio(  499): INFO [_thal_audio_get_format_type_by_codec:941]: enter
+10-16 21:09:08.566 I/thal_audio(  499): INFO [_thal_audio_get_format_type_by_codec:957]: convert format(1) to (0)
+10-16 21:09:08.566 I/thal_audio(  499): INFO [_thal_audio_get_format_type_by_codec:958]: leave
+10-16 21:09:08.566 I/thal_audio(  499): INFO [thal_audio_get_format_type:1911]: p_sound_type:0
+10-16 21:09:08.566 I/thal_audio(  499): INFO [thal_audio_get_format_type:1913]: leave
+10-16 21:09:08.566 D/audio_hw_tcl(  499): fpi_audio_get_digital_sound_info:thal_audio_get_format_type get audio stream sound mode is EN_FPP_AUDIO_NORMAL
+10-16 21:09:08.566 I/audio_hw_tcl(  499): [fpi_audio_update_attribute,5785]"fpi_audio_update_attribute,type=2,status=2"
+10-16 21:09:08.566 I/audio_hw_tcl(  499): [_fpi_audio_update_sound_effect_setting,5729]"_fpi_audio_update_sound_effect_setting g_start_sound_effect_auto_select=0 g_pre_audio_format_mode=2 audio_format_mode=2 audio_technology_type=16"
+10-16 21:09:08.566 I/audio_hw_tcl(  499): [_fpi_audio_update_sound_effect_setting,5776]"_fpi_audio_update_sound_effect_setting Sound effect auto setting success. Current audio_technology_type:0x10"
+10-16 21:09:08.566 D/audio_hw_tcl(  499): adev_get_parameters: result_str:tcl_audio_stream_id=817;tcl_audio_type=2;tcl_audio_dobly_audio_format=0
+10-16 21:09:08.567 D/TclAudioServiceEx(  542): notify audio format changed tcl.media.IOnAudioFormatChangedListener$Stub$Proxy@e05a2b0
+10-16 21:09:08.568 D/TclAudioServiceEx(  542): notify audio format changed tcl.media.IOnAudioFormatChangedListener$Stub$Proxy@64fb1aa
+10-16 21:09:08.608 I/C2MtkHdmiCap(  469): paramMonitorThread: update notifyEvent = 3 value = 17
+10-16 21:09:08.608 I/C2MtkHdmiCap(  469): _PcDataType2AudioFormat PC Data Type = 17. HDMI Audio Format = 0x500
+10-16 21:09:08.608 I/C2MtkHdmiCap(  469): paramMonitorThread: Receive notify from HDMI filter, PC = 17, HDMI Format = 0x500, Track Format = 0x500
+10-16 21:09:08.609 I/C2MtkHdmiCap(  469): preCheck reset mFormatFromDD
+10-16 21:09:08.666 I/audio_hw_primary(  499): utils_digital_output_process: SpdifOutput, Output format  no need to be updated this time. cur = (1), SampleRateChanged:0
+10-16 21:09:08.666 I/audio_hw_primary(  499): utils_digital_output_process: ArcOutput, Output format  no need to be updated this time. cur = (1), SampleRateChanged:0
+10-16 21:09:08.666 I/audio_hw_primary(  499): utils_digital_output_process: EarcOutput, Output format update from (5) to (1), SampleRateChanged :0
+10-16 21:09:08.666 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_13, Device=EarcOutput, Action=disconnect, PathType=Primary, PostMode=Dap.
+10-16 21:09:08.666 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] handle [0x1f000008] Done !!
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 0 to false
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 1 to false
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 8 to false
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 9 to false
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 10 to false
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 11 to false
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 12 to false
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 13 to false
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 14 to false
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 15 to false
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] reset mute type 16 to false
+10-16 21:09:08.666 I/audio_hw_primary(  499): release: pipeline [EarcOutput] handle [0x0] cur digital format as E_MI_APAF_DIGITAL_OUTPUT_BYPASS. keep bypass after release
+10-16 21:09:08.667 I/audio_hw_primary(  499): release device pipeline: EarcOutput
+10-16 21:09:08.667 D/audio_hw_primary(  499): updatePipelineTopology: Stream=Decoder_13, Device=EarcOutput, Action=connect, PathType=Primary, PostMode=Dap.
+10-16 21:09:08.667 E/audio_hw_primary(  499): create: pipeline[0x1f000007], event[DapDialogueEnhancementGain] rigister callback, ret 5!!
+10-16 21:09:08.667 I/audio_hw_primary(  499): create: effect pipeline SEEarcOutput[SETarget=EarcOutput] handle [0x1f000007] Done !!
+10-16 21:09:08.667 I/audio_hw_primary(  499): connect: connect pipeline[0x1F000000, Decoder_13], pipeline[0x1F000007, SEEarcOutput] Done !!
+10-16 21:09:08.671 D/audio_hw_primary(  499): Register Event EarcOutput, EarcOutput_Event_OutputFormat 
+10-16 21:09:08.671 D/audio_hw_primary(  499): Register Event EarcOutput, EarcOutput_Event_UpdateFormatDone 
+10-16 21:09:08.671 I/audio_hw_primary(  499): create - 7353: device pipeline EarcOutput to restore volume gain:0.
+10-16 21:09:08.672 I/audio_hw_primary(  499): setVolumeDb: EarcOutput set volume gain 0.
+10-16 21:09:08.673 I/audio_hw_primary(  499): setDelay: set EarcOutput delay 0 ms [total delay:0][delay:0/adjust:0/extra:0]
+10-16 21:09:08.674 I/audio_hw_primary(  499): setMute: EarcOutput set volume unmute type 0. final muted:0
+10-16 21:09:08.674 I/audio_hw_primary(  499): create: device pipeline EarcOutput[OutputDevice=EarcOutput, DigitalAudioFormat=PCM] handle [0x1f000008] Done !!
+10-16 21:09:08.674 I/audio_hw_primary(  499): connect: connect pipeline[0x1F000007, SEEarcOutput], pipeline[0x1F000008, EarcOutput] Done !!
+10-16 21:09:08.674 E/audio_hw_primary(  499): connect: connect pipeline[0x1F000008, EarcOutput, Volume], pipeline[0x1F000005, Loopback, Loopback] fail(3) !!
+10-16 21:09:08.674 I/audio_hw_primary(  499): __handleAiaqTopology: targetPipeline , bConnect 0.
+10-16 21:09:08.674 I/audio_hw_primary(  499): utils_lapaf_set_sync_state: handle=13, state=0, playback_status=0
+10-16 21:09:08.674 I/audio_hw_primary(  499): utils_lapaf_update_latency: EarcOutput path latency=32 ms
+10-16 21:09:08.675 I/audio_hw_primary(  499): _utils_lapaf_set_speaker_delay: handle=13, audio_low_latency:0 set extra delay 0 ms to pipeline SpeakerOutput, ret=0 delay
+10-16 21:09:08.675 I/audio_hw_primary(  499): __utils_lapaf_check_tempo_latency tempoLatency = 0
+10-16 21:09:08.675 I/audio_hw_primary(  499): utils_lapaf_update_latency: handle=13 hw_sync_id 3840 use_id 0 report latency(us) done, decoder:0, render:32000, total render=32000, external=20000, isPVR: 0
+10-16 21:09:08.677 I/audio_hw_primary(  499): utils_set_digital_output_tb11: don't do loudness matching in lapaf mode
+10-16 21:09:08.677 E/audio_hw_primary(  499): utils_set_dts_parameter_by_output_device: adev->main_output_stream should not be NULL !
+10-16 21:09:08.677 I/audio_hw_primary(  499): setParameter: enabled devices (16)
+10-16 21:09:08.677 I/audio_hw_primary(  499): setParameter: loopback source (2)
+10-16 21:09:08.677 I/audio_hw_primary(  499): setLoopbackBuffer: SetParameters(2).
+10-16 21:09:08.677 I/audio_hw_primary(  499): setLoopbackBuffer: Loopback set loopback buffer (2).
+10-16 21:09:09.669 I/        (11701): [MDrv_AUDIO_HDMI_ARC_SetMute][1717]User ARC/eARC mute status: 1 -> 0
