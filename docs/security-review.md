@@ -22,7 +22,7 @@ Nothing directly exploitable was found. Six weaknesses were fixed, plus one prob
 
 Automatic mode needs **USB debugging**. On the TCL C7K, that also accepts connections on port 5555 from any device on the home network. Each device still has to be approved on the TV, but the "Allow USB debugging?" prompt looks the same whoever asks, and one approval gives full control of the TV.
 
-**Fix:** the setup screen shows the app's key fingerprint (MD5, the same format as the TV's prompt), so you can check that the two match. The README tells you to press **Deny** on any prompt that appears when you haven't just opened Fix Audio, how to revoke approvals, and to leave USB debugging off if you only use the one-click button.
+**Fix:** the setup screen shows the app's key fingerprint (MD5, the same format as the TV's prompt), so you can check that the two match. The README tells you to select **Cancel** on any prompt that appears when you haven't just opened Fix Audio, how to revoke approvals, and to leave USB debugging off if you only use the one-click button.
 
 **Checked:** the fingerprint on the setup screen matched the TV's own record of the approved key.
 

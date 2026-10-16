@@ -93,53 +93,101 @@ Use at your own risk. Turning on Developer options and USB debugging changes you
 
 By installing Fix Audio you accept the [Disclaimer](#disclaimer) above.
 
-You only need the TV remote. It takes about 10 minutes, and you only do it once. The menu names below are from a TCL C7K; other TVs may word them slightly differently.
+It takes about 10 minutes, and you only do it once. There are three ways to get the app onto the TV; pick one in step 2. The menu names below are from a TCL C7K; other TVs may word them slightly differently.
+
+### Words you'll see
+
+- **App file (`.apk`):** the Fix Audio app as a single file, like a photo or a document.
+- **Developer options:** a hidden menu in the TV's Settings. Step 1 shows how to unlock it.
+- **USB debugging:** a setting in Developer options. Despite the name, you don't need a USB cable. It lets Fix Audio press Home and switch inputs for you.
+- **Unknown sources:** the TV setting that allows apps from outside the Play Store.
 
 ### Step 1: Turn on Developer options
 
 1. On the Home screen, select the **gear icon** (top right), then **Settings**.
 2. Go to **System → About**.
-3. Scroll down to **Android TV OS Build** and press **OK** on the remote **7 times**, until you see **"You are now a developer!"**
+3. Scroll down to **Android TV OS Build** and press **OK** on the remote **7 times**. The TV shows **"You are now a developer!"**
 4. Press **Back** to leave Settings.
 
-### Step 2: Get the Downloader app
+Installing from a computer (option B) and automatic mode both need this. Google TV devices are also reported to need it before they let you install apps from outside the Play Store. On the C7K, the Settings code doesn't seem to check, but we haven't been able to test without it, so turn it on whichever option you choose.
 
-5. Open the **Google Play Store** on the TV, search for **Downloader**, and install **Downloader by AFTVnews**. It's free.
-6. Let Downloader install apps: go to **Settings → Apps → Security & Restrictions → Unknown sources** and switch **Downloader** on. If the TV asks you to confirm, select **OK**.
+### Step 2: Install the app
 
-### Step 3: Download and install Fix Audio
+#### Option A: From a USB stick (simplest)
 
-7. Open **Downloader**. If it asks for permission to access files, select **Allow**.
-8. Select the address box, type this address exactly, then select **Go**:
+You need a computer, a USB stick, and the free **X-plore File Manager** app from the Play Store. (TCL's own Media Player app can't install apps on the C7K: TCL has switched that off.)
+
+On the computer:
+
+1. Go to the [latest release](../../releases/latest) and, under **Assets**, download **fix-audio.apk**. Optional: [check the download](#check-your-download).
+2. Copy **fix-audio.apk** onto the USB stick, at the top level, not inside a folder. Most USB sticks already use a format the TV can read (FAT32 or exFAT).
+3. Wait for the copy to finish, then **eject** the stick (on a Mac: the eject button next to it in Finder) and unplug it. Unplugging too early can leave an empty or broken file.
+
+On the TV:
+
+4. Open the **Google Play Store**, search for **X-plore**, and install **X-plore File Manager** by Lonely Cat Games. It's free, with ads.
+5. Plug the USB stick into a USB port on the TV, and open **X-plore**.
+6. Open the USB drive and select **fix-audio.apk**. On a Mac-made stick you may also see **._fix-audio.apk**; ignore that one.
+7. The first time, the TV says: *"For your security, your TV currently isn't allowed to install unknown apps from this source. You can change this in Settings."* That's normal. Select **Settings**, switch **X-plore** on, and if the TV warns about unknown sources, select **OK**. Press **Back**, then select **fix-audio.apk** again.
+8. The TV asks: *"Do you want to install this app?"* Select **Install**. When it says *"App installed."*, select **Done**. Unplug the USB stick.
+9. Optional, for security: switch X-plore off again under **Settings → Apps → Security & Restrictions → Unknown sources**. Turn it back on when you install an update.
+
+#### Option B: From a computer over the network
+
+For people who already use **adb** (Android's command-line tool).
+
+1. On the TV, go to **Settings → System → Developer options** and switch **USB debugging** on. The TV asks *"Allow USB debugging?"*: select **OK**. On the C7K, this also lets a computer connect over your home network. See [Security](#security).
+2. Find the TV's IP address under **Settings → Network & Internet**, by selecting your network.
+3. Download **fix-audio.apk** from the [latest release](../../releases/latest), then run:
+
+   ```
+   adb connect <tv-ip>
+   adb install fix-audio.apk
+   ```
+
+4. On the TV, a second *"Allow USB debugging?"* appears, showing your computer's key. Select **Allow**.
+
+#### Option C: On the TV only, with the Downloader app
+
+No computer needed, but you have to type a long web address with the remote.
+
+1. Open the **Google Play Store** on the TV, search for **Downloader**, and install **Downloader by AFTVnews**. It's free.
+2. Let Downloader install apps: go to **Settings → Apps → Security & Restrictions → Unknown sources** and switch **Downloader** on. If the TV warns about unknown sources, select **OK**.
+3. Open **Downloader**. If it asks for permission to access files, select **Allow**.
+4. Select the address box, type this address exactly, then select **Go**:
 
    ```
    github.com/hemmachat/earc-audio-fix-for-tcl/releases/latest/download/fix-audio.apk
    ```
 
-9. When the TV asks **"Do you want to install this app?"**, select **Install**, then **Done**.
-10. Downloader may offer to delete the downloaded file. Select **Delete**; you don't need it any more.
+5. The TV asks: *"Do you want to install this app?"* Select **Install**. When it says *"App installed."*, select **Done**.
+6. Downloader may offer to delete the downloaded file. Select **Delete**; you don't need it any more.
 
-### Step 4: Open Fix Audio once
+### Step 3: Open Fix Audio once
 
-11. Go to **Settings → Apps → See all apps → Fix Audio → Open**. Next time you can find it in the **Apps** row on the Home screen.
-12. If the app asks which input your player is on, choose it. It usually finds it by itself.
+1. Go to **Settings → Apps → See all apps → Fix Audio → Open**. Next time you can find it in the **Apps** row on the Home screen.
+2. Fix Audio shows *"Fixing the sound…"*, then returns to your player's input. It finds your player's input by itself. If it can't, it asks *"Which HDMI input is your Blu-ray player plugged into?"*: choose it once.
 
-The **one-click fix is now ready**: whenever a film is silent, open Fix Audio. If that's all you want, you're done, and you can skip step 5.
+The **one-click fix is now ready**: whenever a film is silent, open Fix Audio. If that's all you want, you're done, and you can skip step 4.
 
-### Step 5 (optional): Turn on automatic mode
+### Step 4 (optional): Turn on automatic mode
 
 Read [Security](#security) first. Automatic mode needs **USB debugging**, which on the TCL C7K also lets other devices on your home network ask to control the TV.
 
-13. Go to **Settings → System → Developer options** and switch **USB debugging** on. Select **OK** to confirm.
-14. Open **Fix Audio** again. Its screen shows a key, for example `3F:A2:07:…`.
-15. The TV shows **"Allow USB debugging?"** with a key too. Check that the two keys match. Then tick **Always allow from this computer** and select **Allow**.
-16. Press **Back**. From now on, the app fixes silent films by itself within a few seconds.
+You'll see **two different pop-ups called "Allow USB debugging?"**. That's expected.
 
-**After an update, open Fix Audio once.** Android doesn't let an app start itself until it has been opened after installing. After that, automatic mode starts again by itself after updates and reboots. If it ever stops after standby, opening Fix Audio once starts it again.
+1. Go to **Settings → System → Developer options** and switch **USB debugging** on.
+   **First pop-up:** *"Allow USB debugging?"* with *"USB debugging is intended for development purposes only…"*. This is the TV checking you meant it. Select **OK**.
+2. Open **Fix Audio**. It shows *"One-time setup for automatic mode"* and a key, for example `3F:A2:07:…`.
+3. **Second pop-up:** *"Allow USB debugging?"* with *"The computer's RSA key fingerprint is:"* and a key. The TV calls Fix Audio "this computer"; that's normal.
+   - Check the key matches the one on Fix Audio's screen. If it doesn't, select **Cancel**.
+   - Tick **Always allow from this computer**.
+   - Select **Allow**.
+4. Press **Back**. From now on, the app fixes silent films by itself within a few seconds.
 
-### Install from a computer instead
+### Updating
 
-If you use adb: turn on USB debugging (steps 1–3 and 13), then run `adb connect <tv-ip>` and `adb install fix-audio.apk` with the APK from [Releases](../../releases), and continue at step 11.
+Install the new **fix-audio.apk** the same way. This time the TV asks *"Do you want to update this app?"*: select **Update**. Your settings are kept. **After an update, open Fix Audio once:** Android doesn't let an app start itself until it has been opened after installing. After that, automatic mode starts again by itself after updates and reboots. If it ever stops after standby, opening Fix Audio once starts it again.
 
 ## FAQ
 
@@ -184,7 +232,7 @@ Apps that work through adb are allowed on Play, so a store version isn't ruled o
 
 **USB debugging is powerful.** On the TCL C7K (and probably other TCL Google TVs) it also turns on debugging over your home network (port 5555), so with it on, any device on your network can *ask* to control the TV. One "Allow" gives that device full control (installing apps, reading the screen, and more).
 
-- **Only press Allow right after opening Fix Audio.** The setup screen shows the app's key, for example `3F:A2:07:…`. The TV's prompt shows a key too, and the two must match. If a debugging prompt appears at any other time, press **Deny**.
+- **Only press Allow right after opening Fix Audio.** The setup screen shows the app's key, for example `3F:A2:07:…`. The TV's prompt shows a key too, and the two must match. If an "Allow USB debugging?" pop-up with a key appears at any other time, and you aren't connecting from your own computer (install option B), select **Cancel**.
 - **If you only want the one-click button**, leave USB debugging **off**. The one-click fix doesn't need it.
 - **To undo all approvals:** **Developer options → Revoke USB debugging authorizations**.
 

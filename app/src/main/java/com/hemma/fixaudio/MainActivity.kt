@@ -25,14 +25,20 @@ class MainActivity : Activity() {
     }
 
     private fun fixAudio(input: String) {
-        val label = message("Fixing audio…")
+        val label = message("Fixing the sound…\n\nThe picture will come back in a few seconds.")
         setContentView(label)
         // the TV needs a moment to close the HDMI input before it is reopened (3 s worked over adb)
         Handler(Looper.getMainLooper()).postDelayed({
             if (WatcherService.waitingForAllow && !File(filesDir, WatcherService.ALLOWED_FILE).exists()) {
                 // switching input would close the prompt, so stay here this once
-                val fingerprint = WatcherService.keyFingerprint(this)?.let { "\n\nThe prompt must show this key:\n$it\nIf it doesn't match, press Deny." } ?: ""
-                label.text = "First-time setup for automatic mode:\n\nOn the \"Allow USB debugging?\" prompt,\ntick Always allow, then press Allow.$fingerprint\n\nThen press Back."
+                val key = WatcherService.keyFingerprint(this)?.let { "1. Check the key on the TV matches this one:\n$it\n   If it doesn't match, select Cancel.\n" } ?: ""
+                label.text = "One-time setup for automatic mode\n\n" +
+                    "The TV is asking \"Allow USB debugging?\".\nThat's Fix Audio asking to watch for silent films.\n\n" +
+                    key +
+                    "2. Tick \"Always allow from this computer\".\n" +
+                    "3. Select Allow.\n" +
+                    "4. Press Back on your remote."
+                label.textSize = 22f
                 return@postDelayed
             }
             startActivity(Intent(Intent.ACTION_VIEW, TvContract.buildChannelUriForPassthroughInput(input)))
@@ -45,7 +51,7 @@ class MainActivity : Activity() {
         val list = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER
-            addView(message(if (inputs.isEmpty()) "No HDMI inputs found." else "Which input is your Blu-ray player on?"))
+            addView(message(if (inputs.isEmpty()) "Fix Audio couldn't find any HDMI inputs on this TV." else "Which HDMI input is your Blu-ray player plugged into?\nYou only need to choose this once."))
         }
         for (info in inputs) {
             list.addView(Button(this).apply {
