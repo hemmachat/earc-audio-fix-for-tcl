@@ -1,41 +1,74 @@
-# Fix Audio — silent eARC sound on TCL Google TVs
+# Fix Audio: no sound from TrueHD, Atmos or DTS over eARC on TCL Google TVs
 
-An Android TV app that works around a TCL firmware bug. With this bug, a Blu-ray or 4K player connected to the TV plays **no sound** through an eARC soundbar or AVR, with **Dolby TrueHD / Atmos** and **DTS** soundtracks. The usual workaround is to leave the HDMI input and come back to it. This app does that for you: in one click, or automatically when the bug happens.
+**Your TCL TV plays the Blu-ray menu, then the film starts and your soundbar goes silent?** That's a bug in the TCL software. Fix Audio is a free Android TV app that brings the sound back in one click, or does it automatically within a few seconds.
 
-## The bug
+**[Download the APK](../../releases/latest)** · Tested on TCL C7K (Google TV) · Last updated: 16 October 2026
 
-Symptoms:
+## Is this your problem?
 
-- The disc menu has sound, but the film is **silent**. Netflix and other TV apps are fine.
-- Changing the TV's digital audio output (PCM ↔ Auto / Atmos / Passthrough) sometimes brings the sound back, and sometimes doesn't.
-- Pressing Home and selecting the HDMI input again brings the sound back.
+It probably is if you have:
 
-The cause, from the TV's own logs (`adb logcat`):
+- a **Blu-ray / 4K player or streaming box** plugged into a **TCL Google TV**;
+- a **soundbar or AV receiver** on the TV's **eARC** port;
+- the disc **menu has sound**, but the **film is silent**, mostly with **Dolby TrueHD / Atmos** or **DTS** soundtracks;
+- the sound comes back when you **press Home and select the HDMI input again**;
+- switching the TV's **Digital Audio Out** between PCM and Auto/Passthrough fixes it **sometimes**, and not other times;
+- Netflix and the TV's other apps still sound fine.
 
-1. When you switch to an HDMI input, the TV sets up its eARC output for whatever audio is playing **at that moment**. That's usually the player's menu sound: 2ch, 48kHz PCM.
-2. When the film starts, the player switches to TrueHD (or another format). The TV detects this (`C2MtkHdmiCap: ... outMediaType = audio/vnd.dolby.mlp`) and switches to passthrough, but it **never sets up the eARC output again** (no new `HAL_AUDIO_eARC_TxOutputSetSequence`).
-3. The TrueHD stream goes out on a link still set to 2ch 48kHz PCM. The soundbar can't decode it, so you hear silence.
+**It probably won't help if:**
 
-When it works, the log shows the eARC output being set up as `ChCount = 8, Freq = 192, SPDIF_OUT_NONPCM`.
+- TrueHD always arrives as **stereo or multichannel PCM** instead of silence, or the TV sends **only PCM** whatever you do. Other TCL owners report this, and it looks like a different problem ([C8K thread](https://www.avforums.com/threads/c8k-passtrough-issues.2537143/), [C935 thread](https://www.avforums.com/threads/tcl-c935-has-no-dolby-truehd-signal-output-by-earc.2437293/)).
+- The silence happens in **apps on the TV** (Netflix, Prime Video, Kodi). Fix Audio only handles HDMI inputs.
+- Reselecting the input **doesn't** bring the sound back.
 
-## Tested on
+## Why it happens
+
+The TV's own logs (`adb logcat`) show the cause:
+
+1. When you open an HDMI input, the TV sets up its eARC output for the audio playing **at that moment**. That's usually the player's menu sound: 2-channel, 48kHz PCM.
+2. When the film starts, the player switches to TrueHD or DTS. The TV notices (`C2MtkHdmiCap: ... outMediaType = audio/vnd.dolby.mlp`) but **never sets up the eARC output again**: no new `HAL_AUDIO_eARC_TxOutputSetSequence`.
+3. The film's soundtrack is sent down a link still set to 2-channel PCM. The soundbar can't decode it, so you hear silence.
+
+Reselecting the input makes the TV set up the output again, this time for the format actually playing (`ChCount = 8, Freq = 192, SPDIF_OUT_NONPCM`). That's why the input-switch trick works. It's also why changing the audio setting only works sometimes: that also forces a fresh setup, but not every time.
+
+## What Fix Audio does
+
+- **One click:** open **Fix Audio** and the sound comes back. The app leaves the HDMI input and returns to it 3 seconds later. It asks once which input your player is on.
+- **Automatic (optional):** the app watches for this exact fault and fixes it by itself. When the film starts and the TV doesn't set up its eARC output within 2.5 seconds, the app switches to Home and back. You see a short flicker, then the sound returns. It does this at most twice in 5 minutes.
+- **No PCM workaround needed:** keep the player on **Bitstream**, so the soundbar gets the real TrueHD / Atmos / DTS soundtrack.
+
+## Will it work on my TV?
 
 | | |
 |---|---|
-| TV | TCL C7K, Google TV (Android 14), firmware V8-T653T01-LF1V665 |
-| Player | Panasonic DP-UB450 on HDMI 2, Dolby/DTS output set to Bitstream |
-| Soundbar | Samsung HW-Q930D on the TV's eARC port (HDMI 1) |
+| **Tested and working** | TCL C7K, Google TV (Android 14), firmware V8-T653T01-LF1V665 |
+| **Player tested** | Panasonic DP-UB450, Dolby/DTS output set to Bitstream |
+| **Soundbar tested** | Samsung HW-Q930D on the TV's eARC port |
+| **Not tested** | Other TCL Google TVs, such as the C8K, C855, QM7 and QM8 |
 
-Verified on that setup: the real bug happened after waking from standby, and automatic mode fixed it by itself within 3 seconds (8ch 192kHz bitstream output afterwards). The same fix works for DTS (`audio/vnd.dts`): going from the disc menu to a DTS film brought on the bug, and the app restored the sound within about 7 seconds. The app survives standby, and starts again by itself after a reboot or an update. The one-click button works.
+What was checked on the C7K:
 
-Other TCL Google TVs with the same MediaTek chip and software may have the same bug. **Only the setup above has been tested.** On other TVs the automatic mode does nothing unless it sees the exact log lines above, so it won't do any harm. The one-click button should work on most Android TVs, but it has only been tested on the C7K.
+- **TrueHD after standby:** the real bug happened, and automatic mode fixed it within 3 seconds.
+- **DTS:** going from the disc menu to a DTS film brought on the bug, and the app restored the sound within about 7 seconds.
+- **Day to day:** the app survives standby and starts again by itself after a reboot or an update.
 
-## What it does
+Other TCL Google TVs with the same MediaTek chip may have the same bug. On a TV without it, automatic mode does nothing, because it only acts on the exact log lines above. The one-click button should work on most Android TVs.
 
-- **One click:** opening **Fix Audio** leaves the HDMI input and goes back to it 3 seconds later. The first time, it asks which input your player is on.
-- **Automatic (optional):** a background service reads the TV's log, as described above. If the input changes to a new audio format and the TV doesn't set up its eARC output for it within 2.5 seconds, the service presses Home and reselects the input. It does this at most 2 times in 5 minutes.
+**Tried it on another TV?** [Open an issue](../../issues) with your TV model, firmware version, player and soundbar, and whether it worked.
 
-Automatic mode needs to read system logs and press Home. A normal app can't do that on Android 13+, so the app connects to the **TV's own adb (debugging) port** on `127.0.0.1:5555`. The TV asks you to approve this once. The only commands the app runs over that connection are `logcat` (filtered to the 3 log lines above), `input keyevent KEYCODE_HOME`, `am start` for the HDMI input, `appops set com.hemma.fixaudio AUTO_START allow` and `cmd deviceidle whitelist +com.hemma.fixaudio`. TCL TVs block apps from starting themselves after a reboot or an update unless they have TCL's `AUTO_START` permission. After a reboot, Android only lets apps that are exempt from battery optimisation start a background service. The app gives both permissions to itself only. A TV has no battery, so the exemption costs nothing. On other TVs, a command that doesn't apply fails harmlessly. See [WatcherService.kt](app/src/main/java/com/hemma/fixaudio/WatcherService.kt).
+### How automatic mode works
+
+Automatic mode needs to read system logs and press Home. A normal app can't do that on Android 13+, so the app connects to the **TV's own adb (debugging) port** on `127.0.0.1:5555`. The TV asks you to approve this once.
+
+The only commands the app runs over that connection:
+
+- `logcat`, filtered to the 3 log lines above
+- `input keyevent KEYCODE_HOME`
+- `am start`, to open the HDMI input
+- `appops set com.hemma.fixaudio AUTO_START allow`
+- `cmd deviceidle whitelist +com.hemma.fixaudio`
+
+The last two exist because TCL TVs block apps from starting themselves after a reboot or an update unless they have TCL's `AUTO_START` permission. After a reboot, Android also only lets apps that are exempt from battery optimisation start a background service. The app gives both permissions to itself only. A TV has no battery, so the exemption costs nothing. On other TVs, a command that doesn't apply fails harmlessly. See [WatcherService.kt](app/src/main/java/com/hemma/fixaudio/WatcherService.kt).
 
 ## Install
 
@@ -47,6 +80,29 @@ Automatic mode needs to read system logs and press Home. A normal app can't do t
 4. Open **Fix Audio** from the TV's apps, pick your player's HDMI input, and when the **"Allow USB debugging?"** prompt appears, tick **Always allow** and press **Allow**. Then press Back.
 
 **After installing or updating, open Fix Audio once.** Android doesn't let a newly installed app start itself until it has been opened. After that, with automatic mode set up, the app starts again by itself after an update or a reboot. If TCL's background-app blocker stops it after standby, opening Fix Audio once starts it again.
+
+## FAQ
+
+### Why does my TCL TV play no sound from my Blu-ray player over eARC?
+On a TCL Google TV, the silence usually starts when the film begins, not on the menu. The TV sets up its eARC output for the menu's stereo PCM sound and doesn't update it when the film switches to Dolby TrueHD, Atmos or DTS. The soundbar receives a stream it can't decode. See [Why it happens](#why-it-happens).
+
+### Why does switching HDMI inputs bring the sound back?
+Opening an HDMI input is the moment the TV sets up its eARC output. Reselecting the input while the film is playing makes the TV set it up again, this time for TrueHD or DTS. Fix Audio does exactly that, automatically.
+
+### Should I set my Blu-ray player or TV to PCM instead?
+You can, but you lose Dolby Atmos and the lossless soundtrack, and it doesn't fix the cause. In testing, changing the TV's audio setting only helped because it sometimes forced the eARC output to be set up again. With Fix Audio you can keep **Bitstream** and get Atmos.
+
+### Does it work with my Sony, LG, Sonos or Samsung soundbar, or my AV receiver?
+The bug is in how the TV sets up its eARC output, so the soundbar brand shouldn't matter. Only the Samsung HW-Q930D has been tested.
+
+### Can I avoid the problem without an app?
+Yes. Connect the player to the soundbar's or receiver's HDMI input, so the sound doesn't go through the TV at all. The catch: the soundbar must pass through 4K HDR / Dolby Vision video, and you may need to adjust lip-sync, because the TV now delays only the picture.
+
+### Does it fix silent Netflix or other TV apps?
+No. It only handles sources plugged into the TV's HDMI inputs.
+
+### Is it safe to turn on Network debugging?
+Read [Security](#security) first. If you only want the one-click button, leave Network debugging off.
 
 ## Security
 
