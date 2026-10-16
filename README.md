@@ -61,7 +61,9 @@ What was checked on the C7K:
 
 - **TrueHD after standby:** the real bug happened, and automatic mode fixed it within 3 seconds.
 - **DTS:** going from the disc menu to a DTS film brought on the bug, and the app restored the sound within about 7 seconds.
+- **Changing the audio language:** each switch between a TrueHD and a DTS track brought on the bug; the app fixed all 4 switches in 2 minutes, each within about 3 seconds.
 - **Day to day:** the app survives standby and starts again by itself after a reboot or an update.
+- **First-time install:** from a USB stick with X-plore; the app found the player's input by itself.
 
 Other TCL Google TVs with the same MediaTek chip may have the same bug. On a TV without it, automatic mode does nothing, because it only acts on the exact log lines above. The one-click button should work on most Android TVs.
 
