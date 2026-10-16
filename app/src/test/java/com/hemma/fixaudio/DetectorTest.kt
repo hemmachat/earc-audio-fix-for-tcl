@@ -26,6 +26,39 @@ class DetectorTest {
         assertEquals("com.tcl.tvinput/.TvPassThroughService/HDMI200004", d.lastInput)
     }
 
+    /** Replays log lines with a tick every second in between, like WatcherService. Returns fix times. */
+    private fun Detector.replay(lines: List<String>): List<Long> {
+        val fixes = mutableListOf<Long>()
+        var clock: Long? = null
+        for (line in lines) {
+            val t = Detector.timeOf(line) ?: continue
+            var c = clock ?: t
+            while (c + 1000 <= t) { c += 1000; if (tick(c)) fixes += c }
+            clock = c
+            if (onLine(line)) fixes += t
+        }
+        clock?.let { c -> for (i in 1..10) if (tick(c + i * 1000)) fixes += c + i * 1000 }
+        return fixes
+    }
+
+    @Test
+    fun realWakeFromStandbyLogFixesOnceAfterTrueHd() {
+        val lines = javaClass.getResource("/wake-from-standby.log")!!.readText().lines()
+        val fixes = Detector().replay(lines)
+        // TrueHD detected 21:02:47.822 with output stuck at 2ch 48kHz PCM; "audio/none" while loading must not trigger
+        assertEquals(1, fixes.size)
+        val trueHd = Detector.timeOf("10-16 21:02:47.822")!!
+        assertTrue(fixes[0] in trueHd + 2500..trueHd + 3500) // 2.5 s grace + up to one 1 s tick
+    }
+
+    @Test
+    fun noAudioWhileLoadingIsLeftAlone() {
+        val d = Detector()
+        d.feed(tx("21:02:38.272", 2, 48, "PCM"))
+        d.onLine(input("21:02:39.235", "audio/none", 0, 2))
+        assertFalse(d.tick(Detector.timeOf("10-16 21:02:45.000")!!))
+    }
+
     @Test
     fun trueHdWithMatchingOutputIsLeftAlone() {
         val d = Detector()

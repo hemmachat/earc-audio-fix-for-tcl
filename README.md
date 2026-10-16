@@ -26,6 +26,8 @@ When it works, the log shows the eARC output being set up as `ChCount = 8, Freq 
 | Player | Panasonic DP-UB450 on HDMI 2, Dolby/DTS output set to Bitstream |
 | Soundbar | Samsung HW-Q930D on the TV's eARC port (HDMI 1) |
 
+Verified on that setup: the real bug happened after waking from standby, and automatic mode fixed it by itself within 3 seconds (8ch 192kHz bitstream output afterwards). The app survives standby. The one-click button works.
+
 Other TCL Google TVs with the same MediaTek chip and software may have the same bug. **Only the setup above has been tested.** On other TVs the automatic mode does nothing unless it sees the exact log lines above, so it won't do any harm. The one-click button should work on most Android TVs, but it has only been tested on the C7K.
 
 ## What it does
