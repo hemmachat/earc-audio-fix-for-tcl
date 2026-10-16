@@ -1,0 +1,17 @@
+# Detector decision: an HDMI input format arrives; is a fix due once judged?
+# TV eARC output state before the format arrives (Tx* = last TxOutputSetSequence)
+TxMode:      PCM, NONPCM, NotSeen
+TxRateKHz:   48, 192
+TxChannels:  2, 8
+TxWriter:    root, u0_a123
+# Incoming HDMI format (C2MtkHdmiCap preCheck)
+InputType:   raw, mlp, dts, ac3, none
+InputRate:   48000, 192000
+InputCh:     2, 8
+InputWriter: mediacodec, 1000, root, shell, 2000, u0_a123, 10123
+# When it is judged, relative to the format line
+ElapsedMs:   2499, 2500, 6000
+JudgedBy:    Tick, NextLine
+
+# no eARC line seen: its rate/channels/writer don't exist
+IF [TxMode] = "NotSeen" THEN [TxRateKHz] = 48 AND [TxChannels] = 2 AND [TxWriter] = "root";
