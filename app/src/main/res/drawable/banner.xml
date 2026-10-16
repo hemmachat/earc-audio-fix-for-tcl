@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TV home-screen banner: speaker with sound waves on dark blue -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp" android:height="180dp"
+    android:viewportWidth="320" android:viewportHeight="180">
+    <path android:fillColor="#1E3A5F" android:pathData="M0,0h320v180h-320z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M110,70h25l30,-25v90l-30,-25h-25z" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="8" android:strokeLineCap="round"
+        android:pathData="M185,70a28,28 0 0,1 0,40 M200,55a50,50 0 0,1 0,70" />
+</vector>
