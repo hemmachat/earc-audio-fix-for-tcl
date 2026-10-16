@@ -6,13 +6,13 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class DetectorTest {
-    private fun tx(t: String, ch: Int, khz: Int, mode: String) = listOf(
-        "10-16 $t I/        (  369): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = $ch, Freq = $khz",
-        "10-16 $t I/        (  369): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_$mode",
+    private fun tx(t: String, ch: Int, khz: Long, mode: String) = listOf(
+        "10-16 $t I/        ( root:  369): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = $ch, Freq = $khz",
+        "10-16 $t I/        ( root:  369): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_$mode",
     )
 
-    private fun input(t: String, type: String, rate: Int, ch: Int) =
-        "10-16 $t I/C2MtkHdmiCap(  469): preCheck: Config update !!! outMediaType = $type, sampleRateInfo = $rate, channelCountInfo = $ch"
+    private fun input(t: String, type: String, rate: Long, ch: Int, user: String = "mediacodec") =
+        "10-16 $t I/C2MtkHdmiCap($user:  469): preCheck: Config update !!! outMediaType = $type, sampleRateInfo = $rate, channelCountInfo = $ch"
 
     private fun Detector.feed(lines: List<String>) = lines.count { onLine(it) }
 
@@ -68,6 +68,44 @@ class DetectorTest {
         d.onLine(input("21:10:26.376", "audio/vnd.dts", 192000, 2))
         // no ticks ran; the next line arrives 6 s later
         assertTrue(d.onLine(input("21:10:32.555", "audio/raw", 48000, 2)))
+    }
+
+    @Test
+    fun linesWrittenByAppsOrShellAreIgnored() {
+        val d = Detector()
+        d.feed(tx("21:10:00.000", 2, 48, "PCM"))
+        d.onLine(input("21:10:01.000", "audio/vnd.dts", 192000, 2, user = "u0_a123"))
+        d.onLine(input("21:10:01.000", "audio/vnd.dts", 192000, 2, user = "shell"))
+        assertFalse(d.tick(Detector.timeOf("10-16 21:10:10.000")!!))
+    }
+
+    @Test
+    fun numericUsersAreTrustedOnlyBelowAppRange() {
+        assertTrue(Detector.fromSystem("10-16 21:13:23.014 D/TvInputManagerService( 1000:  542): x"))
+        assertTrue(Detector.fromSystem("10-16 21:13:23.014 I/        ( root:  369): x"))
+        assertFalse(Detector.fromSystem("10-16 21:13:23.014 I/C2MtkHdmiCap( 2000:12730): x"))
+        assertFalse(Detector.fromSystem("10-16 21:13:23.014 I/C2MtkHdmiCap(10123:12730): x"))
+        assertFalse(Detector.fromSystem("10-16 21:13:23.014 I/C2MtkHdmiCap(u0_a123:12730): x"))
+        assertFalse(Detector.fromSystem("10-16 21:13:23.014 I/C2MtkHdmiCap(  469): no user shown"))
+    }
+
+    @Test
+    fun oversizedNumbersAreSkippedWithoutThrowing() {
+        val d = Detector()
+        d.feed(tx("21:10:00.000", 2, 48, "PCM"))
+        d.onLine(input("21:10:01.000", "audio/vnd.dts", 192000, 2))
+        d.feed(tx("21:10:01.500", 99999999, 999999999999, "NONPCM"))
+        // the bad line didn't count as a matching eARC setup, and nothing threw
+        assertTrue(d.tick(Detector.timeOf("10-16 21:10:05.000")!!))
+    }
+
+    @Test
+    fun inputIdsWithShellCharactersAreNotRemembered() {
+        val d = Detector()
+        d.onLine("10-16 21:10:00.000 D/TvInputManagerService( 1000:  542): createSessionInternalLocked(inputId=a/b/HDMI1'x, sessionId=1)")
+        assertEquals(null, d.lastInput)
+        d.onLine("10-16 21:10:01.000 D/TvInputManagerService( 1000:  542): createSessionInternalLocked(inputId=com.tcl.tvinput/.TvPassThroughService/HDMI200004, sessionId=1)")
+        assertEquals("com.tcl.tvinput/.TvPassThroughService/HDMI200004", d.lastInput)
     }
 
     @Test

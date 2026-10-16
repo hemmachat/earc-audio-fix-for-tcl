@@ -31,7 +31,8 @@ class MainActivity : Activity() {
         Handler(Looper.getMainLooper()).postDelayed({
             if (WatcherService.waitingForAllow && !File(filesDir, WatcherService.ALLOWED_FILE).exists()) {
                 // switching input would close the prompt, so stay here this once
-                label.text = "First-time setup for automatic mode:\n\nOn the \"Allow USB debugging?\" prompt,\ntick Always allow, then press Allow.\n\nThen press Back."
+                val fingerprint = WatcherService.keyFingerprint(this)?.let { "\n\nThe prompt must show this key:\n$it\nIf it doesn't match, press Deny." } ?: ""
+                label.text = "First-time setup for automatic mode:\n\nOn the \"Allow USB debugging?\" prompt,\ntick Always allow, then press Allow.$fingerprint\n\nThen press Back."
                 return@postDelayed
             }
             startActivity(Intent(Intent.ACTION_VIEW, TvContract.buildChannelUriForPassthroughInput(input)))
@@ -40,8 +41,7 @@ class MainActivity : Activity() {
     }
 
     private fun showInputPicker() {
-        val inputs = getSystemService(TvInputManager::class.java).tvInputList
-            .filter { it.type == TvInputInfo.TYPE_HDMI && it.isPassthroughInput && it.parentId == null }
+        val inputs = hdmiInputs(this)
         val list = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER
@@ -67,9 +67,18 @@ class MainActivity : Activity() {
 
     companion object {
         private fun prefs(c: Context) = c.getSharedPreferences("fixaudio", Context.MODE_PRIVATE)
-        fun savedInput(c: Context): String? = prefs(c).getString("input", null)
+        private val INPUT_ID = Regex(Detector.INPUT_ID)
+
+        fun hdmiInputs(c: Context): List<TvInputInfo> = c.getSystemService(TvInputManager::class.java).tvInputList
+            .filter { it.type == TvInputInfo.TYPE_HDMI && it.isPassthroughInput && it.parentId == null }
+
+        /** Only ids that look like an HDMI input and that the TV actually has; they end up in a shell command. */
+        private fun isValidInput(c: Context, id: String) =
+            INPUT_ID.matches(id) && hdmiInputs(c).any { it.id == id }
+
+        fun savedInput(c: Context): String? = prefs(c).getString("input", null)?.takeIf { isValidInput(c, it) }
         fun saveInput(c: Context, input: String) {
-            if (savedInput(c) != input) prefs(c).edit().putString("input", input).apply()
+            if (prefs(c).getString("input", null) != input && isValidInput(c, input)) prefs(c).edit().putString("input", input).apply()
         }
     }
 }

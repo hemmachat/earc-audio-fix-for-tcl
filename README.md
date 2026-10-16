@@ -48,9 +48,30 @@ Automatic mode needs to read system logs and press Home. A normal app can't do t
 
 The app starts again after a reboot. If TCL's background-app blocker stops it after standby, opening Fix Audio once starts it again.
 
-## Security note
+## Security
 
-Network debugging lets devices on your home network ask to control the TV. Each device has to be approved on the TV screen first. If you only want the one-click button, leave Network debugging **off**. You can also switch it off again later; automatic mode then just stops working.
+**Network debugging is powerful.** With it on, any device on your home network can *ask* to control the TV. One "Allow" gives that device full control (installing apps, reading the screen, and more).
+
+- **Only press Allow right after opening Fix Audio.** The setup screen shows the app's key, for example `3F:A2:07:…`. The TV's prompt shows a key too, and the two must match. If a debugging prompt appears at any other time, press **Deny**.
+- **If you only want the one-click button**, leave Network debugging **off**.
+- **To undo all approvals:** **Developer options → Revoke USB debugging authorizations**.
+
+What the app does to stay safe:
+
+- It creates its own adb key on your TV. The key never leaves the app's private storage, and the app is excluded from backups.
+- Any app can write to the Android log, so Fix Audio only trusts log lines written by system processes (`logcat -v uid`). Lines written by other apps are ignored.
+- Before an HDMI input id is used in a command, the app checks that it looks like an HDMI input id and that it's on the TV's own list of inputs.
+- Automatic fixes are limited to 2 every 5 minutes.
+
+## Check your download
+
+The release APK is signed with this certificate (SHA-256):
+
+```
+28:E0:61:19:71:10:AA:CB:EC:DE:EF:32:ED:1B:FF:45:96:E9:DD:EC:AB:BC:5E:81:4C:17:AF:CB:D6:A1:73:90
+```
+
+Check it with `apksigner verify --print-certs fix-audio.apk`. Each release also lists the APK's SHA-256. The build checks the checksums of Gradle and every dependency (`gradle/verification-metadata.xml`).
 
 ## Uninstall
 

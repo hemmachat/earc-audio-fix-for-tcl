@@ -22,18 +22,23 @@ class Detector(
     var lastInput: String? = null
         private set
 
-    /** Returns true when the audio needs fixing now. */
+    /** Feed one line of `logcat -v time,uid`. Returns true when the audio needs fixing now. */
     fun onLine(line: String): Boolean {
         val now = timeOf(line) ?: return false
         // judge an overdue format before this line can replace it
         val due = tick(now)
-        TX_FORMAT.find(line)?.let { txChannels = it.groupValues[1].toInt(); txRateKHz = it.groupValues[2].toInt() }
+        // any app can write to the log; only trust lines written by system users
+        if (!fromSystem(line)) return due
+        TX_FORMAT.find(line)?.let {
+            txChannels = it.groupValues[1].toIntOrNull() ?: return due
+            txRateKHz = it.groupValues[2].toIntOrNull() ?: return due
+        }
         TX_MODE.find(line)?.let { txBitstream = it.groupValues[1] == "NONPCM" }
         INPUT_FORMAT.find(line)?.let {
             val type = it.groupValues[1]
             // "audio/none" = no sound yet (player loading), nothing to check
             pending = if (type == "audio/none") null
-            else Input(now, type != "audio/raw", it.groupValues[2].toInt(), it.groupValues[3].toInt())
+            else Input(now, type != "audio/raw", it.groupValues[2].toIntOrNull() ?: return due, it.groupValues[3].toIntOrNull() ?: return due)
         }
         SESSION.find(line)?.let { lastInput = it.groupValues[1] }
         return due
@@ -58,11 +63,24 @@ class Detector(
         else !txBitstream && txChannels >= p.channels
 
     companion object {
+        /** HDMI passthrough input id, e.g. "com.tcl.tvinput/.TvPassThroughService/HDMI200004". */
+        const val INPUT_ID = """[\w.]+/[\w.]+/HDMI\w+"""
+
         private val TIME = Regex("""^\d\d-\d\d (\d\d):(\d\d):(\d\d)\.(\d\d\d)""")
         private val TX_FORMAT = Regex("""TxOutputSetSequence.*ChCount = (\d+), Freq = (\d+)""")
         private val TX_MODE = Regex("""TxOutputSetSequence.*u8eARC_mode == SPDIF_OUT_(\w+)""")
         private val INPUT_FORMAT = Regex("""preCheck: Config update !!! outMediaType = ([^,]+), sampleRateInfo = (\d+), channelCountInfo = (\d+)""")
-        private val SESSION = Regex("""createSessionInternalLocked\(inputId=([^,]*HDMI\w*)""")
+        private val SESSION = Regex("""createSessionInternalLocked\(inputId=($INPUT_ID)[,)]""")
+        private val WRITER = Regex("""^\S+ \S+ \w/[^(]*\(\s*([\w-]+):\s*\d+\)""")
+        private val APP_USER = Regex("""u\d+_[ai]\d+|shell""")
+
+        /** Written by a system user (root, mediacodec, 1000…), not an app or the adb shell. */
+        fun fromSystem(line: String): Boolean {
+            val user = WRITER.find(line)?.groupValues?.get(1) ?: return false
+            // system_server shows as "1000"; app uids start at 10000, the adb shell is 2000
+            user.toIntOrNull()?.let { return it < 10_000 && it != 2000 }
+            return !APP_USER.matches(user)
+        }
 
         /** logcat filter matching every line the detector reads. */
         const val LOG_FILTER = "TxOutputSetSequence|preCheck: Config update|createSessionInternalLocked"
