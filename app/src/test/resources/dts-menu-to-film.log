@@ -1,0 +1,28 @@
+10-16 21:42:38.490 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-16 21:42:38.490 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-16 21:43:11.084 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/none, sampleRateInfo = 0, channelCountInfo = 2
+10-16 21:43:11.195 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-16 21:43:11.195 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-16 21:43:11.347 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-16 21:43:11.347 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-16 21:43:12.164 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/none, sampleRateInfo = 0, channelCountInfo = 2
+10-16 21:43:14.643 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/ac3, sampleRateInfo = 48000, channelCountInfo = 2
+10-16 21:43:14.995 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-16 21:43:14.995 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-16 21:43:29.785 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/raw, sampleRateInfo = 48000, channelCountInfo = 2
+10-16 21:43:30.055 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-16 21:43:30.055 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-16 21:43:44.032 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/ac3, sampleRateInfo = 48000, channelCountInfo = 2
+10-16 21:43:44.371 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-16 21:43:44.371 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM
+10-16 21:43:52.264 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/raw, sampleRateInfo = 48000, channelCountInfo = 2
+10-16 21:43:52.511 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-16 21:43:52.511 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-16 21:43:52.621 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/raw, sampleRateInfo = 192000, channelCountInfo = 2
+10-16 21:43:52.627 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 2, Freq = 48
+10-16 21:43:52.627 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9652]u8eARC_mode == SPDIF_OUT_PCM
+10-16 21:43:53.013 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 192000, channelCountInfo = 2
+10-16 21:43:59.482 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/none, sampleRateInfo = 192000, channelCountInfo = 2
+10-16 21:43:59.538 I/C2MtkHdmiCap( 1046:  474): preCheck: Config update !!! outMediaType = audio/vnd.dts, sampleRateInfo = 192000, channelCountInfo = 2
+10-16 21:44:00.142 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9647]DIGITAL_TX eARC ATOP ChCount = 8, Freq = 192
+10-16 21:44:00.142 I/        ( root:  374): [HAL_AUDIO_eARC_TxOutputSetSequence][9758]u8eARC_mode == SPDIF_OUT_NONPCM

@@ -62,6 +62,16 @@ class DetectorTest {
     }
 
     @Test
+    fun realDtsMenuToFilmLogFixesOnceAndLeavesDolbyMenuAlone() {
+        // recorded live (logcat -v time,uid) during the final on-TV test; the real app fixed it at 21:43:55.788
+        val lines = javaClass.getResource("/dts-menu-to-film.log")!!.readText().lines()
+        val fixes = Detector().replay(lines)
+        assertEquals(1, fixes.size)
+        val dts = Detector.timeOf("10-16 21:43:53.013")!!
+        assertTrue(fixes[0] in dts + 2500..dts + 3500)
+    }
+
+    @Test
     fun laterLineDoesNotHideAnOverdueFormat() {
         val d = Detector()
         d.feed(tx("21:10:00.000", 2, 48, "PCM"))
