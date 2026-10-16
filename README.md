@@ -6,6 +6,13 @@
 
 ## Is this your problem?
 
+```
+Blu-ray / 4K player ──HDMI──► TCL Google TV ──eARC──► Soundbar / AV receiver
+   (Bitstream:                    ▲
+    TrueHD, DTS)        bug: eARC output stays set up
+                        for the menu's 2ch PCM sound
+```
+
 It probably is if you have:
 
 - a **Blu-ray / 4K player or streaming box** plugged into a **TCL Google TV**;
