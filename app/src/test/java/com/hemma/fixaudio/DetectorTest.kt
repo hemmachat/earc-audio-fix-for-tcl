@@ -106,6 +106,9 @@ class DetectorTest {
         assertEquals(null, d.lastInput)
         d.onLine("10-16 21:10:01.000 D/TvInputManagerService( 1000:  542): createSessionInternalLocked(inputId=com.tcl.tvinput/.TvPassThroughService/HDMI200004, sessionId=1)")
         assertEquals("com.tcl.tvinput/.TvPassThroughService/HDMI200004", d.lastInput)
+        // an HDMI port without a CEC device is named after the hardware input
+        d.onLine("10-16 21:10:02.000 D/TvInputManagerService( 1000:  542): createSessionInternalLocked(inputId=com.tcl.tvinput/.TvPassThroughService/HW16, sessionId=2)")
+        assertEquals("com.tcl.tvinput/.TvPassThroughService/HW16", d.lastInput)
     }
 
     @Test

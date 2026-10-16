@@ -72,9 +72,9 @@ class MainActivity : Activity() {
         fun hdmiInputs(c: Context): List<TvInputInfo> = c.getSystemService(TvInputManager::class.java).tvInputList
             .filter { it.type == TvInputInfo.TYPE_HDMI && it.isPassthroughInput && it.parentId == null }
 
-        /** Only ids that look like an HDMI input and that the TV actually has; they end up in a shell command. */
-        private fun isValidInput(c: Context, id: String) =
-            INPUT_ID.matches(id) && hdmiInputs(c).any { it.id == id }
+        /** Only safe-looking ids the TV lists as HDMI (a port, or a CEC device on a port); they end up in a shell command. */
+        private fun isValidInput(c: Context, id: String) = INPUT_ID.matches(id) &&
+            c.getSystemService(TvInputManager::class.java).tvInputList.any { it.id == id && it.type == TvInputInfo.TYPE_HDMI }
 
         fun savedInput(c: Context): String? = prefs(c).getString("input", null)?.takeIf { isValidInput(c, it) }
         fun saveInput(c: Context, input: String) {

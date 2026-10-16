@@ -18,7 +18,7 @@ class Detector(
     private var pending: Input? = null
     private val fixTimes = ArrayDeque<Long>()
 
-    /** Last HDMI input the TV opened, e.g. "com.tcl.tvinput/.TvPassThroughService/HDMI200004". */
+    /** Last TV input the TV opened; the caller checks it is an HDMI input before using it. */
     var lastInput: String? = null
         private set
 
@@ -63,8 +63,8 @@ class Detector(
         else !txBitstream && txChannels >= p.channels
 
     companion object {
-        /** HDMI passthrough input id, e.g. "com.tcl.tvinput/.TvPassThroughService/HDMI200004". */
-        const val INPUT_ID = """[\w.]+/[\w.]+/HDMI\w+"""
+        /** TV input id, e.g. ".../TvPassThroughService/HW16" (HDMI port) or ".../HDMI200004" (CEC device); no shell characters. */
+        const val INPUT_ID = """[\w.]+/[\w.]+/\w+"""
 
         private val TIME = Regex("""^\d\d-\d\d (\d\d):(\d\d):(\d\d)\.(\d\d\d)""")
         private val TX_FORMAT = Regex("""TxOutputSetSequence.*ChCount = (\d+), Freq = (\d+)""")
