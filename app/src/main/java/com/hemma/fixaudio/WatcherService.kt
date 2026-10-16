@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.concurrent.thread
 
 /**
- * Automatic mode: watches the TV's log through its own adb port (Network debugging must stay on)
+ * Automatic mode: watches the TV's log through its own adb port (USB debugging must stay on; on TCL TVs it also opens adb on port 5555)
  * and does the Home → reselect-input fix when the eARC output isn't set up for a new audio format.
  */
 class WatcherService : Service() {

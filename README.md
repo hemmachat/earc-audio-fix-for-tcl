@@ -1,8 +1,10 @@
 # Fix Audio: no sound from TrueHD, Atmos or DTS over eARC on TCL Google TVs
 
-**Your TCL TV plays the Blu-ray menu, then the film starts and your soundbar goes silent?** That's a bug in the TCL software. Fix Audio is a free Android TV app that brings the sound back in one click, or does it automatically within a few seconds.
+**Your TCL TV plays the Blu-ray menu, then the film starts and your soundbar goes silent?** On the TCL C7K it's caused by a bug in the TV's software, and other TCL Google TVs may have it too. Fix Audio is a free, unofficial Android TV app that brings the sound back in one click, or does it automatically within a few seconds.
 
-**[Download the APK](../../releases/latest)** · Tested on TCL C7K (Google TV) · Last updated: 16 October 2026
+> **Before you install:** Fix Audio is an unofficial app. It isn't made or endorsed by TCL or Google. It needs Developer options, and automatic mode needs USB debugging, which lowers your TV's security. It comes with no warranty, and you use it at your own risk. Read the [Disclaimer](#disclaimer) and [Security](#security) sections first. It isn't on Google Play, and the FAQ [explains why](#why-isnt-it-on-the-google-play-store).
+
+**[Download the APK](../../releases/latest)** · Tested on TCL C7K (Google TV) · Last updated: 17 October 2026
 
 ## Is this your problem?
 
@@ -37,6 +39,8 @@ The TV's own logs (`adb logcat`) show the cause:
 3. The film's soundtrack is sent down a link still set to 2-channel PCM. The soundbar can't decode it, so you hear silence.
 
 Reselecting the input makes the TV set up the output again, this time for the format actually playing (`ChCount = 8, Freq = 192, SPDIF_OUT_NONPCM`). That's why the input-switch trick works. It's also why changing the audio setting only works sometimes: that also forces a fresh setup, but not every time.
+
+The full bug report for TCL, with the TV logs, is in [docs/tcl-bug-report.md](docs/tcl-bug-report.md). If you contact TCL support about this, link to it.
 
 ## What Fix Audio does
 
@@ -77,21 +81,70 @@ The only commands the app runs over that connection:
 
 The last two exist because TCL TVs block apps from starting themselves after a reboot or an update unless they have TCL's `AUTO_START` permission. After a reboot, Android also only lets apps that are exempt from battery optimisation start a background service. The app gives both permissions to itself only. A TV has no battery, so the exemption costs nothing. On other TVs, a command that doesn't apply fails harmlessly. See [WatcherService.kt](app/src/main/java/com/hemma/fixaudio/WatcherService.kt).
 
+## Disclaimer
+
+Fix Audio is an independent project. It isn't made, endorsed or supported by TCL, Google, Dolby, DTS, Samsung, Panasonic or any other company named here. Their names are used only to describe which devices and audio formats the app works with. TCL, Google TV, Android TV, Dolby, Dolby Atmos, Dolby TrueHD, DTS and the other product names are trademarks of their owners.
+
+The description of the TV's behaviour comes from testing one TCL C7K (firmware V8-T653T01-LF1V665) and reading its logs. Other models and firmware versions may behave differently.
+
+Use at your own risk. Turning on Developer options and USB debugging changes your TV's settings and security (see [Security](#security)). The app comes with no warranty, and a TV update may change or fix the behaviour it works around.
+
 ## Install
 
-1. On the TV: **Settings → System → About**, then click **Build** 7 times to turn on Developer options.
-2. **Settings → System → Developer options**: turn on **USB debugging** and **Network debugging** (the second is only needed for automatic mode).
-3. Install the APK from [Releases](../../releases), either way:
-   - From a computer: `adb connect <tv-ip>` and then `adb install fix-audio.apk`
-   - On the TV: with the *Downloader* app, using the APK link
-4. Open **Fix Audio** from the TV's apps. If only one device on your HDMI inputs uses HDMI-CEC (T-Link), the app picks its input itself; otherwise pick your player's HDMI input. When the **"Allow USB debugging?"** prompt appears, tick **Always allow** and press **Allow**. Then press Back.
+By installing Fix Audio you accept the [Disclaimer](#disclaimer) above.
 
-**After installing or updating, open Fix Audio once.** Android doesn't let a newly installed app start itself until it has been opened. After that, with automatic mode set up, the app starts again by itself after an update or a reboot. If TCL's background-app blocker stops it after standby, opening Fix Audio once starts it again.
+You only need the TV remote. It takes about 10 minutes, and you only do it once. The menu names below are from a TCL C7K; other TVs may word them slightly differently.
+
+### Step 1: Turn on Developer options
+
+1. On the Home screen, select the **gear icon** (top right), then **Settings**.
+2. Go to **System → About**.
+3. Scroll down to **Android TV OS Build** and press **OK** on the remote **7 times**, until you see **"You are now a developer!"**
+4. Press **Back** to leave Settings.
+
+### Step 2: Get the Downloader app
+
+5. Open the **Google Play Store** on the TV, search for **Downloader**, and install **Downloader by AFTVnews**. It's free.
+6. Let Downloader install apps: go to **Settings → Apps → Security & Restrictions → Unknown sources** and switch **Downloader** on. If the TV asks you to confirm, select **OK**.
+
+### Step 3: Download and install Fix Audio
+
+7. Open **Downloader**. If it asks for permission to access files, select **Allow**.
+8. Select the address box, type this address exactly, then select **Go**:
+
+   ```
+   github.com/hemmachat/earc-audio-fix-for-tcl/releases/latest/download/fix-audio.apk
+   ```
+
+9. When the TV asks **"Do you want to install this app?"**, select **Install**, then **Done**.
+10. Downloader may offer to delete the downloaded file. Select **Delete**; you don't need it any more.
+
+### Step 4: Open Fix Audio once
+
+11. Go to **Settings → Apps → See all apps → Fix Audio → Open**. Next time you can find it in the **Apps** row on the Home screen.
+12. If the app asks which input your player is on, choose it. It usually finds it by itself.
+
+The **one-click fix is now ready**: whenever a film is silent, open Fix Audio. If that's all you want, you're done, and you can skip step 5.
+
+### Step 5 (optional): Turn on automatic mode
+
+Read [Security](#security) first. Automatic mode needs **USB debugging**, which on the TCL C7K also lets other devices on your home network ask to control the TV.
+
+13. Go to **Settings → System → Developer options** and switch **USB debugging** on. Select **OK** to confirm.
+14. Open **Fix Audio** again. Its screen shows a key, for example `3F:A2:07:…`.
+15. The TV shows **"Allow USB debugging?"** with a key too. Check that the two keys match. Then tick **Always allow from this computer** and select **Allow**.
+16. Press **Back**. From now on, the app fixes silent films by itself within a few seconds.
+
+**After an update, open Fix Audio once.** Android doesn't let an app start itself until it has been opened after installing. After that, automatic mode starts again by itself after updates and reboots. If it ever stops after standby, opening Fix Audio once starts it again.
+
+### Install from a computer instead
+
+If you use adb: turn on USB debugging (steps 1–3 and 13), then run `adb connect <tv-ip>` and `adb install fix-audio.apk` with the APK from [Releases](../../releases), and continue at step 11.
 
 ## FAQ
 
 ### Why does my TCL TV play no sound from my Blu-ray player over eARC?
-On a TCL Google TV, the silence usually starts when the film begins, not on the menu. The TV sets up its eARC output for the menu's stereo PCM sound and doesn't update it when the film switches to Dolby TrueHD, Atmos or DTS. The soundbar receives a stream it can't decode. See [Why it happens](#why-it-happens).
+On the TCL C7K tested, the silence usually starts when the film begins, not on the menu. The TV sets up its eARC output for the menu's stereo PCM sound and doesn't update it when the film switches to Dolby TrueHD, Atmos or DTS. The soundbar receives a stream it can't decode. See [Why it happens](#why-it-happens).
 
 ### Why does switching HDMI inputs bring the sound back?
 Opening an HDMI input is the moment the TV sets up its eARC output. Reselecting the input while the film is playing makes the TV set it up again, this time for TrueHD or DTS. Fix Audio does exactly that, automatically.
@@ -108,15 +161,31 @@ Yes. Connect the player to the soundbar's or receiver's HDMI input, so the sound
 ### Does it fix silent Netflix or other TV apps?
 No. It only handles sources plugged into the TV's HDMI inputs.
 
-### Is it safe to turn on Network debugging?
-Read [Security](#security) first. If you only want the one-click button, leave Network debugging off.
+### Is it safe to turn on USB debugging?
+Read [Security](#security) first. If you only want the one-click button, leave USB debugging off.
+
+### Why isn't it on the Google Play Store?
+Automatic mode needs things Android doesn't allow normal store apps to do:
+
+- **Read the TV's system log.** That's the only place the fault shows up. Android reserves log access (`READ_LOGS`) for system apps and developer tools: it's "not for use by third-party applications, because log entries can contain the user's private information" ([Android source](https://android.googlesource.com/platform/frameworks/base/+/refs/heads/android14-release/core/res/AndroidManifest.xml)).
+- **Press Home and switch input from the background.** Sending key presses to other apps (`INJECT_EVENTS`) is limited to system apps, and since Android 10, apps in the background can only open screens in [a few listed cases](https://developer.android.com/guide/components/activities/background-starts).
+
+So the app connects to the TV's own debugging port instead, which works only after **you** turn on Developer options and USB debugging. A store app can't do that for you.
+
+Google Play would bring its own problems too:
+
+- To restart after a reboot on a TCL TV, the app exempts itself from battery optimisation. Play's [Device and Network Abuse policy](https://support.google.com/googleplay/android-developer/answer/9888379) lists "apps that are not eligible for allowlisting and attempt to bypass system power management" as a violation.
+- A background service in a Play TV app must use the [`specialUse` type](https://developer.android.com/develop/background-work/services/fgs/service-types), which Google reviews by hand.
+- New personal developer accounts must first run a closed test with [12 testers for 14 days](https://support.google.com/googleplay/android-developer/answer/14151465).
+
+Apps that work through adb are allowed on Play, so a store version isn't ruled out. It would probably need to drop the battery exemption. For now the app is only on [GitHub](../../releases/latest).
 
 ## Security
 
-**Network debugging is powerful.** With it on, any device on your home network can *ask* to control the TV. One "Allow" gives that device full control (installing apps, reading the screen, and more).
+**USB debugging is powerful.** On the TCL C7K (and probably other TCL Google TVs) it also turns on debugging over your home network (port 5555), so with it on, any device on your network can *ask* to control the TV. One "Allow" gives that device full control (installing apps, reading the screen, and more).
 
 - **Only press Allow right after opening Fix Audio.** The setup screen shows the app's key, for example `3F:A2:07:…`. The TV's prompt shows a key too, and the two must match. If a debugging prompt appears at any other time, press **Deny**.
-- **If you only want the one-click button**, leave Network debugging **off**.
+- **If you only want the one-click button**, leave USB debugging **off**. The one-click fix doesn't need it.
 - **To undo all approvals:** **Developer options → Revoke USB debugging authorizations**.
 
 What the app does to stay safe:
@@ -154,4 +223,6 @@ The unit tests replay a real log from the silent-TrueHD case ([silent-truehd.log
 
 ## Licence
 
-MIT. No warranty: this works around a firmware bug that TCL may fix (or change) in an update.
+MIT, see [LICENSE](LICENSE).
+
+The APK includes these open source libraries, all under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0): [dadb](https://github.com/mobile-dev-inc/dadb), [Okio](https://github.com/square/okio), the Kotlin standard library and JetBrains annotations.
