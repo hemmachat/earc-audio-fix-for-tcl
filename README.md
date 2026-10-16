@@ -78,10 +78,10 @@ The only commands the app runs over that connection:
 - `logcat`, filtered to the 3 log lines above
 - `input keyevent KEYCODE_HOME`
 - `am start`, to open the HDMI input
-- `appops set com.hemma.fixaudio AUTO_START allow`
-- `cmd deviceidle whitelist +com.hemma.fixaudio`
+- `appops set com.hemmachat.fixaudio AUTO_START allow`
+- `cmd deviceidle whitelist +com.hemmachat.fixaudio`
 
-The last two exist because TCL TVs block apps from starting themselves after a reboot or an update unless they have TCL's `AUTO_START` permission. After a reboot, Android also only lets apps that are exempt from battery optimisation start a background service. The app gives both permissions to itself only. A TV has no battery, so the exemption costs nothing. On other TVs, a command that doesn't apply fails harmlessly. See [WatcherService.kt](app/src/main/java/com/hemma/fixaudio/WatcherService.kt).
+The last two exist because TCL TVs block apps from starting themselves after a reboot or an update unless they have TCL's `AUTO_START` permission. After a reboot, Android also only lets apps that are exempt from battery optimisation start a background service. The app gives both permissions to itself only. A TV has no battery, so the exemption costs nothing. On other TVs, a command that doesn't apply fails harmlessly. See [WatcherService.kt](app/src/main/java/com/hemmachat/fixaudio/WatcherService.kt).
 
 ## Disclaimer
 
@@ -259,7 +259,7 @@ Check it with `apksigner verify --print-certs fix-audio.apk`. Each release also 
 
 ## Uninstall
 
-TV **Settings → Apps → Fix Audio → Uninstall**, or `adb uninstall com.hemma.fixaudio`.
+TV **Settings → Apps → Fix Audio → Uninstall**, or `adb uninstall com.hemmachat.fixaudio`.
 
 ## Build
 

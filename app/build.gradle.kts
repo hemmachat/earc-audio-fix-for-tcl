@@ -6,16 +6,16 @@ plugins {
 }
 
 android {
-    namespace = "com.hemma.fixaudio"
+    namespace = "com.hemmachat.fixaudio"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.hemma.fixaudio"
+        applicationId = "com.hemmachat.fixaudio"
         minSdk = 28
         // 33 not 34: avoids Android 14's foreground-service type rules for a sideloaded app
         targetSdk = 33
-        versionCode = 3
-        versionName = "1.2"
+        versionCode = 4
+        versionName = "2.0"
     }
 
     // release key stays local (gitignored); without it only debug builds work

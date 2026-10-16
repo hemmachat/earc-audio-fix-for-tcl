@@ -38,7 +38,7 @@ The app creates its own adb key, which the TV approves for full control. Android
 
 Writing to the Android log needs no permission. A malicious app could write the "silent audio" pattern to make the app jump to Home and back (up to 2 times in 5 minutes), or write a fake "input opened" line to change the HDMI input the app switches to.
 
-**Fix:** the app reads the log with `logcat -v uid`, which shows who wrote each line, and the detector ignores lines from apps (`u0_a123`), app uids (10000 and above) and the adb shell (`shell`, 2000). Apps can't change who a line is shown as written by. See `fromSystem` in [Detector.kt](../app/src/main/java/com/hemma/fixaudio/Detector.kt).
+**Fix:** the app reads the log with `logcat -v uid`, which shows who wrote each line, and the detector ignores lines from apps (`u0_a123`), app uids (10000 and above) and the adb shell (`shell`, 2000). Apps can't change who a line is shown as written by. See `fromSystem` in [Detector.kt](../app/src/main/java/com/hemmachat/fixaudio/Detector.kt).
 
 **Checked:** a fake silent pattern written on the TV did not trigger a fix. Covered by the unit tests `linesWrittenByAppsOrShellAreIgnored` and `numericUsersAreTrustedOnlyBelowAppRange`.
 
@@ -54,7 +54,7 @@ A line such as `ChCount = 99999999999` made the number conversion throw, which d
 
 The HDMI input id can come from the log (see 3) and is placed inside quotes in the `am start -d '…'` command. Android's URI encoding doesn't encode `'`, so a crafted id could break out of the quotes. It couldn't form a new command, because spaces, `;`, `&`, `|`, `$` and backticks are encoded, but that was safe only by luck.
 
-**Fix:** an input id is used only if it matches `[\w.]+/[\w.]+/\w+` (no quotes or shell characters) and the TV lists it as one of its own HDMI inputs. See `INPUT_ID` in [Detector.kt](../app/src/main/java/com/hemma/fixaudio/Detector.kt) and `isValidInput` in [MainActivity.kt](../app/src/main/java/com/hemma/fixaudio/MainActivity.kt).
+**Fix:** an input id is used only if it matches `[\w.]+/[\w.]+/\w+` (no quotes or shell characters) and the TV lists it as one of its own HDMI inputs. See `INPUT_ID` in [Detector.kt](../app/src/main/java/com/hemmachat/fixaudio/Detector.kt) and `isValidInput` in [MainActivity.kt](../app/src/main/java/com/hemmachat/fixaudio/MainActivity.kt).
 
 **Checked:** unit test `inputIdsWithShellCharactersAreNotRemembered` rejects `HDMI1'x` and accepts the real ids `HDMI200004` and `HW16`.
 

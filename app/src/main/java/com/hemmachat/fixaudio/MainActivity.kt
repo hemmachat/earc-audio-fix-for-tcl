@@ -1,4 +1,4 @@
-package com.hemma.fixaudio
+package com.hemmachat.fixaudio
 
 import android.app.Activity
 import android.content.Context

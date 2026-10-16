@@ -1,4 +1,4 @@
-package com.hemma.fixaudio
+package com.hemmachat.fixaudio
 
 /**
  * Spots the TCL C7K bug: the HDMI input switches to a new audio format (e.g. TrueHD)
