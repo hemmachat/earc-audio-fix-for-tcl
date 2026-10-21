@@ -17,7 +17,7 @@ import kotlin.concurrent.thread
 
 /**
  * Automatic mode: watches the TV's log through its own adb port (USB debugging must stay on; on TCL TVs it also opens adb on port 5555)
- * and does the Home → reselect-input fix when the eARC output isn't set up for a new audio format.
+ * and reopens the HDMI input (through its other id, or Home → reselect) when the eARC output isn't set up for a new audio format.
  */
 class WatcherService : Service() {
     private val detector = Detector()
@@ -93,11 +93,14 @@ class WatcherService : Service() {
         val input = MainActivity.savedInput(this)
         Log.i(TAG, "eARC output not set up for new audio format: reselecting $input")
         if (input == null) return
+        val open = { id: String -> "am start -a android.intent.action.VIEW -d '${TvContract.buildChannelUriForPassthroughInput(id)}'" }
+        // switching to the port's other id skips the Home screen; without one, leave the input and come back
+        val cmd = MainActivity.samePortInput(this, input)?.let(open) ?: "input keyevent KEYCODE_HOME; sleep 3; ${open(input)}"
         // own connection with a 15 s timeout: a reply that never comes can't block later fixes
         thread(name = "fix") {
             try {
                 Dadb.create("127.0.0.1", 5555, keyPair(), 2000, 15_000).use {
-                    it.shell("input keyevent KEYCODE_HOME; sleep 3; am start -a android.intent.action.VIEW -d '${TvContract.buildChannelUriForPassthroughInput(input)}'")
+                    it.shell(cmd)
                 }
                 Log.i(TAG, "fix done")
             } catch (e: Exception) {

@@ -1,0 +1,19 @@
+# samePort: the TV's other id for the saved input's HDMI port (CEC device <-> port)
+# Which id is saved: the port, a CEC device on it, or an id the TV no longer lists
+Saved:          Port, CecDevice, Unlisted
+# CEC devices the TV lists on that port (an eARC soundbar gets none)
+PortCecDevices: 0, 1, 2
+# The partner id: the port (when a device is saved) or the first device (when the port is saved)
+PartnerId:      Safe, ShellChars, NotListed
+# Order the TV lists them in
+Order:          PortFirst, DevicesFirst
+# Another port with its own CEC device, which must never be picked
+OtherPort:      None, WithDevice
+
+# a saved CEC device needs a device on the port
+IF [Saved] = "CecDevice" THEN [PortCecDevices] <> 0;
+# no device on the port: no partner to describe
+IF [Saved] = "Port" AND [PortCecDevices] = 0 THEN [PartnerId] = "Safe";
+IF [Saved] = "Unlisted" THEN [PartnerId] = "Safe";
+# only a device's parent port can be missing from the list; a port's devices are listed by definition
+IF [PartnerId] = "NotListed" THEN [Saved] = "CecDevice";

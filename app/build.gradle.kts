@@ -14,8 +14,8 @@ android {
         minSdk = 28
         // 33 not 34: avoids Android 14's foreground-service type rules for a sideloaded app
         targetSdk = 33
-        versionCode = 4
-        versionName = "2.0"
+        versionCode = 5
+        versionName = "2.1"
     }
 
     // release key stays local (gitignored); without it only debug builds work

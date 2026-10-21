@@ -87,6 +87,20 @@ class MainActivity : Activity() {
         private fun isValidInput(c: Context, id: String) = INPUT_ID.matches(id) &&
             c.getSystemService(TvInputManager::class.java).tvInputList.any { it.id == id && it.type == TvInputInfo.TYPE_HDMI }
 
+        /**
+         * The TV's other id for the same HDMI port (CEC device ↔ port). Opening it sets up eARC again in about 0.4 s
+         * without leaving the input (tested 2026-10-22; opening the same id again does nothing). Null if the port has only one id.
+         */
+        fun samePortInput(c: Context, input: String): String? = samePort(
+            c.getSystemService(TvInputManager::class.java).tvInputList.filter { it.type == TvInputInfo.TYPE_HDMI }.map { it.id to it.parentId }, input)
+
+        /** [hdmi]: (id, parent id) of each HDMI input the TV lists; a CEC device's parent is its port. */
+        fun samePort(hdmi: List<Pair<String, String?>>, input: String): String? {
+            val other = hdmi.firstOrNull { it.first == input }?.second ?: hdmi.firstOrNull { it.second == input }?.first
+            // same checks as isValidInput: it ends up in a shell command
+            return other?.takeIf { INPUT_ID.matches(it) && hdmi.any { h -> h.first == it } }
+        }
+
         fun savedInput(c: Context): String? = prefs(c).getString("input", null)?.takeIf { isValidInput(c, it) }
         fun saveInput(c: Context, input: String) {
             if (prefs(c).getString("input", null) != input && isValidInput(c, input)) prefs(c).edit().putString("input", input).apply()

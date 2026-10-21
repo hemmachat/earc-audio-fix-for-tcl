@@ -4,7 +4,7 @@
 
 > **Before you install:** Fix Audio is an unofficial app. It isn't made or endorsed by TCL or Google. It needs Developer options, and automatic mode needs USB debugging, which lowers your TV's security. It comes with no warranty, and you use it at your own risk. Read the [Disclaimer](#disclaimer) and [Security](#security) sections first. It isn't on Google Play, and the FAQ [explains why](#why-isnt-it-on-the-google-play-store).
 
-**[Download the APK](../../releases/latest)** · Tested on TCL C7K (Google TV) · Last updated: 17 October 2026
+**[Download the APK](../../releases/latest)** · Tested on TCL C7K (Google TV) · Last updated: 22 October 2026
 
 ## Is this your problem?
 
@@ -45,7 +45,7 @@ The full bug report for TCL, with the TV logs, is in [docs/tcl-bug-report.md](do
 ## What Fix Audio does
 
 - **One click:** open **Fix Audio** and the sound comes back. The app leaves the HDMI input and returns to it 3 seconds later. It finds your player's input by itself, or asks once if it can't tell.
-- **Automatic (optional):** the app watches for this exact fault and fixes it by itself. When the film starts or you change the audio language, and the TV doesn't set up its eARC output within 2.5 seconds, the app switches to Home and back. You see a short flicker, then the sound returns. If 2 fixes in a row don't bring the sound back, it stops trying for 5 minutes.
+- **Automatic (optional):** the app watches for this exact fault and fixes it by itself. When the film starts or you change the audio language, and the TV doesn't set up its eARC output within 2.5 seconds, the app opens the same HDMI input again under its other name (the TV lists each player both as its HDMI port and as an HDMI-CEC device). You see a short blank picture, not the Home screen, and the sound returns in about 1.5 seconds. If your TV lists only one name for the input, the app switches to Home and back instead. If 2 fixes in a row don't bring the sound back, it stops trying for 5 minutes.
 - **No PCM workaround needed:** keep the player on **Bitstream**, so the soundbar gets the real TrueHD / Atmos / DTS soundtrack.
 
 ## Will it work on my TV?
@@ -62,6 +62,7 @@ What was checked on the C7K:
 - **TrueHD after standby:** the real bug happened, and automatic mode fixed it within 3 seconds.
 - **DTS:** going from the disc menu to a DTS film brought on the bug, and the app restored the sound within about 7 seconds.
 - **Changing the audio language:** each switch between a TrueHD and a DTS track brought on the bug; the app fixed all 4 switches in 2 minutes, each within about 3 seconds.
+- **Faster fix without the Home screen (version 2.1):** with a TrueHD Atmos film, and again after changing the audio track, the app reopened the input under its other name. Each time the sound came back about 1.5 seconds after the fix started, with only a short blank picture. (The times above were measured with version 2.0, which went through the Home screen.)
 - **Day to day:** the app survives standby and starts again by itself after a reboot or an update.
 - **First-time install:** from a USB stick with X-plore; the app found the player's input by itself.
 
@@ -76,8 +77,8 @@ Automatic mode needs to read system logs and press Home. A normal app can't do t
 The only commands the app runs over that connection:
 
 - `logcat`, filtered to the 3 log lines above
-- `input keyevent KEYCODE_HOME`
-- `am start`, to open the HDMI input
+- `input keyevent KEYCODE_HOME` (only if the input has no second name)
+- `am start`, to open the HDMI input (by its other name, or the same name after Home)
 - `appops set com.hemmachat.fixaudio AUTO_START allow`
 - `cmd deviceidle whitelist +com.hemmachat.fixaudio`
 
@@ -101,7 +102,7 @@ It takes about 10 minutes, and you only do it once. There are three ways to get 
 
 - **App file (`.apk`):** the Fix Audio app as a single file, like a photo or a document.
 - **Developer options:** a hidden menu in the TV's Settings. Step 1 shows how to unlock it.
-- **USB debugging:** a setting in Developer options. Despite the name, you don't need a USB cable. It lets Fix Audio press Home and switch inputs for you.
+- **USB debugging:** a setting in Developer options. Despite the name, you don't need a USB cable. It lets Fix Audio switch inputs for you.
 - **Unknown sources:** the TV setting that allows apps from outside the Play Store.
 
 ### Step 1: Turn on Developer options
@@ -199,6 +200,8 @@ On the TCL C7K tested, the silence usually starts when the film begins, not on t
 ### Why does switching HDMI inputs bring the sound back?
 Opening an HDMI input is the moment the TV sets up its eARC output. Reselecting the input while the film is playing makes the TV set it up again, this time for TrueHD or DTS. Fix Audio does exactly that, automatically.
 
+The TV lists your player under two names: the HDMI port, and the device it found over HDMI-CEC. Switching from one name to the other counts as opening a new input, so the TV sets up eARC again without going through the Home screen. Opening the input under the name it's already on does nothing.
+
 ### Should I set my Blu-ray player or TV to PCM instead?
 You can, but you lose Dolby Atmos and the lossless soundtrack, and it doesn't fix the cause. In testing, changing the TV's audio setting only helped because it sometimes forced the eARC output to be set up again. With Fix Audio you can keep **Bitstream** and get Atmos.
 
@@ -218,7 +221,7 @@ Read [Security](#security) first. If you only want the one-click button, leave U
 Automatic mode needs things Android doesn't allow normal store apps to do:
 
 - **Read the TV's system log.** That's the only place the fault shows up. Android reserves log access (`READ_LOGS`) for system apps and developer tools: it's "not for use by third-party applications, because log entries can contain the user's private information" ([Android source](https://android.googlesource.com/platform/frameworks/base/+/refs/heads/android14-release/core/res/AndroidManifest.xml)).
-- **Press Home and switch input from the background.** Sending key presses to other apps (`INJECT_EVENTS`) is limited to system apps, and since Android 10, apps in the background can only open screens in [a few listed cases](https://developer.android.com/guide/components/activities/background-starts).
+- **Switch input (or press Home) from the background.** Sending key presses to other apps (`INJECT_EVENTS`) is limited to system apps, and since Android 10, apps in the background can only open screens in [a few listed cases](https://developer.android.com/guide/components/activities/background-starts).
 
 So the app connects to the TV's own debugging port instead, which works only after **you** turn on Developer options and USB debugging. A store app can't do that for you.
 
