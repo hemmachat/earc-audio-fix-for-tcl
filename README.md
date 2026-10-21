@@ -214,6 +214,9 @@ Yes. Connect the player to the soundbar's or receiver's HDMI input, so the sound
 ### Does it fix silent Netflix or other TV apps?
 No. It only handles sources plugged into the TV's HDMI inputs.
 
+### Does it work with a custom launcher or after debloating the TV?
+It should. To open the HDMI input again, Fix Audio uses TCL's TV app (`com.tcl.tv`), not the Google TV home screen. Keep `com.tcl.tv` and `com.tcl.tvinput` enabled: without them, the TV can't switch inputs. On the C7K, [cleanyourtv](https://github.com/Gathin23/cleanyourtv)'s debloat script leaves both alone. Not tested with a custom launcher yet.
+
 ### Is it safe to turn on USB debugging?
 Read [Security](#security) first. If you only want the one-click button, leave USB debugging off.
 
