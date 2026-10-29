@@ -104,7 +104,8 @@ class WatcherService : Service() {
                     it.shell(cmd)
                     Thread.sleep(2000) // let PQ pipeline settle after input switch
                     ensureMemcDex(ctx, it)
-                    it.shell(MEMC_TOGGLE_CMD)
+                    val memcOut = it.shell(MEMC_TOGGLE_CMD).output.trim()
+                    Log.i(TAG, "MEMC toggle: $memcOut")
                 }
                 Log.i(TAG, "fix done")
             } catch (e: Exception) {
@@ -154,7 +155,8 @@ class WatcherService : Service() {
                     if (settleDelayMs > 0) Thread.sleep(settleDelayMs)
                     Dadb.create("127.0.0.1", 5555, keyPairFor(c), 2000, 30_000).use {
                         ensureMemcDex(c, it)
-                        it.shell(MEMC_TOGGLE_CMD)
+                        val memcOut = it.shell(MEMC_TOGGLE_CMD).output.trim()
+                        Log.i(TAG, "MEMC toggle: $memcOut")
                     }
                     Log.i(TAG, "sync fix done")
                 } catch (e: Exception) {
