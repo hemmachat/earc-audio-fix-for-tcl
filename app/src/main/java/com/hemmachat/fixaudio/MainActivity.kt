@@ -42,6 +42,7 @@ class MainActivity : Activity() {
                 return@postDelayed
             }
             startActivity(Intent(Intent.ACTION_VIEW, TvContract.buildChannelUriForPassthroughInput(input)))
+            WatcherService.fixSync(this@MainActivity, 2000) // after input switch + PQ settle
             finish()
         }, 3000)
     }

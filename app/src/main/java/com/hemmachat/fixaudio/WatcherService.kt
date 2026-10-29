@@ -96,11 +96,15 @@ class WatcherService : Service() {
         val open = { id: String -> "am start -a android.intent.action.VIEW -d '${TvContract.buildChannelUriForPassthroughInput(id)}'" }
         // switching to the port's other id skips the Home screen; without one, leave the input and come back
         val cmd = MainActivity.samePortInput(this, input)?.let(open) ?: "input keyevent KEYCODE_HOME; sleep 3; ${open(input)}"
-        // own connection with a 15 s timeout: a reply that never comes can't block later fixes
+        val ctx = this
+        // own connection with a 30 s timeout (audio fix + MEMC toggle)
         thread(name = "fix") {
             try {
-                Dadb.create("127.0.0.1", 5555, keyPair(), 2000, 15_000).use {
+                Dadb.create("127.0.0.1", 5555, keyPair(), 2000, 30_000).use {
                     it.shell(cmd)
+                    Thread.sleep(2000) // let PQ pipeline settle after input switch
+                    ensureMemcDex(ctx, it)
+                    it.shell(MEMC_TOGGLE_CMD)
                 }
                 Log.i(TAG, "fix done")
             } catch (e: Exception) {
@@ -109,12 +113,7 @@ class WatcherService : Service() {
         }
     }
 
-    private fun keyPair(): AdbKeyPair {
-        val priv = File(filesDir, "adbkey")
-        val pub = File(filesDir, "adbkey.pub")
-        if (!priv.exists()) AdbKeyPair.generate(priv, pub)
-        return AdbKeyPair.read(priv, pub)
-    }
+    private fun keyPair() = keyPairFor(this)
 
     override fun onDestroy() {
         watching = false
@@ -126,9 +125,43 @@ class WatcherService : Service() {
     companion object {
         const val TAG = "FixAudio"
         const val ALLOWED_FILE = "adb-allowed"
+        const val MEMC_TOGGLE_CMD = "CLASSPATH=/data/local/tmp/memc.dex:/system_ext/framework/com.tcl.tv.display.jar app_process / MemcToggle toggle"
         @Volatile var waitingForAllow = false
         @Volatile private var watching = false
         @Volatile private var connection: Dadb? = null
+
+        fun keyPairFor(c: android.content.Context): AdbKeyPair {
+            val priv = File(c.filesDir, "adbkey")
+            val pub = File(c.filesDir, "adbkey.pub")
+            if (!priv.exists()) AdbKeyPair.generate(priv, pub)
+            return AdbKeyPair.read(priv, pub)
+        }
+
+        fun ensureMemcDex(c: android.content.Context, dadb: Dadb) {
+            val check = dadb.shell("[ -f /data/local/tmp/memc.dex ] && echo y").output.trim()
+            if (check == "y") return
+            val tmp = File(c.cacheDir, "memc.dex")
+            c.assets.open("memc.dex").use { src -> tmp.outputStream().use { src.copyTo(it) } }
+            dadb.push(tmp, "/data/local/tmp/memc.dex", 420, tmp.lastModified())
+            tmp.delete()
+            Log.i(TAG, "pushed memc.dex to TV")
+        }
+
+        /** Toggle MEMC off and back on to fix audio/video sync drift. Safe to call from any context with adb access. */
+        fun fixSync(c: android.content.Context, settleDelayMs: Long = 0) {
+            thread(name = "fix-sync") {
+                try {
+                    if (settleDelayMs > 0) Thread.sleep(settleDelayMs)
+                    Dadb.create("127.0.0.1", 5555, keyPairFor(c), 2000, 30_000).use {
+                        ensureMemcDex(c, it)
+                        it.shell(MEMC_TOGGLE_CMD)
+                    }
+                    Log.i(TAG, "sync fix done")
+                } catch (e: Exception) {
+                    Log.w(TAG, "sync fix failed: $e")
+                }
+            }
+        }
 
         /** Same format the TV shows in its "Allow USB debugging?" prompt: MD5 of the public key, AA:BB:… */
         fun keyFingerprint(c: android.content.Context): String? = try {

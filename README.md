@@ -4,7 +4,7 @@
 
 > **Before you install:** Fix Audio is an unofficial app. It isn't made or endorsed by TCL or Google. It needs Developer options, and automatic mode needs USB debugging, which lowers your TV's security. It comes with no warranty, and you use it at your own risk. Read the [Disclaimer](#disclaimer) and [Security](#security) sections first. It isn't on Google Play, and the FAQ [explains why](#why-isnt-it-on-the-google-play-store).
 
-**[Download the APK](../../releases/latest)** · Tested on TCL C7K (Google TV) · Last updated: 22 October 2026
+**[Download the APK](../../releases/latest)** · Tested on TCL C7K (Google TV) · Last updated: 29 October 2026
 
 ## Is this your problem?
 
@@ -46,6 +46,7 @@ The full bug report for TCL, with the TV logs, is in [docs/tcl-bug-report.md](do
 
 - **One click:** open **Fix Audio** and the sound comes back. The app leaves the HDMI input and returns to it 3 seconds later. It finds your player's input by itself, or asks once if it can't tell.
 - **Automatic (optional):** the app watches for this exact fault and fixes it by itself. When the film starts or you change the audio language, and the TV doesn't set up its eARC output within 2.5 seconds, the app opens the same HDMI input again under its other name (the TV lists each player both as its HDMI port and as an HDMI-CEC device). You see a short blank picture, not the Home screen, and the sound returns in about 1.5 seconds. If your TV lists only one name for the input, the app switches to Home and back instead. If 2 fixes in a row don't bring the sound back, it stops trying for 5 minutes.
+- **Sync fix (version 2.2):** the TV's Motion (MEMC) processing can drift out of sync with the audio at film start. After every audio fix — and when the app is opened — Fix Audio toggles the Motion setting off and back, which resets the TV's video pipeline and brings the picture back in sync. It reads whatever Motion level you have and restores it, so your picture settings don't change.
 - **No PCM workaround needed:** keep the player on **Bitstream**, so the soundbar gets the real TrueHD / Atmos / DTS soundtrack.
 
 ## Will it work on my TV?
@@ -63,6 +64,7 @@ What was checked on the C7K:
 - **DTS:** going from the disc menu to a DTS film brought on the bug, and the app restored the sound within about 7 seconds.
 - **Changing the audio language:** each switch between a TrueHD and a DTS track brought on the bug; the app fixed all 4 switches in 2 minutes, each within about 3 seconds.
 - **Faster fix without the Home screen (version 2.1):** with a TrueHD Atmos film, and again after changing the audio track, the app reopened the input under its other name. Each time the sound came back about 1.5 seconds after the fix started, with only a short blank picture. (The times above were measured with version 2.0, which went through the Home screen.)
+- **Sync fix (version 2.2):** after the audio fix, the app toggled Motion off and back. The TV's driver logs confirmed the MEMC pipeline was reset, and the picture stayed in sync for the rest of the film.
 - **Day to day:** the app survives standby and starts again by itself after a reboot or an update.
 - **First-time install:** from a USB stick with X-plore; the app found the player's input by itself.
 
@@ -79,6 +81,7 @@ The only commands the app runs over that connection:
 - `logcat`, filtered to the 3 log lines above
 - `input keyevent KEYCODE_HOME` (only if the input has no second name)
 - `am start`, to open the HDMI input (by its other name, or the same name after Home)
+- `app_process`, to toggle the TV's Motion (MEMC) setting off and back (sync fix)
 - `appops set com.hemmachat.fixaudio AUTO_START allow`
 - `cmd deviceidle whitelist +com.hemmachat.fixaudio`
 
