@@ -40,7 +40,9 @@ class WatcherService : Service() {
                 // an uncaught exception would silently cancel all future ticks
                 try {
                     val now = LocalTime.now().toNanoOfDay() / 1_000_000
-                    if (synchronized(detector) { detector.tick(now) }) fix()
+                    val needsFix = synchronized(detector) { detector.tick(now) }
+                    if (needsFix) fix()
+                    else if (synchronized(detector) { detector.consumeSyncFix() }) syncOnly()
                 } catch (e: Throwable) {
                     Log.e(TAG, "tick failed", e)
                 }
@@ -76,6 +78,7 @@ class WatcherService : Service() {
                             val (needsFix, input) = synchronized(detector) { detector.onLine(line) to detector.lastInput }
                             input?.let { MainActivity.saveInput(this, it) }
                             if (needsFix) fix()
+                            else if (synchronized(detector) { detector.consumeSyncFix() }) syncOnly()
                         }
                     }
                 }
@@ -87,6 +90,16 @@ class WatcherService : Service() {
             waitingForAllow = false
             if (watching) Thread.sleep(5000)
         }
+    }
+
+    @Volatile private var lastSyncOnlyMs = 0L
+
+    private fun syncOnly() {
+        val now = System.currentTimeMillis()
+        if (now - lastSyncOnlyMs < 30_000) return
+        lastSyncOnlyMs = now
+        Log.i(TAG, "bitstream format change resolved, toggling MEMC for sync")
+        fixSync(this)
     }
 
     private fun fix() {

@@ -17,10 +17,14 @@ class Detector(
     private var txBitstream = false
     private var pending: Input? = null
     private val fixTimes = ArrayDeque<Long>()
+    private var _syncFixNeeded = false
 
     /** Last TV input the TV opened; the caller checks it is an HDMI input before using it. */
     var lastInput: String? = null
         private set
+
+    /** Returns true once after a bitstream format change resolved without needing an audio fix (MEMC toggle needed). */
+    fun consumeSyncFix(): Boolean { val v = _syncFixNeeded; _syncFixNeeded = false; return v }
 
     /** Feed one line of `logcat -v time,uid`. Returns true when the audio needs fixing now. */
     fun onLine(line: String): Boolean {
@@ -50,7 +54,7 @@ class Detector(
         if (nowMs - p.atMs < graceMs) return false
         pending = null
         // output is right again, so earlier fixes worked: only fixes that don't help count towards the limit
-        if (outputMatches(p)) { fixTimes.clear(); return false }
+        if (outputMatches(p)) { fixTimes.clear(); if (p.bitstream) _syncFixNeeded = true; return false }
         while (fixTimes.isNotEmpty() && nowMs - fixTimes.first() > 5 * 60_000) fixTimes.removeFirst()
         if (fixTimes.isNotEmpty() && nowMs - fixTimes.last() < cooldownMs) return false
         if (fixTimes.size >= maxFixesPer5Min) return false // fixing isn't helping; stop flipping inputs

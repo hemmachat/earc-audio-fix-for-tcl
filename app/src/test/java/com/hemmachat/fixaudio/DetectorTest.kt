@@ -118,6 +118,45 @@ class DetectorTest {
     }
 
     @Test
+    fun bitstreamFormatResolvedSignalsSyncFix() {
+        val d = Detector()
+        d.feed(tx("20:35:00.000", 2, 48, "PCM"))
+        d.onLine(input("20:35:01.000", "audio/vnd.dolby.mlp", 192000, 2))
+        d.feed(tx("20:35:01.500", 8, 192, "NONPCM"))
+        assertFalse("no audio fix needed", d.tick(Detector.timeOf("10-16 20:35:10.000")!!))
+        assertTrue("MEMC toggle needed", d.consumeSyncFix())
+        assertFalse("consumed", d.consumeSyncFix())
+    }
+
+    @Test
+    fun pcmFormatResolvedDoesNotSignalSyncFix() {
+        val d = Detector()
+        d.feed(tx("20:35:00.000", 2, 48, "PCM"))
+        d.onLine(input("20:35:01.000", "audio/raw", 48000, 2))
+        assertFalse(d.tick(Detector.timeOf("10-16 20:35:10.000")!!))
+        assertFalse("no MEMC toggle for PCM menu sound", d.consumeSyncFix())
+    }
+
+    @Test
+    fun silenceFixDoesNotSignalSyncFix() {
+        val d = Detector()
+        d.feed(tx("20:35:00.000", 2, 48, "PCM"))
+        d.onLine(input("20:35:01.000", "audio/vnd.dolby.mlp", 192000, 2))
+        assertTrue("audio fix needed", d.tick(Detector.timeOf("10-16 20:35:10.000")!!))
+        assertFalse("audio fix handles MEMC", d.consumeSyncFix())
+    }
+
+    @Test
+    fun dtsFormatResolvedSignalsSyncFix() {
+        val d = Detector()
+        d.feed(tx("20:35:00.000", 2, 48, "PCM"))
+        d.onLine(input("20:35:01.000", "audio/vnd.dts", 192000, 2))
+        d.feed(tx("20:35:01.500", 8, 192, "NONPCM"))
+        assertFalse(d.tick(Detector.timeOf("10-16 20:35:10.000")!!))
+        assertTrue("MEMC toggle needed for DTS too", d.consumeSyncFix())
+    }
+
+    @Test
     fun oversizedNumbersAreSkippedWithoutThrowing() {
         val d = Detector()
         d.feed(tx("21:10:00.000", 2, 48, "PCM"))
