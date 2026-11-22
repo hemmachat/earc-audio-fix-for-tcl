@@ -23,6 +23,15 @@ class Detector(
     var lastInput: String? = null
         private set
 
+    /** True when the TV is on an HDMI passthrough input (set on createSession, cleared on releaseSession). */
+    var onHdmiInput = false
+        private set
+
+    /** Set once when onHdmiInput flips; the caller reads and clears it. */
+    var hdmiInputChanged = false
+        private set
+    fun consumeHdmiInputChanged(): Boolean { val v = hdmiInputChanged; hdmiInputChanged = false; return v }
+
     /** Returns true once after a bitstream format change resolved without needing an audio fix (MEMC toggle needed). */
     fun consumeSyncFix(): Boolean { val v = _syncFixNeeded; _syncFixNeeded = false; return v }
 
@@ -44,7 +53,13 @@ class Detector(
             pending = if (type == "audio/none") null
             else Input(now, type != "audio/raw", it.groupValues[2].toIntOrNull() ?: return due, it.groupValues[3].toIntOrNull() ?: return due)
         }
-        SESSION.find(line)?.let { lastInput = it.groupValues[1] }
+        SESSION.find(line)?.let {
+            lastInput = it.groupValues[1]
+            if (!onHdmiInput) { onHdmiInput = true; hdmiInputChanged = true }
+        }
+        RELEASE_SESSION.find(line)?.let {
+            if (onHdmiInput) { onHdmiInput = false; hdmiInputChanged = true }
+        }
         return due
     }
 
@@ -76,6 +91,8 @@ class Detector(
         private val TX_MODE = Regex("""TxOutputSetSequence.*u8eARC_mode == SPDIF_OUT_(\w+)""")
         private val INPUT_FORMAT = Regex("""preCheck: Config update !!! outMediaType = ([^,]+), sampleRateInfo = (\d+), channelCountInfo = (\d+)""")
         private val SESSION = Regex("""createSessionInternalLocked\(inputId=($INPUT_ID)[,)]""")
+        private val RELEASE_SESSION = Regex("""releaseSession\(sessionToken=""")
+
         private val WRITER = Regex("""^\S+ \S+ \w/[^(]*\(\s*([\w-]+):\s*\d+\)""")
         private val APP_USER = Regex("""u\d+_[ai]\d+|shell""")
 
@@ -88,7 +105,7 @@ class Detector(
         }
 
         /** logcat filter matching every line the detector reads. */
-        const val LOG_FILTER = "TxOutputSetSequence|preCheck: Config update|createSessionInternalLocked"
+        const val LOG_FILTER = "TxOutputSetSequence|preCheck: Config update|createSessionInternalLocked|releaseSession"
 
         // shortcut: ms of day, so a format change right at midnight is missed; fine for a TV
         fun timeOf(line: String): Long? = TIME.find(line)?.destructured?.let { (h, m, s, ms) ->

@@ -79,6 +79,14 @@ class WatcherService : Service() {
                             input?.let { MainActivity.saveInput(this, it) }
                             if (needsFix) fix()
                             else if (synchronized(detector) { detector.consumeSyncFix() }) syncOnly()
+                            val spdifSwitch = synchronized(detector) {
+                                if (detector.consumeHdmiInputChanged()) detector.onHdmiInput else null
+                            }
+                            if (spdifSwitch != null) {
+                                val mode = if (spdifSwitch) SPDIF_PASSTHROUGH else SPDIF_AUTO
+                                Log.i(TAG, "HDMI input ${if (spdifSwitch) "active" else "released"}: switching spdif to $mode")
+                                setSpdifMode(this, mode)
+                            }
                         }
                     }
                 }
@@ -140,6 +148,9 @@ class WatcherService : Service() {
         const val TAG = "FixAudio"
         const val ALLOWED_FILE = "adb-allowed"
         const val MEMC_TOGGLE_CMD = "CLASSPATH=/data/local/tmp/memc.dex:/system_ext/framework/com.tcl.tv.display.jar app_process / MemcToggle toggle"
+        const val SPDIF_MODE_CMD = "CLASSPATH=/data/local/tmp/spdifmode.dex:/apex/com.tcl.tcore/javalib/tcl-framework.jar app_process / SpdifModeToggle"
+        const val SPDIF_PASSTHROUGH = 4
+        const val SPDIF_AUTO = 3
         @Volatile var waitingForAllow = false
         @Volatile private var watching = false
         @Volatile private var connection: Dadb? = null
@@ -159,6 +170,30 @@ class WatcherService : Service() {
             dadb.push(tmp, "/data/local/tmp/memc.dex", 420, tmp.lastModified())
             tmp.delete()
             Log.i(TAG, "pushed memc.dex to TV")
+        }
+
+        fun ensureSpdifDex(c: android.content.Context, dadb: Dadb) {
+            val check = dadb.shell("[ -f /data/local/tmp/spdifmode.dex ] && echo y").output.trim()
+            if (check == "y") return
+            val tmp = File(c.cacheDir, "spdifmode.dex")
+            c.assets.open("spdifmode.dex").use { src -> tmp.outputStream().use { src.copyTo(it) } }
+            dadb.push(tmp, "/data/local/tmp/spdifmode.dex", 420, tmp.lastModified())
+            tmp.delete()
+            Log.i(TAG, "pushed spdifmode.dex to TV")
+        }
+
+        fun setSpdifMode(c: android.content.Context, mode: Int) {
+            thread(name = "spdif-mode") {
+                try {
+                    Dadb.create("127.0.0.1", 5555, keyPairFor(c), 2000, 15_000).use {
+                        ensureSpdifDex(c, it)
+                        val out = it.shell("$SPDIF_MODE_CMD set $mode").output.trim()
+                        Log.i(TAG, "spdif mode: $out")
+                    }
+                } catch (e: Exception) {
+                    Log.w(TAG, "spdif mode switch failed: $e")
+                }
+            }
         }
 
         /** Toggle MEMC off and back on to fix audio/video sync drift. Safe to call from any context with adb access. */

@@ -179,6 +179,35 @@ class DetectorTest {
     }
 
     @Test
+    fun hdmiInputChangeTracking() {
+        val d = Detector()
+        assertFalse(d.onHdmiInput)
+        assertFalse(d.hdmiInputChanged)
+
+        // opening an HDMI input sets onHdmiInput
+        d.onLine("10-16 21:10:00.000 D/TvInputManagerService( 1000:  542): createSessionInternalLocked(inputId=com.tcl.tvinput/.TvPassThroughService/HDMI200004, sessionId=1)")
+        assertTrue(d.onHdmiInput)
+        assertTrue(d.consumeHdmiInputChanged())
+        assertFalse("consumed", d.consumeHdmiInputChanged())
+
+        // opening another HDMI input stays on
+        d.onLine("10-16 21:10:01.000 D/TvInputManagerService( 1000:  542): createSessionInternalLocked(inputId=com.tcl.tvinput/.TvPassThroughService/HW16, sessionId=2)")
+        assertTrue(d.onHdmiInput)
+        assertFalse("already on HDMI, no change", d.consumeHdmiInputChanged())
+
+        // releasing the session clears onHdmiInput
+        d.onLine("10-16 21:29:00.959 D/TvInputManagerService( 1000:  542): releaseSession(sessionToken=android.os.Binder@2075d08)")
+        assertFalse(d.onHdmiInput)
+        assertTrue(d.consumeHdmiInputChanged())
+        assertFalse("consumed", d.consumeHdmiInputChanged())
+
+        // another release while already off doesn't trigger
+        d.onLine("10-16 21:29:05.000 D/TvInputManagerService( 1000:  542): releaseSession(sessionToken=android.os.Binder@abc)")
+        assertFalse(d.onHdmiInput)
+        assertFalse("already off HDMI, no change", d.consumeHdmiInputChanged())
+    }
+
+    @Test
     fun noAudioWhileLoadingIsLeftAlone() {
         val d = Detector()
         d.feed(tx("21:02:38.272", 2, 48, "PCM"))
